@@ -34,6 +34,7 @@ interface badgeProps {
     | "google"
     | "kubernetes"
     | "edge"
+    | "seo"
     | "nodejs"
     | null;
   num?: number;
@@ -108,6 +109,8 @@ const Badge = ({ icon, num }: badgeProps) => {
           alt="edge"
           className="w-6 h-6"
         />
+      ) : icon === "seo" ? (
+        <img src="/icons/seo.png" alt="edge" className="w-6 h-6" />
       ) : (
         <WhatsappLogo size={24} />
       )}

@@ -1,6 +1,15 @@
 "use client";
 import clsx from "clsx";
-import { Cloud, Coins, FigmaLogo, Handshake, Kanban } from "phosphor-react";
+import {
+  Cloud,
+  Coins,
+  FigmaLogo,
+  Handshake,
+  Headset,
+  Kanban,
+  LockKey,
+  Wrench,
+} from "phosphor-react";
 import React from "react";
 
 interface accordionProps {
@@ -34,6 +43,12 @@ const Accordion = ({
           <Handshake color="#FFFFFF" weight="fill" size={24} />
         ) : icon === "pricing" ? (
           <Coins color="#FFFFFF" weight="fill" size={24} />
+        ) : icon === "service" ? (
+          <Headset color="#FFFFFF" weight="fill" size={24} />
+        ) : icon === "tech" ? (
+          <Wrench color="#FFFFFF" weight="fill" size={24} />
+        ) : icon === "lock" ? (
+          <LockKey color="#FFFFFF" weight="fill" size={24} />
         ) : null}
       </span>
       <div className="flex flex-col gap-1">

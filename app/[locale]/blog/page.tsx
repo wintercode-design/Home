@@ -20,8 +20,18 @@ const page = () => {
         </div>
         <div className="w-3/4 flex flex-col gap-10">
           <div className="w-full grid grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-              <BlogCard />
+            {[
+              { imgurl: "/services/web.jpeg" },
+              { imgurl: "/services/erp.jpeg" },
+              { imgurl: "/services/ecom.jpeg" },
+              { imgurl: "/services/web.jpeg" },
+              { imgurl: "/services/erp.jpeg" },
+              { imgurl: "/services/ecom.jpeg" },
+              { imgurl: "/services/web.jpeg" },
+              { imgurl: "/services/erp.jpeg" },
+              { imgurl: "/services/ecom.jpeg" },
+            ].map((item, index) => (
+              <BlogCard img={item.imgurl} key={index} />
             ))}
           </div>
           <div className="flex justify-center items-center gap-3">

@@ -1,11 +1,11 @@
 import React from "react";
 import ButtonOpt from "./Button";
 
-const BlogCard = () => {
+const BlogCard = ({ img }: { img: string }) => {
   return (
     <div className="w-full max-w-[300px] h-fit rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6">
       <img
-        src="/"
+        src={img}
         alt="image"
         className="w-full rounded-t-lg min-h-[189px] bg-gray-200 object-cover"
       />
@@ -20,12 +20,7 @@ const BlogCard = () => {
           </p>
         </div>
         <caption>Digital Strategy, Business Growth</caption>
-        <ButtonOpt
-          title="Read more"
-          hasIcon={true}
-          icon={"arrow"}
-          isNav={false}
-        />
+        <ButtonOpt title="Read more" icon={"arrow"} isNav={false} />
       </div>
     </div>
   );

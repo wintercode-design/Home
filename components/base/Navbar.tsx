@@ -57,9 +57,8 @@ const Navbar = ({ local }: { local: string }) => {
               "FAQs",
             ].map((item, key) => {
               const active =
-                pathname.includes(item.toLowerCase()) || item === "Home"
-                  ? pathname === `/${local}`
-                  : false;
+                pathname.includes(item.toLowerCase()) ||
+                (item === "Home" ? pathname === `/${local}` : false);
 
               return (
                 <Link

@@ -17,7 +17,7 @@ const ProjectCard = ({
   return (
     <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex gap-6">
       <img
-        src="/"
+        src={imageUrl}
         alt={imageUrl}
         className="w-full rounded-lg min-w-[341px] min-h-[256px] bg-gray-200 object-cover"
       />

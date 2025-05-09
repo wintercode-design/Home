@@ -48,24 +48,28 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <ServiceCard
               title={"Web Development"}
+              imageUrl={"/services/service1.png"}
               description={
                 "Professional websites built with performance and design in mind."
               }
             />
             <ServiceCard
               title={"ERP Systems"}
+              imageUrl={"/services/service2.png"}
               description={
                 "Tailored business software to streamline your operations."
               }
             />
             <ServiceCard
               title={"E-Commerce"}
+              imageUrl={"/services/service3.png"}
               description={
                 "Robust online stores with secure payment integration."
               }
             />
             <ServiceCard
               title={"Hosting & Domain"}
+              imageUrl={"/services/service4.png"}
               description={
                 "Robust online stores with secure Reliable web hosting and domain registration packages. integration."
               }
@@ -117,6 +121,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ProjectCard
             title={"Cotraf – Intercity Transport Booking System"}
+            imageUrl={"/projects/project1.png"}
             description={
               "Cotraf is a digital platform designed to manage and centralize the booking of inter-urban transport across multiple agencies in Cameroon."
             }
@@ -124,6 +129,7 @@ export default function Home() {
           />
           <ProjectCard
             title={"TShop – E-Commerce Platform for Electronics"}
+            imageUrl={"/projects/project2.png"}
             description={
               "TShop needed a scalable e-commerce solution for B2C electronic sales, complete with payment gateways and order tracking."
             }
@@ -131,6 +137,7 @@ export default function Home() {
           />
           <ProjectCard
             title={"Cotraf – Intercity Transport Booking System"}
+            imageUrl={"/projects/project3.png"}
             description={
               "Cotraf is a digital platform designed to manage and centralize the booking of inter-urban transport across multiple agencies in Cameroon."
             }
@@ -138,6 +145,7 @@ export default function Home() {
           />
           <ProjectCard
             title={"TShop – E-Commerce Platform for Electronics"}
+            imageUrl={"/projects/project4.png"}
             description={
               "TShop needed a scalable e-commerce solution for B2C electronic sales, complete with payment gateways and order tracking."
             }
@@ -288,7 +296,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-11 p-3 w-full md:w-1/2">
             <img
-              src="/"
+              src={"/why/why.png"}
               alt="acordeon-bg"
               className=" bg-gray-200 min-h-[384px] h-full w-full rounded-xl"
             />
