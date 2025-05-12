@@ -1,4 +1,7 @@
 import Container from "@/components/base/Container";
+import Services from "@/components/blocs/Services";
+import StartNewProject from "@/components/blocs/StartNewProject";
+import ToolsUsed from "@/components/blocs/ToolsUsed";
 import Badge from "@/components/ui/Badge";
 import ButtonOpt from "@/components/ui/Button";
 import SectionHead from "@/components/ui/SectionHead";
@@ -130,137 +133,12 @@ const page = () => {
         },
       ].map((service, key) => {
         const revers = key === 1;
-        return (
-          <Container
-            className={`flex gap-6 py-[50px] ${
-              revers ? "lg:flex-row-reverse" : ""
-            }`}
-          >
-            <img
-              src={service.imgurl}
-              alt={service.title}
-              className="w-full max-h-[465px] rounded-xl bg-gray-200"
-            />
-            <div className="flex flex-col gap-6 w-full">
-              <div className="flex flex-col gap-3">
-                <h3>{service.title}</h3>
-                {service.text.map((text, key) => (
-                  <p key={key}>{text}</p>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3">
-                <h5>{service.subTitle}</h5>
-                <div className="flex flex-wrap gap-2">
-                  {service.icons.map((item, key) => {
-                    return (
-                      <li key={key} className="flex gap-3 items-center w-fit">
-                        <Badge
-                          icon={
-                            item.badge as
-                              | "whatsapp"
-                              | "mail"
-                              | "phone"
-                              | "location"
-                              | "GPT"
-                              | "docker"
-                              | "github"
-                              | "figma"
-                              | "nextjs"
-                              | "nodejs"
-                              | "tailwindcss"
-                              | "visualstudio"
-                              | "google"
-                              | "kubernetes"
-                              | "edge"
-                              | null
-                          }
-                        />
-                        <p className="w-[200px]">{item.title}</p>
-                      </li>
-                    );
-                  })}
-                </div>
-              </div>
-              <div>
-                <ButtonOpt title={service.detail.linkTitle} icon={"arrow"} />
-              </div>
-            </div>
-          </Container>
-        );
+        return <Services revers={revers} service={service} />;
       })}
 
-      <Container
-        stylebg="bg-[#1A202C]/50"
-        className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
-      >
-        <SectionHead
-          sectionTitle={"Our tools"}
-          sectionSubtitle={"Some of our main tools"}
-          sectionDescription={
-            "Great and reliable software demand good and reliable tools to develop them, here ar some of the tools we use in our development process"
-          }
-        />
+      <ToolsUsed />
 
-        <div className="flex flex-col justify-center items-center gap-6">
-          <div className="flex gap-2 justify-center items-center">
-            {[
-              "GPT",
-              "docker",
-              "github",
-              "figma",
-              "nextjs",
-              "nodejs",
-              "tailwindcss",
-              "visualstudio",
-              "google",
-              "kubernetes",
-              "edge",
-              "nodejs",
-            ].map((item, index) => (
-              <Badge
-                icon={
-                  item as
-                    | "GPT"
-                    | "docker"
-                    | "github"
-                    | "figma"
-                    | "nextjs"
-                    | "nodejs"
-                    | "tailwindcss"
-                    | "visualstudio"
-                    | "google"
-                    | "kubernetes"
-                    | "edge"
-                }
-                key={index}
-              />
-            ))}
-          </div>
-          <div className="flex justify-center items-center gap-3">
-            {[1, 2, 3, 4].map((item, index) => (
-              <hr className="w-16 h-[4px]" key={index} />
-            ))}
-          </div>
-        </div>
-      </Container>
-
-      <Container
-        stylebg="bg-[url('/bg/larg-logo.png')] bg-top-right bg-no-repeat"
-        className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh]"
-      >
-        <SectionHead
-          sectionTitle={"Start now"}
-          sectionSubtitle={"Let’s build your next project together."}
-          sectionDescription={
-            "Get in touch with us and get your own custom made website and push your company to success"
-          }
-        />
-
-        <div className="flex flex-col justify-center items-center gap-3">
-          <ButtonOpt title={"Start Project"} isSelected={true} />
-          <caption>{"Contact us for details"}</caption>
-        </div>
-      </Container>
+      <StartNewProject />
     </main>
   );
 };

@@ -1,111 +1,27 @@
 import Container from "@/components/base/Container";
+import CoreValues from "@/components/blocs/CoreValues";
+import MissionAndVission from "@/components/blocs/MissionAndVission";
+import StartNewProject from "@/components/blocs/StartNewProject";
+import TeamMembers from "@/components/blocs/TeamMembers";
+import ToolsUsed from "@/components/blocs/ToolsUsed";
 import AboutTop from "@/components/ui/AboutTop";
-import Badge from "@/components/ui/Badge";
 import ButtonOpt from "@/components/ui/Button";
-import MissionVission from "@/components/ui/MissionVission";
 import SectionHead from "@/components/ui/SectionHead";
-import React from "react";
 
 const page = () => {
   return (
     <main>
-      <Container className="py-[100px]">
-        <AboutTop />
-      </Container>
-      <Container
-        stylebg="bg-[#1A202C]/50"
-        className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
-      >
-        <SectionHead
-          sectionTitle={"Our Mission & Vision"}
-          sectionSubtitle={"Our Mission & Vision"}
-          sectionDescription={
-            "Why should you work with us at wintercode and what do you benefit"
-          }
-        />
+      <div className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop2.png')] bg-cover bg-no-repeat bg-center">
+        <Container className="py-[100px]">
+          <AboutTop />
+        </Container>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <MissionVission
-            title={"Our Mission"}
-            image={"/img/mission1.png"}
-            description={
-              "Our mission is to empower businesses with cutting-edge, tailor-made digital tools that drive growth, simplify operations, and unlock new opportunities."
-            }
-          />
-          <MissionVission
-            title={"Our Vision"}
-            image={"/img/vission1.png"}
-            description={
-              "We envision a digital-first Africa, where every business—small or large—can thrive through smart, accessible, and reliable technology."
-            }
-          />
-        </div>
-      </Container>
-      <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
-        <SectionHead
-          sectionTitle={"Partners"}
-          sectionSubtitle={"The People Behind WinterCode"}
-          sectionDescription={
-            "Our strength lies in our people. Every project is handled by talented professionals who are passionate about technology, creativity, and client success."
-          }
-        />
+        <MissionAndVission />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <p>team</p>
-        </div>
-      </Container>
+        <TeamMembers />
+      </div>
 
-      <Container
-        stylebg="bg-[#1A202C]/50"
-        className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
-      >
-        <SectionHead
-          sectionTitle={"Our Core Values"}
-          sectionSubtitle={"Our Core Values"}
-          sectionDescription={
-            "The values by which wintercode stands and help other companies grow"
-          }
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-fit h-full">
-          {[
-            {
-              title: "Integrity",
-              description:
-                "We uphold the highest standards of integrity in all our actions.",
-              image: "/values/value1.png",
-            },
-            {
-              title: "Innovation",
-              description: "We strive to innovate and improve continuously.",
-              image: "/values/value2.png",
-            },
-            {
-              title: "Customer Centricity",
-              description:
-                "We put our customers at the heart of everything we do.",
-              image: "/values/value3.png",
-            },
-            {
-              title: "Collaboration",
-              description:
-                "We believe in the power of teamwork and collaboration.",
-              image: "/values/value4.png",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              style={{ background: `url(${item.image})` }}
-              className=" rounded-xl w-[400px] max-w-[400px] h-[300px] max-h-[300px] p-4 flex flex-col justify-end"
-            >
-              <div className="w-[150px]">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
+      <CoreValues />
 
       <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
         <SectionHead
@@ -116,84 +32,51 @@ const page = () => {
           }
         />
 
-        <div className="flex flex-col justify-center items-center gap-3">
-          <ButtonOpt title={"Start Project"} isSelected={true} />
-          <caption>{"Contact us for details"}</caption>
-        </div>
-      </Container>
-
-      <Container
-        stylebg="bg-[#1A202C]/50"
-        className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
-      >
-        <SectionHead
-          sectionTitle={"Our tools"}
-          sectionSubtitle={"Some of our main tools"}
-          sectionDescription={
-            "Great and reliable software demand good and reliable tools to develop them, here ar some of the tools we use in our development process"
-          }
-        />
-
-        <div className="flex flex-col justify-center items-center gap-6">
-          <div className="flex gap-2 justify-center items-center">
-            {[
-              "GPT",
-              "docker",
-              "github",
-              "figma",
-              "nextjs",
-              "nodejs",
-              "tailwindcss",
-              "visualstudio",
-              "google",
-              "kubernetes",
-              "edge",
-              "nodejs",
-            ].map((item, index) => (
-              <Badge
-                icon={
-                  item as
-                    | "GPT"
-                    | "docker"
-                    | "github"
-                    | "figma"
-                    | "nextjs"
-                    | "nodejs"
-                    | "tailwindcss"
-                    | "visualstudio"
-                    | "google"
-                    | "kubernetes"
-                    | "edge"
-                }
+        <div className="grid grid-cols-2 gap-8">
+          {[
+            {
+              num: "4+",
+              title: "Years",
+              sub: "Experience",
+              img: "/",
+            },
+            {
+              num: "8+",
+              title: "Projects",
+              sub: "websites | ERP | E-commerce",
+              img: "/",
+            },
+            {
+              num: "5+",
+              title: "Clients",
+              sub: "Companies | Business | individuals",
+              img: "/",
+            },
+            {
+              num: "4+",
+              title: "Coming soon",
+              sub: "Softwares | Websites | Insights",
+              img: "/",
+            },
+          ].map((counters, index) => {
+            return (
+              <div
+                className={`flex gap-3 items-center bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('${counters.img})] bg-cover bg-no-repeat bg-center`}
                 key={index}
-              />
-            ))}
-          </div>
-          <div className="flex justify-center items-center gap-3">
-            {[1, 2, 3, 4].map((item, index) => (
-              <hr className="w-16 h-[4px]" key={index} />
-            ))}
-          </div>
+              >
+                <h3>{counters.num}</h3>
+                <p>
+                  {counters.title} <br /> <small>{counters.sub}</small>
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Container>
 
-      <Container
-        stylebg="bg-[url('/bg/larg-logo.png')] bg-top-right bg-no-repeat"
-        className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh]"
-      >
-        <SectionHead
-          sectionTitle={"Start now"}
-          sectionSubtitle={"Let’s build your next project together."}
-          sectionDescription={
-            "Get in touch with us and get your own custom made website and push your company to success"
-          }
-        />
+      <ToolsUsed />
 
-        <div className="flex flex-col justify-center items-center gap-3">
-          <ButtonOpt title={"Start Project"} isSelected={true} />
-          <caption>{"Contact us for details"}</caption>
-        </div>
-      </Container>
+      <StartNewProject />
     </main>
   );
 };

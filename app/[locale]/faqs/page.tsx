@@ -1,4 +1,5 @@
 import Container from "@/components/base/Container";
+import StartNewProject from "@/components/blocs/StartNewProject";
 import Accordion from "@/components/ui/Accordion";
 import Badge from "@/components/ui/Badge";
 import ButtonOpt from "@/components/ui/Button";
@@ -22,8 +23,8 @@ const page = () => {
           }
         />
 
-        <div className="flex gap-14">
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="flex flex-col lg:flex-row gap-14">
+          <div className="flex flex-col gap-4 w-full lg:w-1/2">
             {[
               {
                 title: "General & Services",
@@ -68,7 +69,7 @@ const page = () => {
               />
             ))}
           </div>
-          <div className="flex flex-col gap-11 p-3 w-full md:w-1/2">
+          <div className="flex flex-col gap-11 p-3 w-full lg:w-1/2">
             <img
               src={"/fqa/fqa.jpeg"}
               alt="acordeon-bg"
@@ -105,23 +106,7 @@ const page = () => {
           </div>
         </div>
       </Container>
-      <Container
-        stylebg="bg-[url('/bg/larg-logo.png')] bg-top-right bg-no-repeat"
-        className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh]"
-      >
-        <SectionHead
-          sectionTitle={"Start now"}
-          sectionSubtitle={"Let’s build your next project together."}
-          sectionDescription={
-            "Get in touch with us and get your own custom made website and push your company to success"
-          }
-        />
-
-        <div className="flex flex-col justify-center items-center gap-3">
-          <ButtonOpt title={"Start Project"} isSelected={true} />
-          <caption>{"Contact us for details"}</caption>
-        </div>
-      </Container>
+      <StartNewProject />
     </main>
   );
 };

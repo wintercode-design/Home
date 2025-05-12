@@ -18,17 +18,5 @@ export async function generateStaticParams() {
 }
 
 export default async function Layout({ children }: LayoutProps) {
-  return (
-    <>
-      <PageIntro
-        title="Blog"
-        img="/bg/laptop.png"
-        links={[
-          { title: "Home", link: "/" },
-          { title: "Blog", link: "/blog" },
-        ]}
-      />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

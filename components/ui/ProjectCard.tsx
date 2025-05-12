@@ -15,15 +15,15 @@ const ProjectCard = ({
   subtitle,
 }: projectCardProps) => {
   return (
-    <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex gap-6">
+    <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col lg:flex-row gap-6">
       <img
         src={imageUrl}
         alt={imageUrl}
-        className="w-full rounded-lg min-w-[341px] min-h-[256px] bg-gray-200 object-cover"
+        className="w-full rounded-lg md:max-w-[341px] min-h-[256px] bg-gray-200 object-cover"
       />
       <div className="space-y-6 w-full min-w-[225px] flex flex-col">
         <h5>{title}</h5>
-        <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col justify-between h-full gap-3">
           <div className="space-y-2">
             <p>{description}</p>
 

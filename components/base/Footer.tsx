@@ -6,8 +6,8 @@ import ButtonOpt from "../ui/Button";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-3  px-2 md:px-0 py-[100px]">
-      <div className="w-full flex items-start">
+    <div className="flex flex-col justify-center items-center gap-6  px-6 md:px-0 py-[100px]">
+      <div className="w-full flex flex-col lg:flex-row items-start gap-10">
         <div className="w-full md:w-1/3">
           <div className="flex flex-col justify-center items-start max-w-[290px] gap-3 ">
             <div className="flex gap-3">
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 md:gap-3">
           <div className="flex flex-col gap-3">
             <h5>{"Quick Links"}</h5>
             <ol className="flex flex-col gap-3">
@@ -160,7 +160,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-between items-end w-full">
+      <div className="flex flex-col md:flex-row gap-10 justify-between md:items-end w-full">
         <div className="flex flex-col gap-3 max-w-[260px]">
           <h5>{"Stay Connected"}</h5>
           <p>
@@ -170,10 +170,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex gap-3 bg-black rounded-full pl-3 p-1">
+        <div className="flex gap-3 justify-between bg-black rounded-full pl-3 p-1 h-fit">
           <input
             type="email"
-            className="rounded-full"
+            className="rounded-full w-full"
             placeholder="robert@gmail.com"
           />
 

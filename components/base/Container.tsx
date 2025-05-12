@@ -8,7 +8,7 @@ interface containerProps {
 }
 
 const Container = ({ children, className, stylebg }: containerProps) => {
-  const stylesCombined = clsx(className, " container mx-auto");
+  const stylesCombined = clsx(className, "px-4 container mx-auto");
 
   return (
     <section className={stylebg}>

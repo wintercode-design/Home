@@ -22,7 +22,7 @@ export default async function Layout({ children }: LayoutProps) {
     <>
       <PageIntro
         title="Quote"
-        img="/bg/laptop.png"
+        img="/titles/quote.png"
         links={[
           { title: "Home", link: "/" },
           { title: "Quote", link: "/quote" },

@@ -5,14 +5,14 @@ import ButtonOpt from "./Button";
 
 const AboutTop = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center p-4 gap-10 h-[400px]">
+    <div className="flex flex-col lg:flex-row items-center justify-center p-4 gap-10 min-h-[400px]">
       <img
         src="/about/aboutwinter.jpeg"
         alt="about wintercode"
-        className="w-full h-full max-h-[400px] bg-gray-200 rounded-xl object-cover"
+        className="w-full h-full max-h-[200px] lg:max-h-[400px] bg-gray-200 rounded-xl object-cover"
       />
 
-      <div className="flex flex-col gap-4 max-w-[500px] h-full justify-between">
+      <div className="flex flex-col gap-4 w-full lg:max-w-[500px] h-full justify-between">
         <div className="w-full h-full flex flex-col gap-4">
           <div className="flex flex-col gap-3">
             <div className="flex justify-center items-center gap-4 bg-gradient-to-b from-[#444444] to-[#8A8A8A] rounded-full px-3 py-0.5 w-fit">

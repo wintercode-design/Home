@@ -39,7 +39,7 @@ const ButtonOpt = ({
 
   return (
     <div className={button_style}>
-      <p>{title}</p>
+      <p className="min-w-[68px]">{title}</p>
       {icon && (
         <span className="flex items-center justify-center w-fit h-fit rounded-full">
           {icon === "arrow" && (

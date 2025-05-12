@@ -9,7 +9,7 @@ interface serviceCardProps {
 
 const ServiceCard = ({ title, description, imageUrl }: serviceCardProps) => {
   return (
-    <div className="w-full max-w-[400px] h-fit p-3 rounded-xl space-y-4 border-2 border-white/10">
+    <div className="w-full md:max-w-[400px] h-fit p-3 rounded-xl flex flex-col gap-4 border-2 border-white/10">
       <img
         src={imageUrl}
         alt="image"

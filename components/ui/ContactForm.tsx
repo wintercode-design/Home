@@ -5,7 +5,7 @@ const ContactForm = () => {
   return (
     <div className="flex flex-col gap-6 max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl">
       <h2>Get in touch</h2>
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex flex-col gap-2 w-full">
           <label htmlFor="name">{"Name"}</label>
           <input

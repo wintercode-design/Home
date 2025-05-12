@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #ffffff;
+  --foreground: #171717; */
+  --background: #0E1C36;
+  --foreground: #ededed;
   --primary: #0059FF;
   --secondary: #DFDDEE;
 
@@ -74,10 +76,12 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 0.785rem;
     /* font-weight: 600; */
     text-align: start;
+    @apply tracking-widest
   }
   small{
     font-size: 0.642rem;
     font-weight: 800;
     text-transform: uppercase;
+    @apply tracking-widest;
   }
 }

@@ -18,7 +18,7 @@ const page = () => {
           }
         />
 
-        <p>
+        <p className="justify-center text-center">
           {`Thank you for choosing WinterCode Design. This brief helps us understand your vision so we can deliver a powerful, tailored website that fits your goals.`}
           <br />
           {`Please fill out the form below to the best of your ability. If you're unsure about anything, feel free to leave it blank—we’ll discuss it together!`}
