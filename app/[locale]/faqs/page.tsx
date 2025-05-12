@@ -96,9 +96,9 @@ const page = () => {
               return (
                 <div key={key} className="flex flex-col gap-2 flex-1">
                   <h6>{question.title}</h6>
-                  {/* <caption>
+                  {/* <article>
                   {"Solutions built specifically for your needs"}
-                </caption> */}
+                </article> */}
                   <p>{question.answer}</p>
                 </div>
               );

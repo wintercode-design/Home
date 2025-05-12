@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
           <div className="flex justify-between gap-3">
             <div className="flex flex-col gap-2 flex-1">
               <h4>{"Full Customization"}</h4>
-              <caption>{"Solutions built specifically for your needs"}</caption>
+              <article>{"Solutions built specifically for your needs"}</article>
               <p>
                 {
                   "We don’t believe in one-size-fits-all. Every solution we build is crafted to reflect your brand's unique goals, industry, and customer base. From visuals to backend logic, you stay in control."

@@ -13,7 +13,7 @@ const page = () => {
           <p>Web Development Packages Overview</p>
 
           <div className="flex flex-col p-4 gap-3 w-full max-w-[472px] bg-white text-black rounded-xl">
-            <caption>{"Important Note"}</caption>
+            <article>{"Important Note"}</article>
             <h5>
               {"For any feature not mentioned here feel free to contact us"}
             </h5>

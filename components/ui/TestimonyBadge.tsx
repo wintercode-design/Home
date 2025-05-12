@@ -16,7 +16,7 @@ const TestimonyBadge = ({ title, subtitle, imageUrl }: testimonyBadgeProps) => {
       />
       <div className="flex flex-col">
         <strong>{title}</strong>
-        <caption className="text-[#79808C]">{subtitle}</caption>
+        <article className="text-[#79808C]">{subtitle}</article>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const StartNewProject = () => {
 
       <div className="flex flex-col justify-center items-center gap-3">
         <ButtonOpt title={"Start Project"} isSelected={true} />
-        <caption>{"Contact us for details"}</caption>
+        <article>{"Contact us for details"}</article>
       </div>
     </Container>
   );

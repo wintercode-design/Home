@@ -21,7 +21,7 @@ const Testimony = ({ title, name, role, imageUrl }: testimonyProps) => {
         />
         <div className="flex flex-col justify-center items-center">
           <strong>{name}</strong>
-          <caption className="text-[#79808C]">{role}</caption>
+          <article className="text-[#79808C]">{role}</article>
         </div>
       </div>
     </div>

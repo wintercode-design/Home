@@ -45,14 +45,14 @@ const BlogCard = ({ img, link }: BlogProps) => {
             Cameroon.
           </p>
         </div>
-        <caption>Digital Strategy, Business Growth</caption>
+        <article>Digital Strategy, Business Growth</article>
         <div className="flex flex-wrap gap-2">
           {["Development", "Hosting", "design"].map((tag, index) => (
             <span
               key={index}
               className="hover:outline-1 hover:outline-[#6d6d6d] text-[#6d6d6d] p-1 flex justify-center items-center rounded-full w-fit cursor-pointer"
             >
-              <caption>#{tag}</caption>
+              <article>#{tag}</article>
             </span>
           ))}
         </div>

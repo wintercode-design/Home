@@ -104,7 +104,7 @@ const page = () => {
                 alt="wintercode"
                 className="w-6 h-6 rounded-full object-cover"
               />
-              <caption>{"April 25, 2025 | by WinterCode Design"}</caption>
+              <article>{"April 25, 2025 | by WinterCode Design"}</article>
             </div>
             <img
               src="/blogs/blog1.jpeg"
