@@ -83,5 +83,5 @@ const projects = [
 
 export async function GET(request: NextRequest) {
   console.log(request);
-  return NextResponse.json({ data: projects });
+  return NextResponse.json(projects);
 }
