@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { title } from "process";
-import React from "react";
 import Badge from "../ui/Badge";
 import ButtonOpt from "../ui/Button";
 

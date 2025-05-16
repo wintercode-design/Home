@@ -1,11 +1,6 @@
-import Container from "@/components/base/Container";
 import Services from "@/components/blocs/Services";
 import StartNewProject from "@/components/blocs/StartNewProject";
 import ToolsUsed from "@/components/blocs/ToolsUsed";
-import Badge from "@/components/ui/Badge";
-import ButtonOpt from "@/components/ui/Button";
-import SectionHead from "@/components/ui/SectionHead";
-import React from "react";
 
 const page = () => {
   return (
@@ -133,7 +128,7 @@ const page = () => {
         },
       ].map((service, key) => {
         const revers = key === 1;
-        return <Services revers={revers} service={service} />;
+        return <Services revers={revers} service={service} key={key} />;
       })}
 
       <ToolsUsed />

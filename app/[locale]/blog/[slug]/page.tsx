@@ -1,12 +1,7 @@
 import Container from "@/components/base/Container";
 import ShortNewsList from "@/components/blocs/ShortNewsList";
 import StartNewProject from "@/components/blocs/StartNewProject";
-import Badge from "@/components/ui/Badge";
-import BlogCard from "@/components/ui/BlogCard";
-import ButtonOpt from "@/components/ui/Button";
 import MyIcons from "@/components/ui/MyIcons";
-import SectionHead from "@/components/ui/SectionHead";
-import React from "react";
 
 const page = () => {
   return (

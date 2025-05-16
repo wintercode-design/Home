@@ -6,7 +6,7 @@ import ProjectCardFull from "@/components/ui/ProjectCardFull";
 import { getProjects } from "@/requests/ApiRequests";
 import { useQuery } from "@tanstack/react-query";
 
-const page = () => {
+const Page = () => {
   const query = useQuery({
     queryKey: ["projects"],
     queryFn: getProjects,
@@ -26,4 +26,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

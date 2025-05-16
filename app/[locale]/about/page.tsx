@@ -5,7 +5,6 @@ import StartNewProject from "@/components/blocs/StartNewProject";
 import TeamMembers from "@/components/blocs/TeamMembers";
 import ToolsUsed from "@/components/blocs/ToolsUsed";
 import AboutTop from "@/components/ui/AboutTop";
-import ButtonOpt from "@/components/ui/Button";
 import SectionHead from "@/components/ui/SectionHead";
 
 const page = () => {

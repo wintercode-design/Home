@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import ButtonOpt from "../ui/Button";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Container from "./Container";
 import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import ButtonOpt from "../ui/Button";
+import Container from "./Container";
 
 const Navbar = ({ local }: { local: string }) => {
   const [scrolled, setScrolled] = useState(false);

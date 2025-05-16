@@ -1,12 +1,7 @@
 import Container from "@/components/base/Container";
 import StartNewProject from "@/components/blocs/StartNewProject";
 import Accordion from "@/components/ui/Accordion";
-import Badge from "@/components/ui/Badge";
-import ButtonOpt from "@/components/ui/Button";
-import ContactForm from "@/components/ui/ContactForm";
 import SectionHead from "@/components/ui/SectionHead";
-import Link from "next/link";
-import React from "react";
 
 const page = () => {
   return (

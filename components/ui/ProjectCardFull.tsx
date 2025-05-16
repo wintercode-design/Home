@@ -13,20 +13,6 @@ interface ProjectProps {
   link: string;
 }
 
-const project: ProjectProps = {
-  title: "Cotraf – Intercity Transport Booking System",
-  desc: "Cotraf is a digital platform designed to manage and centralize the booking of inter-urban transport across multiple agencies in Cameroon.",
-  company: "Cotraf cooperative",
-  cover: "/",
-  images: ["/"],
-  design:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quaerat sint ex iusto esse tempore molestiae necessitatibus quibusdam. Amet ullam sint similique numquam. Maiores, numquam voluptatibus? Ducimus delectus ad minima.",
-  dev: "string Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla minus magnam voluptatem deleniti inventore nam, perspiciatis pariatur fuga, exercitationem rerum blanditiis praesentium nostrum ab dolorem, doloremque illo dignissimos esse eveniet.",
-  deploy:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id maxime voluptatem, fugit facere illum commodi magnam rem animi, officiis accusamus sequi est provident? Quod excepturi consectetur magnam id illo eos.",
-  link: "/",
-};
-
 const ProjectCardFull = ({ title, desc, company }: ProjectProps) => {
   return (
     <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6">

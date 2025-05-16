@@ -1,9 +1,6 @@
 import Container from "@/components/base/Container";
 import StartNewProject from "@/components/blocs/StartNewProject";
-import ButtonOpt from "@/components/ui/Button";
 import MyIcons from "@/components/ui/MyIcons";
-import SectionHead from "@/components/ui/SectionHead";
-import React from "react";
 
 const page = () => {
   return (
