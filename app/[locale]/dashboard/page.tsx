@@ -1,25 +1,18 @@
-"use client"; // if using app router
-
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { options } from "@/app/api/auth/[...nextauth]/auth";
+import { getServerSession } from "next-auth";
 
 type User = {
   role: string;
   [key: string]: any;
 };
 
-export default function AdminPage() {
-  // const { data: session } = useSession({
-  //   required: true,
-  //   onUnauthenticated() {
-  //     redirect("/api/auth/signin?callbackUrl=/dashboard");
-  //   },
-  // });
+export default async function AdminPage() {
+  const session = await getServerSession(options);
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-      {/* <p>{session?.user?.name}</p> */}
+      <p>{session?.user?.name}</p>
     </div>
   );
 }

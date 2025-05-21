@@ -1,17 +1,7 @@
+// lib/middlewares/chain.ts
 import { NextMiddleware, NextResponse } from "next/server";
 
-type MiddlewareFactory = (middleware: NextMiddleware) => NextMiddleware;
+export type MiddlewareFactory = (mw: NextMiddleware) => NextMiddleware;
 
-export function chain(
-  functions: MiddlewareFactory[],
-  index: number = 0
-): NextMiddleware {
-  const current = functions[index];
-
-  if (current) {
-    const next = chain(functions, index + 1);
-    return current(next);
-  }
-
-  return () => NextResponse.next();
-}
+export const chain = (fns: MiddlewareFactory[], i = 0): NextMiddleware =>
+  fns[i] ? fns[i](chain(fns, i + 1)) : () => NextResponse.next();
