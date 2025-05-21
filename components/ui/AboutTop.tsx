@@ -7,7 +7,7 @@ const AboutTop = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center p-4 gap-10 min-h-[400px]">
       <img
-        src="/about/aboutwinter.jpeg"
+        src="/about/aboutwinter.webp"
         alt="about wintercode"
         className="w-full h-full max-h-[200px] lg:max-h-[400px] bg-gray-200 rounded-xl object-cover"
       />

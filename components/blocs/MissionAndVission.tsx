@@ -20,14 +20,14 @@ const MissionAndVission = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <MissionVission
           title={"Our Mission"}
-          image={"/img/mission1.png"}
+          image={"/img/mission1.webp"}
           description={
             "Our mission is to empower businesses with cutting-edge, tailor-made digital tools that drive growth, simplify operations, and unlock new opportunities."
           }
         />
         <MissionVission
           title={"Our Vision"}
-          image={"/img/vission1.png"}
+          image={"/img/vission1.webp"}
           description={
             "We envision a digital-first Africa, where every business—small or large—can thrive through smart, accessible, and reliable technology."
           }

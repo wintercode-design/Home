@@ -9,6 +9,7 @@ import Navbar from "@/components/base/Navbar";
 import Footer from "@/components/base/Footer";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "@/config/QueryClientConfig";
+import AuthProvider from "@/context/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,15 +48,17 @@ export default async function RootLayout({
       <body
         className={`${urbanist.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryClientProvider client={queryClient}>
-          <NextIntlClientProvider>
-            <Navbar local={locale} />
-            {children}
-            <Container stylebg="bg-[#1A202C]" className="min-h-[566px]">
-              <Footer />
-            </Container>
-          </NextIntlClientProvider>
-        </QueryClientProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <NextIntlClientProvider>
+              <Navbar local={locale} />
+              {children}
+              <Container stylebg="bg-[#1A202C]" className="min-h-[566px]">
+                <Footer />
+              </Container>
+            </NextIntlClientProvider>
+          </QueryClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );

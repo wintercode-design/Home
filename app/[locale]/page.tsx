@@ -13,7 +13,7 @@ export default function Home() {
   // const t = useTranslations("HomePage");
   return (
     <main>
-      <div className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop.png')] bg-cover bg-no-repeat bg-center">
+      <div className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop.webp')] bg-cover bg-no-repeat bg-center">
         <Hero />
 
         <ServicesOffered />

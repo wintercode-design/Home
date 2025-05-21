@@ -10,7 +10,7 @@ import SectionHead from "@/components/ui/SectionHead";
 const page = () => {
   return (
     <main>
-      <div className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop2.png')] bg-cover bg-no-repeat bg-center">
+      <div className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop2.webp')] bg-cover bg-no-repeat bg-center">
         <Container className="py-[100px]">
           <AboutTop />
         </Container>

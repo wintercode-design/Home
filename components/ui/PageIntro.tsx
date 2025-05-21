@@ -19,11 +19,11 @@ const PageIntro = ({ title, img, links, className }: PageIntroProps) => {
     <div
       style={{
         backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(26,32,44,1)),url('${img}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
-      className={clsx(
-        `h-[40vh] flex justify-center items-center bg-center bg-cover`,
-        className
-      )}
+      className={clsx(`h-[40vh] flex justify-center items-center`, className)}
     >
       <div className="flex flex-col gap-4 w-fit justify-center items-center">
         <h1>{title}</h1>

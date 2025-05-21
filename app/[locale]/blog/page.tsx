@@ -10,7 +10,7 @@ const page = () => {
     <>
       <PageIntro
         title="Blog"
-        img="/titles/blog.png"
+        img="/titles/blog.webp"
         links={[
           { title: "Home", link: "/" },
           { title: "Blog", link: "/blog" },

@@ -1,4 +1,3 @@
-import PageIntro from "@/components/ui/PageIntro";
 import { Metadata } from "next";
 
 interface LayoutProps {
@@ -9,7 +8,7 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Winter code design - contact us",
+  title: "Winter code design - latest news",
   description: "Share your projects and let's work together",
 };
 
@@ -18,17 +17,5 @@ export async function generateStaticParams() {
 }
 
 export default async function Layout({ children }: LayoutProps) {
-  return (
-    <>
-      <PageIntro
-        title="Contact"
-        img="/titles/handshake.webp"
-        links={[
-          { title: "Home", link: "/" },
-          { title: "Contact", link: "/contact" },
-        ]}
-      />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

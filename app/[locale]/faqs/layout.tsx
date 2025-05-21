@@ -22,7 +22,7 @@ export default async function Layout({ children }: LayoutProps) {
     <>
       <PageIntro
         title="FAQs"
-        img="/bg/heading.png"
+        img="/bg/heading.webp"
         links={[
           { title: "Home", link: "/" },
           { title: "FAQs", link: "/faqs" },
