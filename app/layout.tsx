@@ -44,7 +44,7 @@ export default function RootLayout({
           <QueryProvider>
             <ToastNotif>
               <QueryClientProvider client={queryClient}>
-                <Navbar local="en" />
+                <Navbar />
                 {children}
                 <Container stylebg="bg-[#1A202C]" className="min-h-[566px]">
                   <Footer />

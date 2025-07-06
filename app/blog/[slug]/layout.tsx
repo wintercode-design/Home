@@ -27,9 +27,9 @@ export default async function Layout({ children, params }: LayoutProps) {
         img="/blogs/blog1.jpeg"
         className="h-[70vh]"
         links={[
-          { title: "Home", link: "/" },
-          { title: "Blog", link: "/blog" },
-          { title: slug, link: slug },
+          { key: "home", title: "Home", link: "/" },
+          { key: "blog", title: "Blog", link: "/blog" },
+          { key: slug, title: slug, link: slug },
         ]}
       />
       {children}
