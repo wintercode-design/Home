@@ -24,7 +24,7 @@ export function getDateRange(value: string) {
     new Date().toLocaleString("en-US", { timeZone: userTimeZone })
   ); // Utilisation du fuseau horaire souhaité
   let startDate: string;
-  let endDate: string = today.toISOString().split("T")[0];
+  const endDate: string = today.toISOString().split("T")[0];
 
   switch (value) {
     case "semaine":

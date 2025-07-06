@@ -5,13 +5,10 @@ import {
   Coins,
   FigmaLogo,
   Handshake,
-  Headset,
   Kanban,
   LockKey,
   Wrench,
 } from "phosphor-react";
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface accordionProps {
   title: string;

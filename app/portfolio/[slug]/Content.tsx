@@ -2,12 +2,11 @@
 import Container from "@/components/base/Container";
 import ShortNewsList from "@/components/blocs/ShortNewsList";
 import StartNewProject from "@/components/blocs/StartNewProject";
-import MyIcons from "@/components/ui/MyIcons";
 import Loading from "@/components/ui/Loading";
+import MyIcons from "@/components/ui/MyIcons";
 import ProjectQuery from "@/queries/project";
 import { Project } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
 
 interface ContentProps {
   slug: string;

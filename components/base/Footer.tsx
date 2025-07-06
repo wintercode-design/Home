@@ -1,12 +1,11 @@
 "use client";
-import Link from "next/link";
-import Badge from "../ui/Badge";
-import ButtonOpt from "../ui/Button";
-import { useState } from "react";
+import { useTranslations } from "@/hooks/useMessages";
 import NewsletterQuery from "@/queries/newsletter";
 import { Subscriber } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
-import { useTranslations } from "@/hooks/useMessages";
+import Link from "next/link";
+import { useState } from "react";
+import Badge from "../ui/Badge";
 
 const Footer = () => {
   const newsletterQuery = new NewsletterQuery();

@@ -1,11 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import ButtonOpt from "./Button";
 import ContactQuery from "@/queries/contact";
 import { Contact } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
-import Loading from "./Loading";
 import { motion } from "framer-motion";
+import React, { useState } from "react";
+import Loading from "./Loading";
 
 const ContactForm = () => {
   const contactQuery = new ContactQuery();

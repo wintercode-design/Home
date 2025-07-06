@@ -330,12 +330,12 @@ const QuoteForm = () => {
           <h2>{t("steps").projectGoals}</h2>
           <p>{t("form").mainPurpose}</p>
           <div className="flex flex-col gap-2 w-full">
-            {goalOptions.map((goal, idx) => (
+            {goalOptions.map((goal) => (
               <label key={goal} className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={form.goals.includes(goal)}
-                  onChange={(e) => {
+                  onChange={() => {
                     setForm((f) => {
                       const goals = f.goals.includes(goal)
                         ? f.goals.filter((g) => g !== goal)

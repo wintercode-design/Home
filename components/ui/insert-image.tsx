@@ -13,16 +13,15 @@
 // import Button from './EditButton';
 
 "use client";
+import { useTranslations } from "@/hooks/useMessages";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { motion } from "framer-motion";
+import { Image } from "phosphor-react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
-import { get } from "http";
-import { Image } from "phosphor-react";
-import { useTranslations } from "@/hooks/useMessages";
-import { motion } from "framer-motion";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -103,7 +102,7 @@ function InsertImage({ image, onChange }: Props) {
       form.reset();
       setPreview(undefined);
     }
-  }, [open]);
+  }, [open, form]);
 
   return (
     <motion.div
@@ -118,7 +117,7 @@ function InsertImage({ image, onChange }: Props) {
           className="p-2 rounded border w-10 h-10 flex justify-center items-center "
           onClick={() => setOpen(true)}
         >
-          <Image />
+          <Image alt="some image" />
         </button>
 
         {open && (

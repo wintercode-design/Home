@@ -10,7 +10,7 @@ import SectionHead from "@/components/ui/SectionHead";
 import { useTranslations } from "@/hooks/useMessages";
 import { motion } from "framer-motion";
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("AboutPage.achievements");
 
   return (
@@ -123,4 +123,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

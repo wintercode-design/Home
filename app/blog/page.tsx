@@ -1,20 +1,19 @@
 "use client";
 import Container from "@/components/base/Container";
 import StartNewProject from "@/components/blocs/StartNewProject";
-import Badge from "@/components/ui/Badge";
 import BlogCard from "@/components/ui/BlogCard";
+import Loading from "@/components/ui/Loading";
 import MyIcons from "@/components/ui/MyIcons";
 import PageIntro from "@/components/ui/PageIntro";
+import { useTranslations } from "@/hooks/useMessages";
 import BlogQuery from "@/queries/blog";
 import { Blog } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import Loading from "@/components/ui/Loading";
-import { useTranslations } from "@/hooks/useMessages";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const blogQuery = new BlogQuery();
   const t = useTranslations("BlogPage");
   const loadingT = useTranslations("Common");
@@ -202,4 +201,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

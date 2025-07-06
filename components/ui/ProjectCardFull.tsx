@@ -44,10 +44,12 @@ const ProjectCardFull = ({ title, desc, company }: ProjectProps) => {
       <div className="flex gap-6 p-3 border-t-[1px] border-white/10">
         <img
           src={"/"}
+          alt="project img"
           className="w-full h-[175px] bg-gray-200 object-cover rounded-xl"
         />
         <img
           src={"/"}
+          alt="project img"
           className="w-full h-[175px] bg-gray-200 object-cover rounded-xl"
         />
       </div>

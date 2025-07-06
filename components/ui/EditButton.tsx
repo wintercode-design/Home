@@ -6,7 +6,7 @@ type EditButtonProps = {
   size?: "icon" | "default";
   family?: "default" | "sans";
   disabled?: boolean;
-  onClick?: (e: any) => any;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   variant?: "ghost" | "default";
   children?: React.ReactNode;
 };
@@ -14,7 +14,6 @@ type EditButtonProps = {
 const Button = ({
   size = "default",
   family = "default",
-  disabled = false,
   variant = "default",
   onClick = (e) => e.preventDefault(),
   children,

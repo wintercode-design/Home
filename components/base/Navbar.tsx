@@ -1,14 +1,14 @@
 "use client";
+import { useTranslations } from "@/hooks/useMessages";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ButtonOpt from "../ui/Button";
-import Container from "./Container";
-import { useTranslations } from "@/hooks/useMessages";
 import LanguageSelector from "../ui/LanguageSelector";
+import Container from "./Container";
 
-const Navbar = ({ local }: { local: string }) => {
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("Navigation");
