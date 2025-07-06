@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from "react";
 import ButtonOpt from "./Button";
 import { useTranslations } from "@/hooks/useMessages";
 import { motion } from "framer-motion";
+import quoteQuery from "@/queries/quote";
+import { useMutation } from "@tanstack/react-query";
 
 const QuoteForm = () => {
   const t = useTranslations("QuotePage");
@@ -137,12 +139,52 @@ const QuoteForm = () => {
       ]
     : [];
 
+  const quoteQueryInstance = new quoteQuery();
+  const quoteMutation = useMutation({
+    mutationFn: (data: typeof form) =>
+      quoteQueryInstance.create({ ...data, goals: data.goals.join(",") }),
+    onSuccess: () => {
+      setForm({
+        companyName: "",
+        contactPerson: "",
+        phone: "",
+        email: "",
+        location: "",
+        hasWebsite: false,
+        website: "",
+        businessDescription: "",
+        targetAudience: "",
+        products: "",
+        goals: [],
+        otherGoal: "",
+        priorities: "",
+        designLikes: "",
+        designDislikes: "",
+        colorPreferences: "",
+        referenceWebsites: "",
+        competitors: "",
+        budget: "",
+        timeline: "",
+        additional: "",
+      });
+    },
+    onError: (error) => {
+      console.error("Quote form error:", error);
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    quoteMutation.mutate(form);
+  };
+
   return (
     <motion.form
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
       className="flex flex-col gap-[50px] max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl"
+      onSubmit={handleSubmit}
     >
       <StepIndicator />
       {step === 0 && (
@@ -473,7 +515,7 @@ const QuoteForm = () => {
             title={t("buttons").submit}
             icon="arrow"
             fill={true}
-            onClick={() => alert(t("submitMessage"))}
+            type="submit"
           />
         )}
       </div>

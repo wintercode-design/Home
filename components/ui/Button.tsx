@@ -13,6 +13,7 @@ interface ButtonProps {
   custom?: string;
   onClick?: () => void;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 const ButtonOpt = ({
@@ -24,6 +25,7 @@ const ButtonOpt = ({
   custom = "",
   onClick,
   disabled = false,
+  type = "button",
 }: ButtonProps) => {
   const navButtonStyle =
     "px-3 py-1 hover:border-b-[1px] border-solid border-white";
@@ -52,7 +54,7 @@ const ButtonOpt = ({
         damping: 20,
         ease: [0.42, 0, 0.58, 1],
       }}
-      type="button"
+      type={type}
       className={button_style}
       onClick={onClick}
       disabled={disabled}
