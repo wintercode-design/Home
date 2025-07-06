@@ -1,25 +1,27 @@
+"use client";
 import React from "react";
 import ContactForm from "../ui/ContactForm";
 import SectionHead from "../ui/SectionHead";
 import Container from "../base/Container";
 import Badge from "../ui/Badge";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/useMessages";
 
 const ContactInfo = () => {
+  const t = useTranslations("HomePage.contactInfo");
+
   return (
     <Container className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]">
       <SectionHead
-        sectionTitle={"Conract us"}
-        sectionSubtitle={"Let's Build Something Great Together."}
-        sectionDescription={
-          "Reach out to us — we're excited to hear about your project"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-3 w-full">
         <div className="w-full flex flex-col justify-between gap-6">
           <div className="flex flex-col gap-6">
-            <h5>{"Contact Information"}</h5>
+            <h5>{t("contactInformation")}</h5>
             <ol className="flex flex-col gap-3">
               {[
                 {

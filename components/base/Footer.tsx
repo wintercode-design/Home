@@ -6,10 +6,14 @@ import { useState } from "react";
 import NewsletterQuery from "@/queries/newsletter";
 import { Subscriber } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
+import { useTranslations } from "@/hooks/useMessages";
 
 const Footer = () => {
   const newsletterQuery = new NewsletterQuery();
   const [email, setEmail] = useState("");
+  const t = useTranslations("Footer");
+  const navT = useTranslations("Navigation");
+  const servicesT = useTranslations("HomePage.services");
 
   const newsletterMutation = useMutation({
     mutationFn: (
@@ -55,53 +59,49 @@ const Footer = () => {
               </h6>
             </div>
 
-            <p>
-              {
-                "WinterCode is your trusted partner for custom web solutions, ERP systems, e-commerce, and hosting services across Africa and beyond."
-              }
-            </p>
+            <p>{t("description")}</p>
           </div>
         </div>
 
         <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 md:gap-3">
           <div className="flex flex-col gap-3">
-            <h5>{"Quick Links"}</h5>
+            <h5>{t("quickLinks")}</h5>
             <ol className="flex flex-col gap-3">
               {[
                 {
-                  title: "Home",
+                  title: navT("home"),
                   link: "/",
                 },
                 {
-                  title: "About us",
+                  title: navT("about"),
                   link: "/about",
                 },
                 {
-                  title: "Services",
+                  title: navT("services"),
                   link: "/services",
                 },
                 {
-                  title: "Portfolio",
+                  title: navT("portfolio"),
                   link: "/portfolio",
                 },
                 {
-                  title: "Pricing",
+                  title: navT("pricing"),
                   link: "/pricing",
                 },
                 {
-                  title: "Blog",
+                  title: navT("blog"),
                   link: "/blog",
                 },
                 {
-                  title: "FAQs",
+                  title: navT("faqs"),
                   link: "/faqs",
                 },
                 {
-                  title: "Contact",
+                  title: navT("contact"),
                   link: "/contact",
                 },
                 {
-                  title: "Start a project",
+                  title: t("startProject"),
                   link: "/quote",
                 },
               ].map((item, key) => {
@@ -114,23 +114,23 @@ const Footer = () => {
             </ol>
           </div>
           <div className="flex flex-col gap-3">
-            <h5>{"Services"}</h5>
+            <h5>{navT("services")}</h5>
             <ol className="flex flex-col gap-3">
               {[
                 {
-                  title: "Web Development",
+                  title: servicesT("webDevelopment"),
                   link: "/services/web-development",
                 },
                 {
-                  title: "E-commerce",
+                  title: servicesT("ecommerce"),
                   link: "/services/e-commerce",
                 },
                 {
-                  title: "ERP Systems",
+                  title: servicesT("erpSystems"),
                   link: "/services/erp-systems",
                 },
                 {
-                  title: "Hosting Services",
+                  title: servicesT("hostingDomain"),
                   link: "/services/hosting-services",
                 },
               ].map((item, key) => {
@@ -143,7 +143,7 @@ const Footer = () => {
             </ol>
           </div>
           <div className="flex flex-col gap-3">
-            <h5>{"Contact Information"}</h5>
+            <h5>{t("contactInfo")}</h5>
             <ol className="flex flex-col gap-3">
               {[
                 {
@@ -195,12 +195,8 @@ const Footer = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-10 justify-between md:items-end w-full">
         <div className="flex flex-col gap-3 max-w-[260px]">
-          <h5>{"Stay Connected"}</h5>
-          <p>
-            {
-              "Subscribe to our newsletter and get the latest tech tips, industry insights, and project updates straight to your inbox."
-            }
-          </p>
+          <h5>{t("stayConnected")}</h5>
+          <p>{t("newsletterDescription")}</p>
         </div>
 
         <form
@@ -221,13 +217,13 @@ const Footer = () => {
             disabled={newsletterMutation.isPending}
             className="px-3 py-1 rounded-full bg-white text-black outline-1 outline-white"
           >
-            {newsletterMutation.isPending ? "Subscribing..." : "Register"}
+            {newsletterMutation.isPending ? t("subscribing") : t("register")}
           </button>
         </form>
       </div>
 
       <div className="flex justify-between gap-3 w-full border-t border-[#474747] mt-3 pt-6 h-fit">
-        <p>developed by wintercode 2025</p>
+        <p>{t("copyright")}</p>
         <div className="flex gap-3">
           <Link href={"https://wa.me/237657071178"}>
             <Badge icon="whatsapp" />

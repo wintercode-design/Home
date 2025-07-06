@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface testimonyProps {
   title?: string;
@@ -9,7 +10,12 @@ interface testimonyProps {
 
 const Testimony = ({ title, name, role, imageUrl }: testimonyProps) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-6 max-w-[650px]">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="flex flex-col justify-center items-center gap-6 max-w-[650px]"
+    >
       <div className="p-3 flex justify-center items-center">
         <h5 className=" text-center">{title}</h5>
       </div>
@@ -24,7 +30,7 @@ const Testimony = ({ title, name, role, imageUrl }: testimonyProps) => {
           <article className="text-[#79808C]">{role}</article>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

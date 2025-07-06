@@ -1,642 +1,483 @@
-import React from "react";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
 import ButtonOpt from "./Button";
+import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const QuoteForm = () => {
-  return (
-    <div className="flex flex-col gap-[150px] max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl">
-      <div className="flex flex-col gap-6">
-        <h2>{"Basic Information"}</h2>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="company Name">{"Company Name"}</label>
-          <input
-            type="text"
-            id="company Name"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="contact Person (Full Name)">
-            {"Contact Person (Full Name)"}
-          </label>
-          <input
-            type="text"
-            id="contact Person (Full Name)"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="phone Number">{"Phone Number"}</label>
-          <input
-            type="text"
-            id="phone Number"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="email Address">{"Email Address"}</label>
-          <input
-            type="text"
-            id="email Address"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="location (City & Country)">
-            {"Location (City & Country)"}
-          </label>
-          <input
-            type="text"
-            id="location (City & Country)"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
+  const t = useTranslations("QuotePage");
+  const [step, setStep] = useState(0);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [form, setForm] = useState<{
+    companyName: string;
+    contactPerson: string;
+    phone: string;
+    email: string;
+    location: string;
+    hasWebsite: boolean;
+    website: string;
+    businessDescription: string;
+    targetAudience: string;
+    products: string;
+    goals: string[];
+    otherGoal: string;
+    priorities: string;
+    designLikes: string;
+    designDislikes: string;
+    colorPreferences: string;
+    referenceWebsites: string;
+    competitors: string;
+    budget: string;
+    timeline: string;
+    additional: string;
+  }>({
+    companyName: "",
+    contactPerson: "",
+    phone: "",
+    email: "",
+    location: "",
+    hasWebsite: false,
+    website: "",
+    businessDescription: "",
+    targetAudience: "",
+    products: "",
+    goals: [],
+    otherGoal: "",
+    priorities: "",
+    designLikes: "",
+    designDislikes: "",
+    colorPreferences: "",
+    referenceWebsites: "",
+    competitors: "",
+    budget: "",
+    timeline: "",
+    additional: "",
+  });
 
-        <h6>{" Do you already have a website?"}</h6>
-        <div className="flex gap-2 w-full">
-          <input
-            type="checkbox"
-            id="yes → [Enter your current website link]"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label
-            htmlFor="yes → [Enter your current website link]"
-            className="w-full"
+  const steps = [
+    t("steps").basicInfo,
+    t("steps").businessOverview,
+    t("steps").projectGoals,
+    t("steps").designPreferences,
+    t("steps").competitors,
+    t("steps").budgetTimeline,
+    t("steps").additionalComments,
+  ];
+
+  // Auto-scroll to current step
+  useEffect(() => {
+    const currentStepElement = stepRefs.current[step];
+    const container = containerRef.current;
+
+    if (currentStepElement && container) {
+      const containerRect = container.getBoundingClientRect();
+      const stepRect = currentStepElement.getBoundingClientRect();
+
+      const scrollLeft =
+        currentStepElement.offsetLeft -
+        containerRect.width / 2 +
+        stepRect.width / 2;
+
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
+      });
+    }
+  }, [step]);
+
+  // Step indicator
+  const StepIndicator = () => (
+    <div
+      ref={containerRef}
+      className="flex overflow-x-auto no-scrollbar gap-8 sm:gap-4 mb-8 px-2 sm:px-0"
+    >
+      {steps.map((label, idx) => (
+        <div
+          key={idx}
+          ref={(el) => {
+            stepRefs.current[idx] = el;
+          }}
+          className="flex flex-col items-center min-w-[90px] sm:min-w-[70px] flex-shrink-0"
+          aria-label={`Step ${idx + 1}: ${label}`}
+        >
+          <div
+            className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-colors duration-200 ${
+              idx === step
+                ? "border-blue-500 bg-blue-500 text-white"
+                : "border-gray-400 bg-[#232C3D] text-gray-300"
+            }`}
           >
-            {"Yes → [Enter your current website link]"}
-          </label>
-          <input
-            type="text"
-            id="website"
-            placeholder="project title"
-            className="border-b-[1px] w-full border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="yes → [Enter your current website link]"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"No"}</label>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{" Business Overview"}</h2>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="description">
-            {
-              "Briefly describe your business: What do you do? What makes you unique?"
-            }
-          </label>
-          <textarea
-            id="description"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="description">
-            {
-              "Who is your target audience or ideal client? (e.g., young professionals, students, corporate clients, etc.)"
-            }
-          </label>
-          <textarea
-            id="description"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="description">
-            {"What products/services do you offer?"}
-          </label>
-          <textarea
-            id="description"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Project Goals & Purpose"}</h2>
-        <p>{`What is the main purpose of this website?`}</p>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Build online presence / Company showcase"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">
-            {"Build online presence / Company showcase"}
-          </label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Generate leads or inquiries"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Generate leads or inquiries"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Sell products online (eCommerce)"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Sell products online (eCommerce)"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Bookings or reservations"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Bookings or reservations"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Educational platform or blog"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Educational platform or blog"}</label>
-        </div>
-        <div className="flex gap-2 w-full">
-          <input
-            type="checkbox"
-            id="other"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="other" className="w-full">
-            {"Other"}
-          </label>
-          <input
-            type="text"
-            id="website"
-            placeholder="project title"
-            className="border-b-[1px] w-full border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="What are your top 3 priorities for this project?">
-            {"What are your top 3 priorities for this project?"}
-          </label>
-          <textarea
-            id="What are your top 3 priorities for this project?"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Project Goals & Purpose"}</h2>
-        <div className="flex items-center justify-between w-full">
-          <p>{"Do you already have the following?"}</p>
-
-          <div className="flex gap-2">
-            <p>yes</p>
-            <p>No</p>
+            {idx + 1}
           </div>
-        </div>
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Logo" className="w-full">
-            {"Logo"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Company Profile/Overview" className="w-full">
-            {"Company Profile/Overview"}
-          </label>
-          <input
-            type="radio"
-            id="Company Profile/Overview"
-            placeholder="Company Profile/Overview"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Company Profile/Overview"
-            placeholder="Company Profile/Overview"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Text Content" className="w-full">
-            {"Text Content"}
-          </label>
-          <input
-            type="radio"
-            id="Text Content"
-            placeholder="Text Content"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Text Content"
-            placeholder="Text Content"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Photos & Images" className="w-full">
-            {"Photos & Images"}
-          </label>
-          <input
-            type="radio"
-            id="Photos & Images"
-            placeholder="Photos & Images"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Photos & Images"
-            placeholder="Photos & Images"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Videos" className="w-full">
-            {"Videos"}
-          </label>
-          <input
-            type="radio"
-            id="Videos"
-            placeholder="Videos"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Videos"
-            placeholder="Videos"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <p>{`Will you provide the content, or should we help with copywriting?`}</p>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="I will provide the content"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"I will provide the content"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="I need help with content creation"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"I need help with content creation"}</label>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{" Design Style"}</h2>
-        <div className="flex items-center justify-between w-full">
-          <p>{"Do you have brand colors or style guidelines?"}</p>
-
-          <div className="flex gap-2">
-            <p>yes</p>
-            <p>No</p>
-          </div>
-        </div>
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Logo" className="w-full">
-            {"Logo"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="description">
-            {`Are there any websites you admire (in design or functionality)? Please share links and what you like about them:`}
-          </label>
-          <textarea
-            id="description"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-
-        <p>{"What is the main purpose of this website?"}</p>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Clean and minimal"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Clean and minimal"}</label>
-        </div>
-
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Bold and creative"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Bold and creative"}</label>
-        </div>
-
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Elegant and classic"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Elegant and classic"}</label>
-        </div>
-
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Playful and fun"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"Playful and fun"}</label>
-        </div>
-
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="I’m not sure"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="no">{"I’m not sure"}</label>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Features & Functionalities"}</h2>
-        <p>{"What features should the website include?"}</p>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Contact Form"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Contact Form">{"Contact Form"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Google Map"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Google Map">{"Google Map"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Blog or News Section"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Blog or News Section">{"Blog or News Section"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Product Gallery"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Product Gallery">{"Product Gallery"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Online Store"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Online Store">{"Online Store"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Reservation or Booking System"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Reservation or Booking System">
-            {"Reservation or Booking System"}
-          </label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Live Chat"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Live Chat">{"Live Chat"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Social Media Integration"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Social Media Integration">
-            {"Social Media Integration"}
-          </label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Newsletter Signup"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Newsletter Signup">{"Newsletter Signup"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="User Login Area"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="User Login Area">{"User Login Area"}</label>
-        </div>
-        <div className="flex gap-2  w-full">
-          <input
-            type="checkbox"
-            id="Multi-language Support"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="Multi-language Support">
-            {"Multi-language Support"}
-          </label>
-        </div>
-        <div className="flex gap-2 w-full">
-          <input
-            type="checkbox"
-            id="other"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <label htmlFor="other" className="w-full">
-            {"Other"}
-          </label>
-          <input
-            type="text"
-            id="Other"
-            className="border-b-[1px] w-full border-[#8A8A8A]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Technical Requirements"}</h2>
-        <div className="flex gap-3 w-full">
-          <label
-            htmlFor="Do you already have a domain name?"
-            className="w-full"
+          <span
+            className={`mt-3 sm:mt-2 text-xs sm:text-xs text-center whitespace-normal break-words max-w-[80px] sm:max-w-[60px] ${
+              idx === step ? "text-blue-500 font-semibold" : "text-gray-400"
+            }`}
+            style={{ wordBreak: "break-word" }}
           >
-            {"Do you already have a domain name?"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
+            {label}
+          </span>
         </div>
-        <div className="flex gap-3 w-full">
-          <label htmlFor="Do you have hosting already?" className="w-full">
-            {"Do you have hosting already?"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-        <div className="flex gap-3 w-full">
-          <label
-            htmlFor="Do you want ongoing maintenance/support after launch?"
-            className="w-full"
-          >
-            {"Do you want ongoing maintenance/support after launch?"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Timeline & Budget"}</h2>
-        <div className="flex gap-3 w-full">
-          <label
-            htmlFor="Do you have a specific deadline or launch date in mind?"
-            className="w-full"
-          >
-            {"Do you have a specific deadline or launch date in mind?"}
-          </label>
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-          <input
-            type="radio"
-            id="Logo"
-            placeholder="Logo"
-            className="border-b-[1px] border-[#8A8A8A]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Additional Information"}</h2>
-        <div className="flex flex-col gap-2  w-full">
-          <label htmlFor="Is there anything else we should know?">
-            {"Is there anything else we should know?"}
-          </label>
-          <textarea
-            id="Is there anything else we should know?"
-            placeholder="project title"
-            className="border-b-[1px] border-[#8A8A8A] h-[150px]"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6">
-        <h2>{"Submission"}</h2>
-        <p>
-          {
-            "Thank you for filling out this brief. Once submitted, we’ll reach out within 24 to 48 hours to schedule a consultation or send a tailored proposal."
-          }
-        </p>
-      </div>
-
-      <div className="flex gap-10 py-4 max-w-[450px] w-full mx-auto">
-        <ButtonOpt
-          title="send"
-          fill={true}
-          custom="w-full item-center justify-center"
-        />
-        <ButtonOpt title="Reset" custom="w-full item-center justify-center" />
-      </div>
+      ))}
     </div>
+  );
+
+  // Navigation
+  const handleNext = () => setStep((s) => Math.min(s + 1, steps.length - 1));
+  const handleBack = () => setStep((s) => Math.max(s - 1, 0));
+
+  const goalOptions = t("form").goals
+    ? [
+        t("form").goals.onlinePresence,
+        t("form").goals.generateLeads,
+        t("form").goals.ecommerce,
+        t("form").goals.bookings,
+        t("form").goals.educational,
+      ]
+    : [];
+
+  return (
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="flex flex-col gap-[50px] max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl"
+    >
+      <StepIndicator />
+      {step === 0 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").basicInfo}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="companyName">{t("form").companyName}</label>
+            <input
+              type="text"
+              id="companyName"
+              value={form.companyName}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, companyName: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="contactPerson">{t("form").contactPerson}</label>
+            <input
+              type="text"
+              id="contactPerson"
+              value={form.contactPerson}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, contactPerson: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="phone">{t("form.phone")}</label>
+            <input
+              type="text"
+              id="phone"
+              value={form.phone}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, phone: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="email">{t("form").email}</label>
+            <input
+              type="text"
+              id="email"
+              value={form.email}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, email: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="location">{t("form").location}</label>
+            <input
+              type="text"
+              id="location"
+              value={form.location}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, location: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <h6>{t("form").hasWebsite}</h6>
+          <div className="flex gap-2 w-full items-center">
+            <input
+              type="checkbox"
+              id="hasWebsite"
+              checked={form.hasWebsite}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, hasWebsite: e.target.checked }))
+              }
+            />
+            <label htmlFor="hasWebsite">{t("form").yes}</label>
+            {form.hasWebsite && (
+              <input
+                type="text"
+                id="website"
+                value={form.website}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, website: e.target.value }))
+                }
+                placeholder={t("form").websitePlaceholder}
+                className="border-b-[1px] w-full border-[#8A8A8A]"
+              />
+            )}
+            <input
+              type="checkbox"
+              id="noWebsite"
+              checked={!form.hasWebsite}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, hasWebsite: !e.target.checked }))
+              }
+            />
+            <label htmlFor="noWebsite">{t("form").no}</label>
+          </div>
+        </div>
+      )}
+      {step === 1 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").businessOverview}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="businessDescription">
+              {t("form").businessDescription}
+            </label>
+            <textarea
+              id="businessDescription"
+              value={form.businessDescription}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, businessDescription: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="targetAudience">{t("form").targetAudience}</label>
+            <textarea
+              id="targetAudience"
+              value={form.targetAudience}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, targetAudience: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="products">{t("form").products}</label>
+            <textarea
+              id="products"
+              value={form.products}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, products: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+        </div>
+      )}
+      {step === 2 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").projectGoals}</h2>
+          <p>{t("form").mainPurpose}</p>
+          <div className="flex flex-col gap-2 w-full">
+            {goalOptions.map((goal, idx) => (
+              <label key={goal} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={form.goals.includes(goal)}
+                  onChange={(e) => {
+                    setForm((f) => {
+                      const goals = f.goals.includes(goal)
+                        ? f.goals.filter((g) => g !== goal)
+                        : [...f.goals, goal];
+                      return { ...f, goals };
+                    });
+                  }}
+                />
+                {goal}
+              </label>
+            ))}
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={!!form.otherGoal}
+                onChange={(e) =>
+                  setForm((f) => ({
+                    ...f,
+                    otherGoal: e.target.checked ? f.otherGoal : "",
+                  }))
+                }
+              />
+              {t("form").goals.other}
+              <input
+                type="text"
+                value={form.otherGoal}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, otherGoal: e.target.value }))
+                }
+                placeholder={t("form").otherGoalPlaceholder}
+                className="border-b-[1px] w-full border-[#8A8A8A]"
+              />
+            </label>
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="priorities">{t("form").priorities}</label>
+            <textarea
+              id="priorities"
+              value={form.priorities}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, priorities: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+        </div>
+      )}
+      {step === 3 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").designPreferences}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="designLikes">{t("form").designLikes}</label>
+            <textarea
+              id="designLikes"
+              value={form.designLikes}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, designLikes: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="designDislikes">{t("form").designDislikes}</label>
+            <textarea
+              id="designDislikes"
+              value={form.designDislikes}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, designDislikes: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="colorPreferences">
+              {t("form").colorPreferences}
+            </label>
+            <input
+              id="colorPreferences"
+              value={form.colorPreferences}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, colorPreferences: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+        </div>
+      )}
+      {step === 4 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").competitors}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="referenceWebsites">
+              {t("form").referenceWebsites}
+            </label>
+            <textarea
+              id="referenceWebsites"
+              value={form.referenceWebsites}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, referenceWebsites: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="competitors">{t("form").competitors}</label>
+            <textarea
+              id="competitors"
+              value={form.competitors}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, competitors: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+        </div>
+      )}
+      {step === 5 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").budgetTimeline}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="budget">{t("form").budget}</label>
+            <input
+              id="budget"
+              value={form.budget}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, budget: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="timeline">{t("form").timeline}</label>
+            <input
+              id="timeline"
+              value={form.timeline}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, timeline: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A]"
+            />
+          </div>
+        </div>
+      )}
+      {step === 6 && (
+        <div className="flex flex-col gap-6">
+          <h2>{t("steps").additionalComments}</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="additional">{t("form").additional}</label>
+            <textarea
+              id="additional"
+              value={form.additional}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, additional: e.target.value }))
+              }
+              className="border-b-[1px] border-[#8A8A8A] h-[100px]"
+            />
+          </div>
+        </div>
+      )}
+      <div className="flex justify-between mt-8">
+        <ButtonOpt
+          title={t("buttons").back}
+          icon="arrow"
+          fill={false}
+          onClick={handleBack}
+          disabled={step === 0}
+        />
+        {step < steps.length - 1 ? (
+          <ButtonOpt
+            title={t("buttons").next}
+            icon="arrow"
+            fill={true}
+            onClick={handleNext}
+          />
+        ) : (
+          <ButtonOpt
+            title={t("buttons").submit}
+            icon="arrow"
+            fill={true}
+            onClick={() => alert(t("submitMessage"))}
+          />
+        )}
+      </div>
+    </motion.form>
   );
 };
 

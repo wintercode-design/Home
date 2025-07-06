@@ -1,36 +1,34 @@
+"use client";
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import MissionVission from "../ui/MissionVission";
+import { useTranslations } from "@/hooks/useMessages";
 
 const MissionAndVission = () => {
+  const t = useTranslations("AboutPage.missionVision");
+
   return (
     <Container
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Our Mission & Vision"}
-        sectionSubtitle={"Our Mission & Vision"}
-        sectionDescription={
-          "Why should you work with us at wintercode and what do you benefit"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <MissionVission
-          title={"Our Mission"}
+          title={t("mission").title}
           image={"/img/mission1.webp"}
-          description={
-            "Our mission is to empower businesses with cutting-edge, tailor-made digital tools that drive growth, simplify operations, and unlock new opportunities."
-          }
+          description={t("mission").description}
         />
         <MissionVission
-          title={"Our Vision"}
+          title={t("vision").title}
           image={"/img/vission1.webp"}
-          description={
-            "We envision a digital-first Africa, where every business—small or large—can thrive through smart, accessible, and reliable technology."
-          }
+          description={t("vision").description}
         />
       </div>
     </Container>

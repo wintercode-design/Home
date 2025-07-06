@@ -11,6 +11,7 @@ import {
   WhatsappLogo,
 } from "phosphor-react";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface badgeProps {
   icon:
@@ -42,7 +43,12 @@ interface badgeProps {
 
 const Badge = ({ icon, num }: badgeProps) => {
   return (
-    <div className="p-2 w-fit rounded-xl bg-radial from-[#373C44] via-[#373C44] to-[#474747] border-[1px] border-white/20">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+      className="p-2 w-fit rounded-xl bg-radial from-[#373C44] via-[#373C44] to-[#474747] border-[1px] border-white/20"
+    >
       {icon === "whatsapp" ? (
         <WhatsappLogo size={16} />
       ) : icon === "mail" ? (
@@ -114,7 +120,7 @@ const Badge = ({ icon, num }: badgeProps) => {
       ) : (
         <WhatsappLogo size={24} />
       )}
-    </div>
+    </motion.div>
   );
 };
 

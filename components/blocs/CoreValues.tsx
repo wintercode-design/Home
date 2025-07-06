@@ -1,44 +1,44 @@
+"use client";
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
+import { useTranslations } from "@/hooks/useMessages";
 
 const CoreValues = () => {
+  const t = useTranslations("HomePage.coreValues");
+  console.log(t("integrity"));
+
   return (
     <Container
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Our Core Values"}
-        sectionSubtitle={"Our Core Values"}
-        sectionDescription={
-          "The values by which wintercode stands and help other companies grow"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-4xl h-full">
         {[
           {
-            title: "Integrity",
-            description:
-              "We uphold the highest standards of integrity in all our actions.",
+            title: t("integrity").title,
+            description: t("integrity").description,
             image: "/values/value1.png",
           },
           {
-            title: "Innovation",
-            description: "We strive to innovate and improve continuously.",
+            title: t("innovation").title,
+            description: t("innovation").description,
             image: "/values/value2.png",
           },
           {
-            title: "Customer Centricity",
-            description:
-              "We put our customers at the heart of everything we do.",
+            title: t("customerCentricity").title,
+            description: t("customerCentricity").description,
             image: "/values/value3.png",
           },
           {
-            title: "Collaboration",
-            description:
-              "We believe in the power of teamwork and collaboration.",
+            title: t("collaboration").title,
+            description: t("collaboration").description,
             image: "/values/value4.png",
           },
         ].map((item, index) => (

@@ -3,10 +3,19 @@ import { Lightning } from "phosphor-react";
 import React from "react";
 import ButtonOpt from "./Button";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const AboutTop = () => {
+  const t = useTranslations("AboutPage");
+
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center p-4 gap-10 min-h-[400px]">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="flex flex-col lg:flex-row items-center justify-center p-4 gap-10 min-h-[400px]"
+    >
       <img
         src="/about/aboutwinter.webp"
         alt="about wintercode"
@@ -23,34 +32,24 @@ const AboutTop = () => {
                 // className="bg-gradient-to-b from-[#1098F7] to-white text-transparent bg-clip-border"
                 color="#1098F7"
               />
-              <h6 className="text-center">{"About wintercode"}</h6>
+              <h6 className="text-center">{t("aboutBadge")}</h6>
             </div>
 
             <div className="flex flex-col items-start justify-center gap-2">
-              <h3 className="text-center">
-                {"Builders of Your Digital Future."}
-              </h3>
+              <h3 className="text-center">{t("title")}</h3>
             </div>
           </div>
 
-          <p>
-            {`
-          At WinterCode, we don't just build websites and systems. We craft experiences, solve problems, and fuel growth through innovation, passion, and technology.      
-          `}
-          </p>
-          <p>
-            {`From our first line of code to our latest project launch, one thing remains constant: a deep commitment to helping businesses thrive in the digital age.`}
-          </p>
-          <p>
-            {`Whether you're a startup, a growing SME, or an established brand, WinterCode becomes part of your journey — your challenges become our mission, your dreams, our blueprint.`}
-          </p>
+          <p>{t("description1")}</p>
+          <p>{t("description2")}</p>
+          <p>{t("description3")}</p>
         </div>
 
         <Link href={"/contact"}>
-          <ButtonOpt title="Contact us" fill={true} />
+          <ButtonOpt title={t("contactUs")} fill={true} />
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

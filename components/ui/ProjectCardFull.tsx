@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonOpt from "./Button";
+import { motion } from "framer-motion";
 
 interface ProjectProps {
   title: string;
@@ -15,7 +16,12 @@ interface ProjectProps {
 
 const ProjectCardFull = ({ title, desc, company }: ProjectProps) => {
   return (
-    <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6"
+    >
       <div className="flex flex-col lg:flex-row w-full gap-6">
         <img
           src="/"
@@ -45,7 +51,7 @@ const ProjectCardFull = ({ title, desc, company }: ProjectProps) => {
           className="w-full h-[175px] bg-gray-200 object-cover rounded-xl"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

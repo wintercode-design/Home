@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Container from "../base/Container";
 import Badge from "../ui/Badge";
 import ButtonOpt from "../ui/Button";
+import { useTranslations } from "@/hooks/useMessages";
 
 interface serviceProps {
   service: {
@@ -23,6 +25,11 @@ interface serviceProps {
 }
 
 const Services = ({ revers, service }: serviceProps) => {
+  const t = useTranslations(`ServicesPage.${service.title.split(".")[0]}`);
+  console.log(
+    `ServicesPage.${service.title.split(".")[0]}`,
+    t(service.title.split(".")[1])
+  );
   return (
     <Container
       className={`flex flex-col gap-6 py-[50px] ${
@@ -31,18 +38,18 @@ const Services = ({ revers, service }: serviceProps) => {
     >
       <img
         src={service.imgurl}
-        alt={service.title}
+        alt={t(service.title.split(".")[1])}
         className="w-full max-h-[465px] rounded-xl bg-gray-200"
       />
       <div className="flex flex-col gap-6 w-full">
         <div className="flex flex-col gap-3">
-          <h3>{service.title}</h3>
+          <h3>{t(service.title.split(".")[1])}</h3>
           {service.text.map((text, key) => (
-            <p key={key}>{text}</p>
+            <p key={key}>{t(text.split(".")[1])}</p>
           ))}
         </div>
         <div className="flex flex-col gap-3">
-          <h5>{service.subTitle}</h5>
+          <h5>{t(service.subTitle.split(".")[1])}</h5>
           <div className="flex flex-wrap gap-2">
             {service.icons.map((item, key) => {
               return (
@@ -68,14 +75,17 @@ const Services = ({ revers, service }: serviceProps) => {
                         | null
                     }
                   />
-                  <p className="w-[200px]">{item.title}</p>
+                  <p className="w-[200px]">{t(item.title.split(".")[1])}</p>
                 </li>
               );
             })}
           </div>
         </div>
         <div>
-          <ButtonOpt title={service.detail.linkTitle} icon={"arrow"} />
+          <ButtonOpt
+            title={t(service.detail.linkTitle.split(".")[1])}
+            icon={"arrow"}
+          />
         </div>
       </div>
     </Container>

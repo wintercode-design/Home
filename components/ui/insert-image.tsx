@@ -21,6 +21,8 @@ import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { get } from "http";
 import { Image } from "phosphor-react";
+import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -30,24 +32,25 @@ interface Props {
   onChange: (image: string, caption?: string) => void;
 }
 
-const formSchema = z.object({
-  file: z
-    .instanceof(File, { message: "Veuillez importer une image" })
-    .refine((file) => file.size <= MAX_FILE_SIZE, {
-      message: "La taille maximale est de 2MB",
-    })
-    .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
-      message: "Seuls .jpg, .png et .webp sont acceptés",
-    }),
-  caption: z.string().optional(),
-});
-
 function InsertImage({ image, onChange }: Props) {
+  const t = useTranslations("Common");
   const [open, setOpen] = React.useState(false);
   const [preview, setPreview] = React.useState<string | undefined>(image);
   const [imageDescription, setImageDescription] = React.useState<
     string | undefined
   >();
+
+  const formSchema = z.object({
+    file: z
+      .instanceof(File, { message: t("imageUpload.pleaseImportImage") })
+      .refine((file) => file.size <= MAX_FILE_SIZE, {
+        message: t("imageUpload.maxSize2MB"),
+      })
+      .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
+        message: t("imageUpload.onlyJpgPngWebp"),
+      }),
+    caption: z.string().optional(),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -70,12 +73,12 @@ function InsertImage({ image, onChange }: Props) {
       );
     },
     onSuccess: (response) => {
-      alert("Image enregistrée avec succès !");
+      alert(t("imageUpload.successMessage"));
       onChange(response.data, imageDescription);
       setOpen(false);
     },
     onError: () => {
-      alert("Erreur lors de l'enregistrement de l'image.");
+      alert(t("imageUpload.errorMessage"));
     },
   });
 
@@ -103,83 +106,94 @@ function InsertImage({ image, onChange }: Props) {
   }, [open]);
 
   return (
-    <div>
-      <button
-        type="button"
-        className="p-2 rounded border w-10 h-10 flex justify-center items-center "
-        onClick={() => setOpen(true)}
-      >
-        <Image />
-      </button>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+      className="...your existing container classes..."
+    >
+      <div>
+        <button
+          type="button"
+          className="p-2 rounded border w-10 h-10 flex justify-center items-center "
+          onClick={() => setOpen(true)}
+        >
+          <Image />
+        </button>
 
-      {open && (
-        <dialog className="fixed left-1/2 top-1/2 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-md w-full max-w-md relative">
-            <button
-              className="absolute top-2 right-2 text-xl"
-              onClick={() => setOpen(false)}
-            >
-              &times;
-            </button>
-            <h2 className="text-2xl font-bold mb-2">Insérer une image</h2>
-            <div
-              //   onSubmit={form.handleSubmit(onSubmit)}
-              className="flex flex-col gap-4"
-            >
-              {preview && (
-                <div className="flex justify-center">
-                  <img
-                    src={preview}
-                    alt="Prévisualisation"
-                    className="h-32 w-full object-cover"
-                  />
-                </div>
-              )}
-
-              <div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  className="w-full"
-                />
-                {form.formState.errors.file && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {form.formState.errors.file.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="block mb-1 text-sm font-medium">
-                  Description (optionnelle)
-                </label>
-                <input
-                  type="text"
-                  {...form.register("caption")}
-                  placeholder="Légende de l'image"
-                  className="border rounded w-full p-2"
-                />
-                {form.formState.errors.caption && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {form.formState.errors.caption.message}
-                  </p>
-                )}
-              </div>
-
+        {open && (
+          <dialog className="fixed left-1/2 top-1/2 bg-black bg-opacity-30 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded shadow-md w-full max-w-md relative">
               <button
-                // type="submit"
-                onClick={() => onSubmit(form.getValues())}
-                disabled={uploadImage.isPending}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                className="absolute top-2 right-2 text-xl"
+                onClick={() => setOpen(false)}
               >
-                {uploadImage.isPending ? "Chargement..." : "Insérer l'image"}
+                &times;
               </button>
+              <h2 className="text-2xl font-bold mb-2">
+                {t("imageUpload.insertImage")}
+              </h2>
+              <div
+                //   onSubmit={form.handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
+                {preview && (
+                  <div className="flex justify-center">
+                    <img
+                      src={preview}
+                      alt={t("imageUpload.preview")}
+                      className="h-32 w-full object-cover"
+                    />
+                  </div>
+                )}
+
+                <div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="w-full"
+                  />
+                  {form.formState.errors.file && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {form.formState.errors.file.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block mb-1 text-sm font-medium">
+                    {t("imageUpload.descriptionOptional")}
+                  </label>
+                  <input
+                    type="text"
+                    {...form.register("caption")}
+                    placeholder={t("imageUpload.imageCaption")}
+                    className="border rounded w-full p-2"
+                  />
+                  {form.formState.errors.caption && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {form.formState.errors.caption.message}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  // type="submit"
+                  onClick={() => onSubmit(form.getValues())}
+                  disabled={uploadImage.isPending}
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                >
+                  {uploadImage.isPending
+                    ? t("imageUpload.loading")
+                    : t("imageUpload.insertImage")}
+                </button>
+              </div>
             </div>
-          </div>
-        </dialog>
-      )}
-    </div>
+          </dialog>
+        )}
+      </div>
+    </motion.div>
   );
 }
 

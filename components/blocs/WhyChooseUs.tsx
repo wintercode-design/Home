@@ -6,9 +6,11 @@ import Accordion from "../ui/Accordion";
 import FaqQuery from "@/queries/faq";
 import { FaqT } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslations } from "@/hooks/useMessages";
 
 const WhyChooseUs = () => {
   const faqQuery = new FaqQuery();
+  const t = useTranslations("HomePage.whyChooseUs");
   const [selectedCategory, setSelectedCategory] =
     useState<string>("General & Services");
 
@@ -20,37 +22,32 @@ const WhyChooseUs = () => {
   // Predefined categories for home page (keeping original design)
   const predefinedCategories = [
     {
-      title: "Full Customization",
-      description:
-        "We offer fully customized solutions tailored to your specific needs.",
+      title: t("fullCustomization.title"),
+      description: t("fullCustomization.description"),
       icon: "figma" as const,
       backendCategory: "General & Services",
     },
     {
-      title: "24/7 Support",
-      description:
-        "Our dedicated support team is available around the clock to assist you.",
+      title: t("support.title"),
+      description: t("support.description"),
       icon: "service" as const,
       backendCategory: "General & Services",
     },
     {
-      title: "Agile Development",
-      description:
-        "We follow agile methodologies to ensure timely delivery and flexibility.",
+      title: t("agileDevelopment.title"),
+      description: t("agileDevelopment.description"),
       icon: "process" as const,
       backendCategory: "Technical",
     },
     {
-      title: "Business Growth",
-      description:
-        "Our solutions are designed to help your business grow and succeed.",
+      title: t("businessGrowth.title"),
+      description: t("businessGrowth.description"),
       icon: "business" as const,
       backendCategory: "Working With WinterCode",
     },
     {
-      title: "Affordable Pricing",
-      description:
-        "We offer competitive pricing without compromising on quality.",
+      title: t("affordablePricing.title"),
+      description: t("affordablePricing.description"),
       icon: "pricing" as const,
       backendCategory: "Pricing & Payment",
     },
@@ -80,11 +77,9 @@ const WhyChooseUs = () => {
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Why Choose Us"}
-        sectionSubtitle={"Why Choose WinterCode"}
-        sectionDescription={
-          "Why should you work with us at wintercode and what do you benefit"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="flex flex-col-reverse lg:flex-row gap-14">
@@ -121,11 +116,7 @@ const WhyChooseUs = () => {
                   ))}
                 </div>
               ) : (
-                <p>
-                  {
-                    "We don't believe in one-size-fits-all. Every solution we build is crafted to reflect your brand's unique goals, industry, and customer base. From visuals to backend logic, you stay in control."
-                  }
-                </p>
+                <p>{t("defaultDescription")}</p>
               )}
             </div>
             <img

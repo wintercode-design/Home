@@ -2,19 +2,20 @@ import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import Badge from "../ui/Badge";
+import { useTranslations } from "@/hooks/useMessages";
 
 const ToolsUsed = () => {
+  const t = useTranslations("Common.tools");
+
   return (
     <Container
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Our tools"}
-        sectionSubtitle={"Some of our main tools"}
-        sectionDescription={
-          "Great and reliable software demand good and reliable tools to develop them, here ar some of the tools we use in our development process"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="flex flex-col justify-center items-center gap-6">

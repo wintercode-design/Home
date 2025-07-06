@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import { motion } from "framer-motion";
 
 type EditButtonProps = {
   size?: "icon" | "default";
@@ -26,8 +27,15 @@ const Button = ({
       : "bg-blue-500 text-white";
 
   return (
-    <button
-      // disabled={disabled}
+    <motion.button
+      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        ease: [0.42, 0, 0.58, 1],
+      }}
       type="button"
       onClick={(e) => onClick(e)}
       className={clsx(
@@ -38,7 +46,7 @@ const Button = ({
       )}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

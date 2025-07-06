@@ -11,9 +11,15 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
+import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const page = () => {
   const blogQuery = new BlogQuery();
+  const t = useTranslations("BlogPage");
+  const loadingT = useTranslations("Common");
+  const navT = useTranslations("Navigation");
+
   const blogs = useQuery({
     queryKey: ["getCategories"],
     queryFn: async () => {
@@ -44,33 +50,46 @@ const page = () => {
   };
 
   if (blogs.isLoading) {
-    return <Loading status="loading" message="Loading blogs..." />;
+    return <Loading status="loading" message={loadingT("loading")} />;
   }
 
   if (blogs.isError) {
-    return <Loading status="failed" message="Failed to load blogs" />;
+    return <Loading status="failed" message={loadingT("loadFailed")} />;
   }
 
   return (
     <>
-      <PageIntro
-        title="Blog"
-        img="/titles/blog.webp"
-        links={[
-          { title: "Home", link: "/" },
-          { title: "Blog", link: "/blog" },
-        ]}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <PageIntro
+          title={navT("blog")}
+          img="/titles/blog.webp"
+          links={[
+            { key: "home", title: navT("home"), link: "/" },
+            { key: "blog", title: navT("blog"), link: "/blog" },
+          ]}
+        />
+      </motion.div>
       <main>
         <Container className="flex flex-col md:flex-row justify-center items-start gap-[50px] py-[100px]">
-          <div className="w-full px-6 md:px-0 md:w-1/4 flex flex-col gap-10">
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+            className="w-full px-6 md:px-0 md:w-1/4 flex flex-col gap-10"
+          >
             <div className="flex px-3 py-2 rounded-full w-full bg-[#373C44] gap-2">
               <MyIcons value="lens" />
-              <input type="text" placeholder="Search" className="w-full" />
+              <input type="text" placeholder={t("search")} className="w-full" />
             </div>
 
             <div className="flex flex-col gap-6 px-4 py-3 rounded-2xl w-full md:bg-[#373C44]">
-              <h4>{"Categories"}</h4>
+              <h4>{t("categories")}</h4>
 
               <div className="flex flex-wrap md:flex-col gap-2">
                 <span
@@ -83,7 +102,7 @@ const page = () => {
                     alt={"/"}
                     className="h-8 w-8 rounded-full bg-gray-200"
                   />
-                  <h6>All</h6>
+                  <h6>{t("all")}</h6>
                 </span>
                 {blogs.data &&
                   getUniqueCategories().map((category, index: number) => {
@@ -107,7 +126,7 @@ const page = () => {
             </div>
 
             <div className="hidden md:flex flex-col gap-6 px-4 py-3 rounded-2xl w-full bg-[#373C44]">
-              <h4>{"Top Posts"}</h4>
+              <h4>{t("topPosts")}</h4>
 
               <div className="flex flex-col gap-2">
                 {blogs.isSuccess &&
@@ -146,11 +165,17 @@ const page = () => {
                 />
               ))}
             </div>
-          </div>
-          <div className="w-full justify-center items-center md:w-3/4 flex flex-col gap-10">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+            className="w-full justify-center items-center md:w-3/4 flex flex-col gap-10"
+          >
             <div className="w-fit p-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               {blogs.isSuccess &&
-                filteredBlogs.map((blog, index: number) => {
+                filteredBlogs.map((blog, index) => {
                   return <BlogCard key={index} {...blog} />;
                 })}
             </div>
@@ -161,10 +186,17 @@ const page = () => {
               ))}
               <Badge icon={"next"} />
             </div> */}
-          </div>
+          </motion.div>
         </Container>
 
-        <StartNewProject />
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+        >
+          <StartNewProject />
+        </motion.div>
       </main>
     </>
   );

@@ -5,10 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ButtonOpt from "../ui/Button";
 import Container from "./Container";
+import { useTranslations } from "@/hooks/useMessages";
+import LanguageSelector from "../ui/LanguageSelector";
 
 const Navbar = ({ local }: { local: string }) => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,26 +52,22 @@ const Navbar = ({ local }: { local: string }) => {
 
           <div className="flex justify-center items-center py-3 gap-3">
             {[
-              "Home",
-              "About",
-              "Services",
-              "Portfolio",
-              "Pricing",
-              "Blog",
-              "FAQs",
+              { key: "home", path: "/" },
+              { key: "about", path: "/about" },
+              { key: "services", path: "/services" },
+              { key: "portfolio", path: "/portfolio" },
+              { key: "pricing", path: "/pricing" },
+              { key: "blog", path: "/blog" },
+              { key: "faqs", path: "/faqs" },
             ].map((item, key) => {
               const active =
-                pathname.includes(item.toLowerCase()) ||
-                (item === "Home" ? pathname === `/${local}` : false);
+                pathname.includes(item.key) ||
+                (item.key === "home" ? pathname === "/" : false);
 
               return (
-                <Link
-                  href={`/${key === 0 ? "/" : item.toLowerCase()}`}
-                  key={key}
-                >
+                <Link href={item.path} key={key}>
                   <ButtonOpt
-                    key={key}
-                    title={item}
+                    title={t(item.key)}
                     isNav={true}
                     isSelected={active}
                   />
@@ -77,7 +76,7 @@ const Navbar = ({ local }: { local: string }) => {
             })}
             <Link href={`/contact`}>
               <ButtonOpt
-                title="Contact"
+                title={t("contact")}
                 fill={true}
                 isNav={true}
                 icon={"contact"}
@@ -85,12 +84,13 @@ const Navbar = ({ local }: { local: string }) => {
             </Link>
             <Link href={`/quote`}>
               <ButtonOpt
-                title="Start a project"
+                title={t("quote")}
                 isNav={true}
                 icon={"quote"}
                 custom="outline-[1px] rounded-full"
               />
             </Link>
+            <LanguageSelector />
           </div>
         </nav>
 
@@ -146,27 +146,27 @@ const Navbar = ({ local }: { local: string }) => {
               }
             >
               {[
-                "Home",
-                "About",
-                "Services",
-                "Portfolio",
-                "Pricing",
-                "Blog",
-                "FAQs",
+                { key: "home", path: "/" },
+                { key: "about", path: "/about" },
+                { key: "services", path: "/services" },
+                { key: "portfolio", path: "/portfolio" },
+                { key: "pricing", path: "/pricing" },
+                { key: "blog", path: "/blog" },
+                { key: "faqs", path: "/faqs" },
               ].map((item, key) => {
                 const active =
-                  pathname.includes(item.toLowerCase()) ||
-                  (item === "Home" ? pathname === `/${local}` : false);
+                  pathname.includes(item.key) ||
+                  (item.key === "home" ? pathname === "/" : false);
 
                 return (
                   <Link
-                    href={`/${key === 0 ? "/" : item.toLowerCase()}`}
+                    href={item.path}
                     key={key}
                     onClick={() => setIsOpen(false)}
                     className="container"
                   >
                     <ButtonOpt
-                      title={item}
+                      title={t(item.key)}
                       isNav={true}
                       isSelected={active}
                       custom="w-full! py-3"
@@ -180,7 +180,7 @@ const Navbar = ({ local }: { local: string }) => {
                 className="w-full container"
               >
                 <ButtonOpt
-                  title="Contact"
+                  title={t("contact")}
                   custom="w-full!"
                   fill={true}
                   isNav={true}
@@ -193,12 +193,15 @@ const Navbar = ({ local }: { local: string }) => {
                 className="w-full container"
               >
                 <ButtonOpt
-                  title="Start a project"
+                  title={t("quote")}
                   isNav={true}
                   icon="quote"
                   custom="w-full outline-[1px] rounded-full"
                 />
               </Link>
+              <div className="w-full flex justify-center mt-4">
+                <LanguageSelector />
+              </div>
             </div>
           )}
         </nav>

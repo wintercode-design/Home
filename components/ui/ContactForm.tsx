@@ -5,6 +5,7 @@ import ContactQuery from "@/queries/contact";
 import { Contact } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
 import Loading from "./Loading";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   const contactQuery = new ContactQuery();
@@ -61,7 +62,10 @@ const ContactForm = () => {
   }
 
   return (
-    <form
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
       onSubmit={handleSubmit}
       className="flex flex-col gap-6 max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl"
     >
@@ -147,7 +151,7 @@ const ContactForm = () => {
           Reset
         </button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

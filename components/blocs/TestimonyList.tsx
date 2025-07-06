@@ -8,9 +8,12 @@ import ReviewQuery from "@/queries/review";
 import { Review } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../ui/Loading";
+import { useTranslations } from "@/hooks/useMessages";
 
 const TestimonyList = () => {
   const reviewQuery = new ReviewQuery();
+  const t = useTranslations("HomePage.testimonials");
+  const loadingT = useTranslations("Common");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
 
   const reviews = useQuery({
@@ -36,11 +39,11 @@ const TestimonyList = () => {
   };
 
   if (reviews.isLoading) {
-    return <Loading status="loading" message="Loading testimonials..." />;
+    return <Loading status="loading" message={loadingT("loading")} />;
   }
 
   if (reviews.isError) {
-    return <Loading status="failed" message="Failed to load testimonials" />;
+    return <Loading status="failed" message={loadingT("loadFailed")} />;
   }
 
   const currentReview = reviews.data?.[currentReviewIndex];
@@ -51,11 +54,9 @@ const TestimonyList = () => {
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Testimonials"}
-        sectionSubtitle={"Real Success, Real People"}
-        sectionDescription={
-          "A happy partner is the key to our success. Your Satisfaction our priority"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="flex flex-col justify-center items-center gap-6">

@@ -1,0 +1,355 @@
+{
+  "Pages": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "quote": "Angebot einholen",
+    "ready": {
+      "yes": "ja"
+    }
+  },
+  "HomePage": {
+    "title": "Wintercode Design Studio",
+    "hero": {
+      "title": "Individuelle Softwarelösungen",
+      "subtitle": "Innovative digitale Lösungen für Unternehmen",
+      "description": "Wir erstellen maßgeschneiderte Softwarelösungen für Ihre Geschäftsanforderungen",
+      "cta": "Projekt starten",
+      "contactCta": "Kontaktieren Sie uns",
+      "startProjectCta": "Projekt starten"
+    },
+    "services": {
+      "title": "Dienstleistungen",
+      "subtitle": "Unsere Dienstleistungen",
+      "description": "Die besten digitalen Lösungen vor Ihrer Haustür. Stärken Sie Ihr Unternehmen mit digitalen Lösungen",
+      "webDevelopment": "Webentwicklung",
+      "webDevelopmentDesc": "Professionelle Websites mit Fokus auf Leistung und Design.",
+      "erpSystems": "ERP-Systeme",
+      "erpSystemsDesc": "Maßgeschneiderte Geschäftssoftware zur Optimierung Ihrer Abläufe.",
+      "ecommerce": "E-Commerce",
+      "ecommerceDesc": "Robuste Online-Shops mit sicherer Zahlungsintegration.",
+      "hostingDomain": "Hosting & Domain",
+      "hostingDomainDesc": "Zuverlässige Webhosting- und Domainregistrierungspakete.",
+      "readMore": "Mehr lesen",
+      "viewMore": "Weitere Dienstleistungen Anzeigen"
+    },
+    "portfolio": {
+      "title": "Portfolio/Projekte",
+      "subtitle": "Unsere Expertise durch Ergebnisse",
+      "description": "Schauen Sie sich einige unserer besten Leistungen der letzten Jahre an",
+      "viewMore": "Weitere Projekte Anzeigen"
+    },
+    "news": {
+      "title": "Unsere Neuesten Nachrichten",
+      "subtitle": "Wir halten Sie auf dem Laufenden",
+      "description": "Hier finden Sie Auszüge unserer neuesten Aktivitäten und Nachrichten im Bereich",
+      "viewMore": "Weitere Nachrichten Anzeigen"
+    },
+    "faq": {
+      "title": "Häufig Gestellte Fragen",
+      "subtitle": "Erhalten Sie Antworten auf häufige Fragen",
+      "description": "Finden Sie Antworten auf die am häufigsten gestellten Fragen zu unseren Dienstleistungen"
+    },
+    "whyChooseUs": {
+      "title": "Warum Uns Wählen",
+      "subtitle": "Warum WinterCode Wählen",
+      "description": "Warum sollten Sie mit uns bei wintercode arbeiten und was haben Sie davon",
+      "fullCustomization": {
+        "title": "Vollständige Anpassung",
+        "description": "Wir bieten vollständig angepasste Lösungen, die auf Ihre spezifischen Bedürfnisse zugeschnitten sind."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Unser engagiertes Support-Team steht rund um die Uhr zur Verfügung, um Ihnen zu helfen."
+      },
+      "agileDevelopment": {
+        "title": "Agile Entwicklung",
+        "description": "Wir folgen agilen Methoden, um pünktliche Lieferung und Flexibilität zu gewährleisten."
+      },
+      "businessGrowth": {
+        "title": "Geschäftswachstum",
+        "description": "Unsere Lösungen sind darauf ausgelegt, Ihrem Unternehmen beim Wachstum und Erfolg zu helfen."
+      },
+      "affordablePricing": {
+        "title": "Erschwingliche Preise",
+        "description": "Wir bieten wettbewerbsfähige Preise ohne Kompromisse bei der Qualität."
+      },
+      "defaultDescription": "Wir glauben nicht an Einheitslösungen. Jede Lösung, die wir entwickeln, ist darauf ausgerichtet, die einzigartigen Ziele Ihrer Marke, Ihre Branche und Ihre Kundenbasis widerzuspiegeln. Von der Optik bis zur Backend-Logik behalten Sie die Kontrolle."
+    },
+    "startProject": {
+      "title": "Jetzt starten",
+      "subtitle": "Lassen Sie uns gemeinsam Ihr nächstes Projekt realisieren.",
+      "description": "Kontaktieren Sie uns und erhalten Sie Ihre eigene maßgeschneiderte Website, um Ihr Unternehmen zum Erfolg zu führen",
+      "startProject": "Projekt starten",
+      "contactForDetails": "Kontaktieren Sie uns für Details"
+    },
+    "contactInfo": {
+      "title": "Kontaktieren Sie uns",
+      "subtitle": "Lassen Sie uns gemeinsam etwas Großartiges schaffen.",
+      "description": "Kontaktieren Sie uns — wir freuen uns darauf, von Ihrem Projekt zu hören",
+      "contactInformation": "Kontaktinformationen"
+    },
+    "coreValues": {
+      "title": "Unsere Kernwerte",
+      "subtitle": "Unsere Kernwerte",
+      "description": "Die Werte, auf denen wintercode steht und anderen Unternehmen beim Wachstum hilft",
+      "integrity": {
+        "title": "Integrität",
+        "description": "Wir halten die höchsten Standards der Integrität in all unseren Handlungen ein."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Wir streben danach, kontinuierlich zu innovieren und uns zu verbessern."
+      },
+      "customerCentricity": {
+        "title": "Kundenorientierung",
+        "description": "Wir stellen unsere Kunden in den Mittelpunkt alles, was wir tun."
+      },
+      "collaboration": {
+        "title": "Zusammenarbeit",
+        "description": "Wir glauben an die Kraft von Teamwork und Zusammenarbeit."
+      }
+    },
+    "missionVision": {
+      "title": "Unsere Mission & Vision",
+      "subtitle": "Unsere Mission & Vision",
+      "description": "Warum sollten Sie mit uns bei wintercode arbeiten und was haben Sie davon",
+      "mission": {
+        "title": "Unsere Mission",
+        "description": "Unsere Mission ist es, Unternehmen mit modernsten, maßgeschneiderten digitalen Tools zu stärken, die Wachstum fördern, Abläufe vereinfachen und neue Möglichkeiten eröffnen."
+      },
+      "vision": {
+        "title": "Unsere Vision",
+        "description": "Wir stellen uns ein digital-first Afrika vor, in dem jedes Unternehmen — klein oder groß — durch intelligente, zugängliche und zuverlässige Technologie gedeihen kann."
+      }
+    },
+    "partners": {
+      "title": "Partner",
+      "subtitle": "Sie vertrauen uns",
+      "description": "Warum sollten Sie mit uns bei wintercode arbeiten und was haben Sie davon"
+    },
+    "testimonials": {
+      "title": "Kundenbewertungen",
+      "subtitle": "Echter Erfolg, Echte Menschen",
+      "description": "Ein glücklicher Partner ist der Schlüssel zu unserem Erfolg. Ihre Zufriedenheit unsere Priorität"
+    }
+  },
+  "AboutPage": {
+    "aboutBadge": "Über wintercode",
+    "title": "Erbauer Ihrer digitalen Zukunft.",
+    "description1": "Bei WinterCode bauen wir nicht nur Websites und Systeme. Wir schaffen Erfahrungen, lösen Probleme und fördern Wachstum durch Innovation, Leidenschaft und Technologie.",
+    "description2": "Von unserer ersten Codezeile bis zu unserem neuesten Projektstart bleibt eines konstant: ein tiefes Engagement, Unternehmen dabei zu helfen, im digitalen Zeitalter zu gedeihen.",
+    "description3": "Ob Sie ein Startup, ein wachsendes KMU oder eine etablierte Marke sind, WinterCode wird Teil Ihrer Reise — Ihre Herausforderungen werden zu unserer Mission, Ihre Träume zu unserem Plan.",
+    "contactUs": "Kontaktieren Sie uns",
+    "missionVision": {
+      "title": "Unsere Mission & Vision",
+      "subtitle": "Unsere Mission & Vision",
+      "description": "Warum sollten Sie mit uns bei wintercode arbeiten und was haben Sie davon",
+      "mission": {
+        "title": "Unsere Mission",
+        "description": "Unsere Mission ist es, Unternehmen mit modernsten, maßgeschneiderten digitalen Tools zu stärken, die Wachstum fördern, Abläufe vereinfachen und neue Möglichkeiten eröffnen."
+      },
+      "vision": {
+        "title": "Unsere Vision",
+        "description": "Wir stellen uns ein digital-first Afrika vor, in dem jedes Unternehmen — klein oder groß — durch intelligente, zugängliche und zuverlässige Technologie gedeihen kann."
+      }
+    },
+    "team": {
+      "title": "Team",
+      "subtitle": "Die Menschen Hinter WinterCode",
+      "description": "Unsere Stärke liegt in unseren Menschen. Jedes Projekt wird von talentierten Fachleuten bearbeitet, die leidenschaftlich an Technologie, Kreativität und Kundenerfolg interessiert sind."
+    },
+    "achievements": {
+      "title": "Erfolge",
+      "subtitle": "WinterCode in Zahlen",
+      "description": "Seit der Gründung von winter code haben wir zum Wachstum mehrerer Unternehmen beigetragen",
+      "years": {
+        "number": "4+",
+        "title": "Jahre",
+        "subtitle": "Erfahrung"
+      },
+      "projects": {
+        "number": "8+",
+        "title": "Projekte",
+        "subtitle": "Websites | ERP | E-Commerce"
+      },
+      "clients": {
+        "number": "5+",
+        "title": "Kunden",
+        "subtitle": "Unternehmen | Business | Privatpersonen"
+      },
+      "comingSoon": {
+        "number": "4+",
+        "title": "Demnächst verfügbar",
+        "subtitle": "Software | Websites | Insights"
+      }
+    }
+  },
+  "ServicesPage": {
+    "webDevelopment": {
+      "title": "Webentwicklung",
+      "description1": "Bei WinterCode Design erstellen wir visuell beeindruckende, benutzerorientierte Websites, die darauf zugeschnitten sind, die Identität Ihrer Marke widerzuspiegeln und Ihre Zielgruppe zu erreichen. Unser Webdesign-Service geht über die Ästhetik hinaus — wir konzentrieren uns auf saubere, moderne Layouts, nahtlose Benutzererfahrung (UX) und responsive Schnittstellen, die auf jedem Gerät großartig aussehen.",
+      "description2": "Ob Sie eine neue Marke lancieren oder Ihre Online-Präsenz überarbeiten, unser Design-Ansatz stellt sicher, dass Ihre Website nicht nur schön, sondern auch funktional, intuitiv und konversionsorientiert ist.",
+      "keyFeatures": "Hauptmerkmale",
+      "customDesign": "Maßgeschneidertes Design (keine Vorlagen, außer auf Anfrage)",
+      "fastLoadTimes": "Blitzschnelle Ladezeiten",
+      "mobileResponsive": "Vollständige mobile Reaktionsfähigkeit",
+      "seoBestPractices": "SEO-Best-Practices integriert",
+      "easyCMS": "Einfach zu verwaltendes CMS (WordPress, Strapi oder Custom)",
+      "discoverPackages": "Entdecken Sie unsere Website-Pakete"
+    },
+    "ecommerce": {
+      "title": "E-Commerce-Lösungen",
+      "description1": "Bei WinterCode Design erstellen wir elegante, sichere und skalierbare E-Commerce-Websites, die Unternehmen dabei helfen, mühelos online zu verkaufen. Ob Sie eine Boutique lancieren oder einen vollständigen Online-Shop skalieren, unsere E-Commerce-Lösungen sind darauf ausgelegt, Besucher mit Leichtigkeit zu zahlenden Kunden zu konvertieren.",
+      "description2": "Wir konzentrieren uns darauf, nahtlose Einkaufserlebnisse zu liefern — von intuitiver Produktnavigation bis zu reibungslosen Checkout-Flows — alles auf Ihre Marke und Ihren Markt zugeschnitten. Unser Team stellt sicher, dass Ihr Shop nicht nur schön, sondern auch schnell, mobilfreundlich und einfach im Backend zu verwalten ist.",
+      "scheduleConsultation": "Kostenlose E-Commerce-Beratung vereinbaren"
+    },
+    "erpSystems": {
+      "title": "ERP-Systementwicklung",
+      "description1": "Bei WinterCode Design bauen wir vollständig maßgeschneiderte ERP-Systeme, die Unternehmen dabei helfen, ihre Abläufe zu rationalisieren, ihre Daten zu zentralisieren und ihre Arbeitsabläufe zu automatisieren — alles in einer sicheren, modernen Plattform.",
+      "description2": "Von der Idee bis zur Ausführung übernehmen wir den vollständigen Lebenszyklus: Geschäftsprozessanalyse, UX/UI-Design, Backend-Entwicklung, Datenbankarchitektur, API-Integration und rollenbasierte Dashboards. Ob Sie ein einfaches internes Tool oder eine vollständige Unternehmenslösung benötigen, wir passen Ihr ERP-System an Ihre genauen Geschäftsanforderungen an — und machen es intuitiv, skalierbar und zukunftssicher.",
+      "scheduleConsultation": "Kostenlose ERP-Beratung vereinbaren"
+    }
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "pricing": "Preise",
+    "faqs": "FAQ",
+    "quote": "Angebot Einholen"
+  },
+  "Footer": {
+    "quickLinks": "Schnelllinks",
+    "startProject": "Projekt starten",
+    "copyright": "© 2024 Wintercode Design. Alle Rechte vorbehalten.",
+    "description": "WinterCode ist Ihr vertrauenswürdiger Partner für maßgeschneiderte Web-Lösungen, ERP-Systeme, E-Commerce und Hosting-Services in Afrika und darüber hinaus.",
+    "contactInfo": "Kontaktinformationen",
+    "stayConnected": "Verbunden Bleiben",
+    "newsletterDescription": "Abonnieren Sie unseren Newsletter und erhalten Sie die neuesten Tech-Tipps, Brancheneinblicke und Projekt-Updates direkt in Ihren Posteingang.",
+    "subscribing": "Anmeldung...",
+    "register": "Registrieren"
+  },
+  "Common": {
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "readMore": "Weiterlesen",
+    "viewMore": "Mehr anzeigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "loadFailed": "Daten konnten nicht geladen werden",
+    "loadSuccess": "Daten erfolgreich geladen",
+    "tools": {
+      "title": "Unsere Tools",
+      "subtitle": "Einige unserer wichtigsten Tools",
+      "description": "Großartige und zuverlässige Software erfordert gute und zuverlässige Tools zur Entwicklung. Hier sind einige der Tools, die wir in unserem Entwicklungsprozess verwenden"
+    },
+    "imageUpload": {
+      "insertImage": "Bild einfügen",
+      "pleaseImportImage": "Bitte importieren Sie ein Bild",
+      "maxSize2MB": "Maximale Größe ist 2MB",
+      "onlyJpgPngWebp": "Nur .jpg, .png und .webp werden akzeptiert",
+      "successMessage": "Bild erfolgreich gespeichert!",
+      "errorMessage": "Fehler beim Speichern des Bildes.",
+      "preview": "Vorschau",
+      "descriptionOptional": "Beschreibung (optional)",
+      "imageCaption": "Bildunterschrift"
+    }
+  },
+  "BlogPage": {
+    "search": "Suchen",
+    "categories": "Kategorien",
+    "all": "Alle",
+    "topPosts": "Top-Beiträge"
+  },
+  "FAQPage": {
+    "title": "FAQ",
+    "subtitle": "Haben Sie Fragen? Wir sind für Sie da",
+    "description": "Erhalten Sie Hilfe für alle Ihre Fragen, wir hoffen, dass dies für Sie hilfreich ist",
+    "noFaqsFound": "Keine FAQs für diese Kategorie gefunden. Bitte überprüfen Sie eine andere Kategorie oder kontaktieren Sie uns für weitere Informationen.",
+    "categories": {
+      "general": {
+        "title": "Allgemein & Services",
+        "description": "Fragen zu unseren allgemeinen Dienstleistungen"
+      },
+      "pricing": {
+        "title": "Preise & Zahlung",
+        "description": "Unsere Preise und Zahlungen"
+      },
+      "technical": {
+        "title": "Technisch",
+        "description": "Schnelle Iterationen und schnelle Lieferung"
+      },
+      "security": {
+        "title": "Sicherheit & Eigentum",
+        "description": "Wir sprechen sowohl Tech als auch Business"
+      },
+      "working": {
+        "title": "Arbeiten Mit WinterCode",
+        "description": "Hochwertiger Service innerhalb des Budgets"
+      }
+    }
+  },
+  "QuotePage": {
+    "title": "Angebot erhalten",
+    "subtitle": "Lassen Sie uns über Ihr Projekt sprechen",
+    "description": "Erzählen Sie uns von Ihrem Projekt und wir erstellen Ihnen ein maßgeschneidertes Angebot",
+    "steps": {
+      "basicInfo": "Grundinformationen",
+      "businessOverview": "Geschäftsübersicht",
+      "projectGoals": "Projektziele & Zweck",
+      "designPreferences": "Design-Präferenzen",
+      "competitors": "Wettbewerber & Inspiration",
+      "budgetTimeline": "Budget & Zeitplan",
+      "additionalComments": "Zusätzliche Kommentare"
+    },
+    "form": {
+      "companyName": "Firmenname",
+      "contactPerson": "Kontaktperson (Vollständiger Name)",
+      "phone": "Telefonnummer",
+      "email": "E-Mail-Adresse",
+      "location": "Standort (Stadt & Land)",
+      "hasWebsite": "Haben Sie bereits eine Website?",
+      "yes": "Ja",
+      "no": "Nein",
+      "websitePlaceholder": "Geben Sie den Link zu Ihrer aktuellen Website ein",
+      "businessDescription": "Beschreiben Sie kurz Ihr Unternehmen: Was machen Sie? Was macht Sie einzigartig?",
+      "targetAudience": "Wer ist Ihre Zielgruppe oder Ihr idealer Kunde? (z.B. junge Fachkräfte, Studenten, Unternehmenskunden, etc.)",
+      "products": "Welche Produkte/Dienstleistungen bieten Sie an?",
+      "mainPurpose": "Was ist der Hauptzweck dieser Website?",
+      "goals": {
+        "onlinePresence": "Online-Präsenz aufbauen / Unternehmenspräsentation",
+        "generateLeads": "Leads oder Anfragen generieren",
+        "ecommerce": "Produkte online verkaufen (E-Commerce)",
+        "bookings": "Buchungen oder Reservierungen",
+        "educational": "Bildungsplattform oder Blog",
+        "other": "Andere"
+      },
+      "otherGoalPlaceholder": "Anderes Ziel",
+      "priorities": "Was sind Ihre Top 3 Prioritäten für dieses Projekt?",
+      "designLikes": "Gibt es Designstile, Farben oder Funktionen, die Sie mögen?",
+      "designDislikes": "Gibt es Designstile, Farben oder Funktionen, die Sie nicht mögen?",
+      "colorPreferences": "Bevorzugte Farbpalette (falls vorhanden):",
+      "referenceWebsites": "Gibt es Websites, die Sie bewundern oder als Referenz verwenden möchten?",
+      "competitors": "Wer sind Ihre Hauptwettbewerber?",
+      "budget": "Was ist Ihr geschätztes Budget für dieses Projekt?",
+      "timeline": "Was ist Ihr gewünschter Zeitplan für die Fertigstellung?",
+      "additional": "Gibt es noch etwas anderes, das Sie teilen oder fragen möchten?"
+    },
+    "buttons": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "submit": "Absenden"
+    },
+    "submitMessage": "Formular abgesendet! (Übermittlungslogik implementieren)"
+  }
+}

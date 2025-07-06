@@ -8,41 +8,62 @@ import { Project } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "@/components/ui/Loading";
 import SectionHead from "@/components/ui/SectionHead";
+import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const Page = () => {
   const projectQuery = new ProjectQuery();
+  const t = useTranslations("HomePage.portfolio");
+  const loadingT = useTranslations("Common");
+
   const projects = useQuery({
     queryKey: ["getAllProjects"],
     queryFn: () => projectQuery.getAll(),
   });
 
   if (projects.isLoading) {
-    return <Loading status="loading" message="Loading projects..." />;
+    return <Loading status="loading" message={loadingT("loading")} />;
   }
 
   if (projects.isError) {
-    return <Loading status="failed" message="Failed to load projects" />;
+    return <Loading status="failed" message={loadingT("loadFailed")} />;
   }
 
   return (
     <main>
       <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
-        <SectionHead
-          sectionTitle={"Portfolio/Projects"}
-          sectionSubtitle={"Our expertise through results"}
-          sectionDescription={
-            "Take a look at some of our finest achievements over the past years"
-          }
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+        >
+          <SectionHead
+            sectionTitle={t("title")}
+            sectionSubtitle={t("subtitle")}
+            sectionDescription={t("description")}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {projects.data?.map((project: Project, index: number) => (
             <ProjectCard key={index} {...project} />
           ))}
-        </div>
+        </motion.div>
       </Container>
-
-      <StartNewProject />
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <StartNewProject />
+      </motion.div>
     </main>
   );
 };

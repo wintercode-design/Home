@@ -9,9 +9,11 @@ import { useQuery } from "@tanstack/react-query";
 import ButtonOpt from "../ui/Button";
 import Link from "next/link";
 import Loading from "../ui/Loading";
+import { useTranslations } from "@/hooks/useMessages";
 
 const ProjectSelection = () => {
   const projectQuery = new ProjectQuery();
+  const t = useTranslations("HomePage.portfolio");
 
   const projects = useQuery({
     queryKey: ["getHomeProjects"],
@@ -37,11 +39,9 @@ const ProjectSelection = () => {
   return (
     <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
       <SectionHead
-        sectionTitle={"Portfolio/Projects"}
-        sectionSubtitle={"Our expertise through results"}
-        sectionDescription={
-          "Take a look at some of our finest achievements over the past years"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -52,7 +52,7 @@ const ProjectSelection = () => {
 
       <div className="flex justify-center mt-8">
         <Link href="/portfolio">
-          <ButtonOpt title="View More Projects" icon={"arrow"} isNav={false} />
+          <ButtonOpt title={t("viewMore")} icon={"arrow"} isNav={false} />
         </Link>
       </div>
     </Container>

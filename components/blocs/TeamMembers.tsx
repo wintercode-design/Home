@@ -1,8 +1,11 @@
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
+import { useTranslations } from "@/hooks/useMessages";
 
 const TeamMembers = () => {
+  const t = useTranslations("AboutPage.team");
+
   return (
     <div>
       <Container
@@ -10,11 +13,9 @@ const TeamMembers = () => {
         className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
       >
         <SectionHead
-          sectionTitle={"Team"}
-          sectionSubtitle={"The People Behind WinterCode"}
-          sectionDescription={
-            "Our strength lies in our people. Every project is handled by talented professionals who are passionate about technology, creativity, and client success."
-          }
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
         />
       </Container>
       <div className="flex flex-col relative justify-center items-center w-full">

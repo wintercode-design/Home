@@ -2,11 +2,17 @@ import React from "react";
 import ButtonOpt from "./Button";
 import { Project } from "@/types/types";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const ProjectCard = (data: Project) => {
   const { title, description, imageUrl, category } = data;
   return (
-    <div className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col lg:flex-row gap-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="w-full max-w-[614px] h-fit p-3 rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col lg:flex-row gap-6"
+    >
       <img
         src={imageUrl || "/projects/project1.png"}
         alt={title}
@@ -24,7 +30,7 @@ const ProjectCard = (data: Project) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

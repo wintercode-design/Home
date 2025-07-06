@@ -1,19 +1,20 @@
+"use client";
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
+import { useTranslations } from "@/hooks/useMessages";
 
 const PartnersList = () => {
+  const t = useTranslations("HomePage.partners");
   return (
     <Container
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
     >
       <SectionHead
-        sectionTitle={"Partners"}
-        sectionSubtitle={"They trust us"}
-        sectionDescription={
-          "Why should you work with us at wintercode and what do you benefit"
-        }
+        sectionTitle={t("title")}
+        sectionSubtitle={t("subtitle")}
+        sectionDescription={t("description")}
       />
 
       <div className="flex flex-wrap justify-center gap-6">

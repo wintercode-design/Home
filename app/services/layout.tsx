@@ -24,8 +24,8 @@ export default async function Layout({ children }: LayoutProps) {
         title="Services"
         img="/titles/services.webp"
         links={[
-          { title: "Home", link: "/" },
-          { title: "Services", link: "/services" },
+          { key: "home", title: "Home", link: "/" },
+          { key: "services", title: "Services", link: "/services" },
         ]}
       />
       {children}

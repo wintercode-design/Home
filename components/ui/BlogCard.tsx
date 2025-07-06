@@ -5,23 +5,28 @@ import ButtonOpt from "./Button";
 import { ChatCircleDots, Circle, Star, ThumbsUp } from "phosphor-react";
 import Link from "next/link";
 import { Blog } from "@/types/dataTypes";
+import { motion } from "framer-motion";
 
 const BlogCard = (data: Blog) => {
   const {
-    imageurl,
+    imageUrl,
     slug,
     // author,
     // date,
     title,
-    summary,
-    description,
+    content,
     tags,
     // rating,
   } = data;
   return (
-    <div className="w-full max-w-[300px] h-fit rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
+      className="w-full max-w-[300px] h-fit rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6"
+    >
       <img
-        src={`${process.env.NEXT_PUBLIC_API_IMG}${imageurl}`}
+        src={`${process.env.NEXT_PUBLIC_API_IMG}${imageUrl}`}
         alt="image"
         className="w-full rounded-t-lg h-[220px] bg-gray-200 object-cover"
       />
@@ -50,7 +55,7 @@ const BlogCard = (data: Blog) => {
             {title ?? "Why Every African Business Needs a Website in 2025"}
           </h5>
           <p>
-            {summary ??
+            {(content && content.substring(0, 10)) ??
               `Cotraf is a digital platform designed to manage and centralize the
             booking of inter-urban transport across multiple agencies in
             Cameroon.`}
@@ -96,7 +101,7 @@ const BlogCard = (data: Blog) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

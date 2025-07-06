@@ -1,5 +1,355 @@
 {
+  "Pages": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "contact": "Contact",
+    "quote": "Get Quote",
+    "ready": {
+      "yes": "yes"
+    }
+  },
   "HomePage": {
-    "title": "Wintercode design"
+    "title": "Wintercode Design Studio",
+    "hero": {
+      "title": "Custom Made Software Solutions",
+      "subtitle": "Empowering businesses with innovative digital solutions",
+      "description": "We create cutting-edge software solutions tailored to your business needs",
+      "cta": "Start Your Project",
+      "contactCta": "Contact us",
+      "startProjectCta": "Start a project"
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Our Services",
+      "description": "The best digital solutions at your doorstep. Empower your company with digital solutions",
+      "webDevelopment": "Web Development",
+      "webDevelopmentDesc": "Professional websites built with performance and design in mind.",
+      "erpSystems": "ERP Systems",
+      "erpSystemsDesc": "Tailored business software to streamline your operations.",
+      "ecommerce": "E-Commerce",
+      "ecommerceDesc": "Robust online stores with secure payment integration.",
+      "hostingDomain": "Hosting & Domain",
+      "hostingDomainDesc": "Reliable web hosting and domain registration packages.",
+      "readMore": "Read more",
+      "viewMore": "View More Services"
+    },
+    "portfolio": {
+      "title": "Portfolio/Projects",
+      "subtitle": "Our expertise through results",
+      "description": "Take a look at some of our finest achievements over the past years",
+      "viewMore": "View More Projects"
+    },
+    "news": {
+      "title": "Our Latest news",
+      "subtitle": "We keep you on track",
+      "description": "You can find here and extract of our latest activities and news in the domain",
+      "viewMore": "View More News"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Get answers to common questions",
+      "description": "Find answers to the most frequently asked questions about our services"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "subtitle": "Why Choose WinterCode",
+      "description": "Why should you work with us at wintercode and what do you benefit",
+      "fullCustomization": {
+        "title": "Full Customization",
+        "description": "We offer fully customized solutions tailored to your specific needs."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our dedicated support team is available around the clock to assist you."
+      },
+      "agileDevelopment": {
+        "title": "Agile Development",
+        "description": "We follow agile methodologies to ensure timely delivery and flexibility."
+      },
+      "businessGrowth": {
+        "title": "Business Growth",
+        "description": "Our solutions are designed to help your business grow and succeed."
+      },
+      "affordablePricing": {
+        "title": "Affordable Pricing",
+        "description": "We offer competitive pricing without compromising on quality."
+      },
+      "defaultDescription": "We don't believe in one-size-fits-all. Every solution we build is crafted to reflect your brand's unique goals, industry, and customer base. From visuals to backend logic, you stay in control."
+    },
+    "startProject": {
+      "title": "Start now",
+      "subtitle": "Let's build your next project together.",
+      "description": "Get in touch with us and get your own custom made website and push your company to success",
+      "startProject": "Start Project",
+      "contactForDetails": "Contact us for details"
+    },
+    "contactInfo": {
+      "title": "Contact us",
+      "subtitle": "Let's Build Something Great Together.",
+      "description": "Reach out to us — we're excited to hear about your project",
+      "contactInformation": "Contact Information"
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "subtitle": "Our Core Values",
+      "description": "The values by which wintercode stands and help other companies grow",
+      "integrity": {
+        "title": "Integrity",
+        "description": "We uphold the highest standards of integrity in all our actions."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We strive to innovate and improve continuously."
+      },
+      "customerCentricity": {
+        "title": "Customer Centricity",
+        "description": "We put our customers at the heart of everything we do."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "We believe in the power of teamwork and collaboration."
+      }
+    },
+    "missionVision": {
+      "title": "Our Mission & Vision",
+      "subtitle": "Our Mission & Vision",
+      "description": "Why should you work with us at wintercode and what do you benefit",
+      "mission": {
+        "title": "Our Mission",
+        "description": "Our mission is to empower businesses with cutting-edge, tailor-made digital tools that drive growth, simplify operations, and unlock new opportunities."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "We envision a digital-first Africa, where every business—small or large—can thrive through smart, accessible, and reliable technology."
+      }
+    },
+    "partners": {
+      "title": "Partners",
+      "subtitle": "They trust us",
+      "description": "Why should you work with us at wintercode and what do you benefit"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Real Success, Real People",
+      "description": "A happy partner is the key to our success. Your Satisfaction our priority"
+    }
+  },
+  "AboutPage": {
+    "aboutBadge": "About wintercode",
+    "title": "Builders of Your Digital Future.",
+    "description1": "At WinterCode, we don't just build websites and systems. We craft experiences, solve problems, and fuel growth through innovation, passion, and technology.",
+    "description2": "From our first line of code to our latest project launch, one thing remains constant: a deep commitment to helping businesses thrive in the digital age.",
+    "description3": "Whether you're a startup, a growing SME, or an established brand, WinterCode becomes part of your journey — your challenges become our mission, your dreams, our blueprint.",
+    "contactUs": "Contact us",
+    "missionVision": {
+      "title": "Our Mission & Vision",
+      "subtitle": "Our Mission & Vision",
+      "description": "Why should you work with us at wintercode and what do you benefit",
+      "mission": {
+        "title": "Our Mission",
+        "description": "Our mission is to empower businesses with cutting-edge, tailor-made digital tools that drive growth, simplify operations, and unlock new opportunities."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "We envision a digital-first Africa, where every business—small or large—can thrive through smart, accessible, and reliable technology."
+      }
+    },
+    "team": {
+      "title": "Team",
+      "subtitle": "The People Behind WinterCode",
+      "description": "Our strength lies in our people. Every project is handled by talented professionals who are passionate about technology, creativity, and client success."
+    },
+    "achievements": {
+      "title": "Achievements",
+      "subtitle": "WinterCode in Numbers",
+      "description": "Since the creation of winter code we have contributed the growth of several companies",
+      "years": {
+        "number": "4+",
+        "title": "Years",
+        "subtitle": "Experience"
+      },
+      "projects": {
+        "number": "8+",
+        "title": "Projects",
+        "subtitle": "websites | ERP | E-commerce"
+      },
+      "clients": {
+        "number": "5+",
+        "title": "Clients",
+        "subtitle": "Companies | Business | individuals"
+      },
+      "comingSoon": {
+        "number": "4+",
+        "title": "Coming soon",
+        "subtitle": "Softwares | Websites | Insights"
+      }
+    }
+  },
+  "ServicesPage": {
+    "webDevelopment": {
+      "title": "Web Development",
+      "description1": "At WinterCode Design, we craft visually stunning, user-focused websites tailored to reflect your brand's identity and engage your target audience. Our web design service goes beyond aesthetics — we focus on clean, modern layouts, seamless user experience (UX), and responsive interfaces that look great on any device.",
+      "description2": "Whether you're launching a new brand or revamping your online presence, our design approach ensures your website is not just beautiful, but also functional, intuitive, and conversion-driven.",
+      "keyFeatures": "Key Features",
+      "customDesign": "Custom design (no templates unless requested)",
+      "fastLoadTimes": "Lightning-fast load times",
+      "mobileResponsive": "Full mobile responsiveness",
+      "seoBestPractices": "SEO best practices integrated",
+      "easyCMS": "Easy-to-manage CMS (WordPress, Strapi, or Custom)",
+      "discoverPackages": "Discover Our Website Packages"
+    },
+    "ecommerce": {
+      "title": "E-commerce Solutions",
+      "description1": "At WinterCode Design, we create sleek, secure, and scalable e-commerce websites that help businesses sell effortlessly online. Whether you're launching a boutique or scaling a full online store, our e-commerce solutions are designed to convert visitors into paying customers with ease.",
+      "description2": "We focus on delivering seamless shopping experiences — from intuitive product navigation to smooth checkout flows — all tailored to your brand and your market. Our team ensures that your store is not only beautiful but also fast, mobile-friendly, and easy to manage on the backend.",
+      "scheduleConsultation": "Schedule a Free E-commerce Consultation"
+    },
+    "erpSystems": {
+      "title": "ERP Systems Development",
+      "description1": "At WinterCode Design, we build fully customized ERP systems that help businesses streamline their operations, centralize their data, and automate their workflows — all in one secure, modern platform.",
+      "description2": "From idea to execution, we handle the full lifecycle: business process analysis, UX/UI design, backend development, database architecture, API integration, and role-based dashboards. Whether you need a simple internal tool or a full-scale enterprise solution, we tailor your ERP system to your exact business needs — and make it intuitive, scalable, and future-ready.",
+      "scheduleConsultation": "Schedule a Free ERP Consultation"
+    }
+  },
+  "BlogPage": {
+    "search": "Search",
+    "categories": "Categories",
+    "all": "All",
+    "topPosts": "Top Posts"
+  },
+  "FAQPage": {
+    "title": "FAQs",
+    "subtitle": "Got any question? we got you covered",
+    "description": "Get assistance to all your questions, we hope this is helpful to you",
+    "noFaqsFound": "No FAQs found for this category. Please check another category or contact us for more information.",
+    "categories": {
+      "general": {
+        "title": "General & Services",
+        "description": "Questions on our general services"
+      },
+      "pricing": {
+        "title": "Pricing & Payment",
+        "description": "Our pricing and payments"
+      },
+      "technical": {
+        "title": "Technical",
+        "description": "Quick iterations and fast delivery"
+      },
+      "security": {
+        "title": "Security & Ownership",
+        "description": "We speak both tech and business"
+      },
+      "working": {
+        "title": "Working With WinterCode",
+        "description": "High-quality service within budget"
+      }
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "faqs": "FAQs",
+    "quote": "Get Quote"
+  },
+  "Footer": {
+    "quickLinks": "Quick Links",
+    "startProject": "Start a project",
+    "copyright": "© 2024 Wintercode Design. All rights reserved.",
+    "description": "WinterCode is your trusted partner for custom web solutions, ERP systems, e-commerce, and hosting services across Africa and beyond.",
+    "contactInfo": "Contact Information",
+    "stayConnected": "Stay Connected",
+    "newsletterDescription": "Subscribe to our newsletter and get the latest tech tips, industry insights, and project updates straight to your inbox.",
+    "subscribing": "Subscribing...",
+    "register": "Register"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "readMore": "Read more",
+    "viewMore": "View More",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loadFailed": "Failed to load data",
+    "loadSuccess": "Data loaded successfully",
+    "tools": {
+      "title": "Our tools",
+      "subtitle": "Some of our main tools",
+      "description": "Great and reliable software demand good and reliable tools to develop them, here are some of the tools we use in our development process"
+    },
+    "imageUpload": {
+      "insertImage": "Insert an image",
+      "pleaseImportImage": "Please import an image",
+      "maxSize2MB": "Maximum size is 2MB",
+      "onlyJpgPngWebp": "Only .jpg, .png and .webp are accepted",
+      "successMessage": "Image saved successfully!",
+      "errorMessage": "Error saving the image.",
+      "preview": "Preview",
+      "descriptionOptional": "Description (optional)",
+      "imageCaption": "Image caption"
+    }
+  },
+  "QuotePage": {
+    "title": "Get a Quote",
+    "subtitle": "Let's discuss your project",
+    "description": "Tell us about your project and we'll provide you with a customized quote",
+    "steps": {
+      "basicInfo": "Basic Information",
+      "businessOverview": "Business Overview",
+      "projectGoals": "Project Goals & Purpose",
+      "designPreferences": "Design Preferences",
+      "competitors": "Competitors & Inspiration",
+      "budgetTimeline": "Budget & Timeline",
+      "additionalComments": "Additional Comments"
+    },
+    "form": {
+      "companyName": "Company Name",
+      "contactPerson": "Contact Person (Full Name)",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "location": "Location (City & Country)",
+      "hasWebsite": "Do you already have a website?",
+      "yes": "Yes",
+      "no": "No",
+      "websitePlaceholder": "Enter your current website link",
+      "businessDescription": "Briefly describe your business: What do you do? What makes you unique?",
+      "targetAudience": "Who is your target audience or ideal client? (e.g., young professionals, students, corporate clients, etc.)",
+      "products": "What products/services do you offer?",
+      "mainPurpose": "What is the main purpose of this website?",
+      "goals": {
+        "onlinePresence": "Build online presence / Company showcase",
+        "generateLeads": "Generate leads or inquiries",
+        "ecommerce": "Sell products online (eCommerce)",
+        "bookings": "Bookings or reservations",
+        "educational": "Educational platform or blog",
+        "other": "Other"
+      },
+      "otherGoalPlaceholder": "Other goal",
+      "priorities": "What are your top 3 priorities for this project?",
+      "designLikes": "Are there any design styles, colors, or features you like?",
+      "designDislikes": "Are there any design styles, colors, or features you dislike?",
+      "colorPreferences": "Preferred color palette (if any):",
+      "referenceWebsites": "Are there any websites you admire or want to use as a reference?",
+      "competitors": "Who are your main competitors?",
+      "budget": "What is your estimated budget for this project?",
+      "timeline": "What is your desired timeline for completion?",
+      "additional": "Is there anything else you'd like to share or ask?"
+    },
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit"
+    },
+    "submitMessage": "Form submitted! (implement submission logic)"
   }
 }
