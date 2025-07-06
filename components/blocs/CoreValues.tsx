@@ -16,7 +16,7 @@ const CoreValues = () => {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full h-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-4xl h-full">
         {[
           {
             title: "Integrity",
@@ -45,7 +45,7 @@ const CoreValues = () => {
           <div
             key={index}
             style={{ background: `url(${item.image})` }}
-            className=" rounded-xl w-full max-w-[400px] h-[300px] max-h-[300px] p-4 flex flex-col justify-end mx-auto"
+            className=" rounded-xl w-full min-w-[250px] lg:max-w-[400px] h-[300px] max-h-[300px] p-4 flex flex-col justify-end mx-auto"
           >
             <div className="w-[150px]">
               <h3>{item.title}</h3>

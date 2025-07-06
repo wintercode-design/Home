@@ -10,7 +10,7 @@
 
   --base-size: 14px;
   --scale-ratio: 1.2;
-  --line-height: 1.2;
+  --line-height: 1.5;
   --line-height-title: 1.2;
   
   --font-urbanist: var(--font-urbanist);
@@ -39,11 +39,13 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
   line-height: var(--line-height-title);
+  padding: 4px 0px;
 }
 
 @layer base {
   html {
-    font-size: var(--base-size);
+    /* font-size: var(--base-size); */
+    @apply text-[14px] md:text-[16px];
   }
   h1{
     font-size: 3.785rem;
@@ -84,4 +86,47 @@ h1,h2,h3,h4,h5,h6 {
     text-transform: uppercase;
     @apply tracking-widest;
   }
+  li {
+    @apply ml-2;
+  }
+  .tiptap > ul {
+    @apply list-disc;
+  }
+  .tiptap > ol {
+    @apply list-decimal;
+  }
+
+  blockquote {
+    @apply text-foreground rounded-r-md p-2;
+    font-weight: 500;
+    line-height: 1.5;
+    border-left: 0.25rem solid var(--primary);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    background: #222222;
+  }
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #5cbe95;
+  border-radius: 50px;
+}
+
+/* Scrollbar track background */
+::-webkit-scrollbar-track {
+  background: #d6d6d6;
+  border-radius: 50px;
+}
+
+/* Scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

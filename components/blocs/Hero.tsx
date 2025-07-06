@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../base/Container";
 import ButtonOpt from "../ui/Button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -19,8 +20,12 @@ const Hero = () => {
       </div>
 
       <div className="flex gap-6">
-        <ButtonOpt title={"Contact us"} fill={true} icon={"arrow"} />
-        <ButtonOpt title={"Start your Project"} icon={"contact"} />
+        <Link href={"/contact"}>
+          <ButtonOpt title={"Contact us"} fill={true} icon={"arrow"} />
+        </Link>
+        <Link href={"/quote"}>
+          <ButtonOpt title={"Start your Project"} icon={"contact"} />
+        </Link>
       </div>
     </Container>
   );

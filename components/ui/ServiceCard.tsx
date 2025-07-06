@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonOpt from "./Button";
+import Link from "next/link";
 
 interface serviceCardProps {
   title?: string;
@@ -19,7 +20,9 @@ const ServiceCard = ({ title, description, imageUrl }: serviceCardProps) => {
         <h5>{title}</h5>
         <p>{description}</p>
       </div>
-      <ButtonOpt title="Read more" icon={"arrow"} isNav={false} />
+      <Link href="/services">
+        <ButtonOpt title="Read more" icon={"arrow"} isNav={false} />
+      </Link>
     </div>
   );
 };

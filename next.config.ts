@@ -8,6 +8,6 @@ const nextConfig: NextConfig = {
   // output: "export",
 };
 
-const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
+const withNextIntl = createNextIntlPlugin();
 
 export default withNextIntl(nextConfig);

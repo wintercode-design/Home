@@ -1,9 +1,70 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import ButtonOpt from "./Button";
+import ContactQuery from "@/queries/contact";
+import { Contact } from "@/types/types";
+import { useMutation } from "@tanstack/react-query";
+import Loading from "./Loading";
 
 const ContactForm = () => {
+  const contactQuery = new ContactQuery();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    phone: "",
+  });
+
+  const contactMutation = useMutation({
+    mutationFn: (
+      data: Omit<
+        Contact,
+        "id" | "status" | "createdAt" | "priority" | "replied"
+      >
+    ) =>
+      contactQuery.create({
+        ...data,
+        status: "PENDING",
+        createdAt: new Date().toISOString(),
+        priority: "MEDIUM",
+        replied: false,
+      }),
+    onSuccess: () => {
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
+    },
+    onError: (error) => {
+      alert("Failed to send message. Please try again.");
+      console.error("Contact form error:", error);
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    contactMutation.mutate(formData);
+  };
+
+  const handleReset = () => {
+    setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  if (contactMutation.isPending) {
+    return <Loading status="loading" message="Sending message..." />;
+  }
+
   return (
-    <div className="flex flex-col gap-6 max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-6 max-w-[700px] w-full p-6 bg-[#232C3D]/40 rounded-xl"
+    >
       <h2>Get in touch</h2>
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex flex-col gap-2 w-full">
@@ -11,17 +72,25 @@ const ContactForm = () => {
           <input
             type="text"
             id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
             placeholder="nom"
             className="border-b-[1px] border-[#8A8A8A]"
+            required
           />
         </div>
         <div className="flex flex-col gap-2  w-full">
           <label htmlFor="email">{"Email"}</label>
           <input
-            type="text"
+            type="email"
             id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
             placeholder="exmple@email.com"
             className="border-b-[1px] border-[#8A8A8A]"
+            required
           />
         </div>
       </div>
@@ -30,8 +99,12 @@ const ContactForm = () => {
         <input
           type="text"
           id="subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleInputChange}
           placeholder="project title"
           className="border-b-[1px] border-[#8A8A8A]"
+          required
         />
       </div>
 
@@ -39,28 +112,42 @@ const ContactForm = () => {
         <label htmlFor="message">{"Message"}</label>
         <textarea
           id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
           placeholder="project title"
           className="border-b-[1px] border-[#8A8A8A] h-[150px]"
+          required
         />
       </div>
       <div className="flex flex-col gap-2  w-full">
-        <label htmlFor="file">{"File"}</label>
+        <label htmlFor="phone">{"Phone"}</label>
         <input
-          type="file"
-          id="file"
-          placeholder="project title"
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleInputChange}
+          placeholder="phone number"
           className="border-b-[1px] border-[#8A8A8A]"
         />
       </div>
       <div className="flex gap-4 py-4">
-        <ButtonOpt
-          title="send"
-          fill={true}
-          custom="w-full item-center justify-center"
-        />
-        <ButtonOpt title="Reset" custom="w-full item-center justify-center" />
+        <button
+          type="submit"
+          className="w-full item-center justify-center px-3 py-1 rounded-full bg-white text-black outline-1 outline-white"
+        >
+          send
+        </button>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="w-full item-center justify-center px-3 py-2 rounded-full outline-1 outline-white"
+        >
+          Reset
+        </button>
       </div>
-    </div>
+    </form>
   );
 };
 

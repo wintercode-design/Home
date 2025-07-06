@@ -21,7 +21,7 @@ const TeamMembers = () => {
         <img
           src={"/team/team.png"}
           alt="team"
-          className="object-cover w-screen"
+          className="object-cover w-screen brightness-150"
         />
       </div>
     </div>

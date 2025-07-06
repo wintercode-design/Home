@@ -1,10 +1,50 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import TestimonyBadge from "../ui/TestimonyBadge";
 import Testimony from "../ui/Testimony";
+import ReviewQuery from "@/queries/review";
+import { Review } from "@/types/types";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../ui/Loading";
 
 const TestimonyList = () => {
+  const reviewQuery = new ReviewQuery();
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
+  const reviews = useQuery({
+    queryKey: ["getAllReviews"],
+    queryFn: () => reviewQuery.getAll(),
+  });
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (reviews.data && reviews.data.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentReviewIndex((prev) =>
+          prev === reviews.data.length - 1 ? 0 : prev + 1
+        );
+      }, 5000); // Change every 5 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [reviews.data]);
+
+  const handleDotClick = (index: number) => {
+    setCurrentReviewIndex(index);
+  };
+
+  if (reviews.isLoading) {
+    return <Loading status="loading" message="Loading testimonials..." />;
+  }
+
+  if (reviews.isError) {
+    return <Loading status="failed" message="Failed to load testimonials" />;
+  }
+
+  const currentReview = reviews.data?.[currentReviewIndex];
+
   return (
     <Container
       stylebg="bg-[#1A202C]/50"
@@ -20,46 +60,36 @@ const TestimonyList = () => {
 
       <div className="flex flex-col justify-center items-center gap-6">
         <div className="flex flex-wrap justify-center gap-3">
-          {[
-            {
-              imageUrl: "",
-              title: "Sarah N.",
-              subtitle: "CEO of Africasystem",
-            },
-            {
-              imageUrl: "",
-              title: "Jean P",
-              subtitle: " Director at Cotraf",
-            },
-            {
-              imageUrl: "",
-              title: "Clarisse T,",
-              subtitle: "Founder of TShop Online",
-            },
-            {
-              imageUrl: "",
-              title: "Victor B.",
-              subtitle: " Marketing Manager at AgroSupply",
-            },
-          ].map((item, index) => (
+          {reviews.data?.slice(0, 4).map((review: Review, index: number) => (
             <TestimonyBadge
               key={index}
-              title={item.title}
-              subtitle={item.subtitle}
-              imageUrl={"/partners/partner1.png"}
+              title={review.clientName}
+              subtitle={review.clientTitle}
+              imageUrl={review.clientImage || "/partners/partner1.png"}
             />
           ))}
         </div>
 
-        <Testimony
-          title={`"WinterCode transformed our online presence! Their team not only designed a stunning website but also understood our business needs thoroughly. We saw a 35% increase in online inquiries within the first month."`}
-          name={"Clarisse T."}
-          role={"Founder of Tshop Online"}
-          imageUrl=""
-        />
+        {currentReview && (
+          <Testimony
+            title={`"${currentReview.review}"`}
+            name={currentReview.clientName}
+            role={`${currentReview.clientTitle} at ${currentReview.clientCompany}`}
+            imageUrl={currentReview.clientImage}
+          />
+        )}
+
         <div className="flex justify-center items-center gap-3">
-          {[1, 2, 3, 4].map((item, index) => (
-            <hr className="w-16 h-[4px]" key={index} />
+          {reviews.data?.map((review: Review, index: number) => (
+            <button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={`w-16 h-[4px] transition-all duration-300 ${
+                index === currentReviewIndex
+                  ? "bg-white"
+                  : "bg-gray-500 hover:bg-gray-400"
+              }`}
+            />
           ))}
         </div>
       </div>

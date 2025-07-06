@@ -4,17 +4,24 @@ import React from "react";
 import ButtonOpt from "./Button";
 import { ChatCircleDots, Circle, Star, ThumbsUp } from "phosphor-react";
 import Link from "next/link";
+import { Blog } from "@/types/dataTypes";
 
-interface BlogProps {
-  img: string;
-  link: string;
-}
-
-const BlogCard = ({ img, link }: BlogProps) => {
+const BlogCard = (data: Blog) => {
+  const {
+    imageurl,
+    slug,
+    // author,
+    // date,
+    title,
+    summary,
+    description,
+    tags,
+    // rating,
+  } = data;
   return (
     <div className="w-full max-w-[300px] h-fit rounded-xl border-2 bg-[#1A202C] border-white/10 flex flex-col gap-6">
       <img
-        src={img}
+        src={`${process.env.NEXT_PUBLIC_API_IMG}${imageurl}`}
         alt="image"
         className="w-full rounded-t-lg h-[220px] bg-gray-200 object-cover"
       />
@@ -27,7 +34,8 @@ const BlogCard = ({ img, link }: BlogProps) => {
               className="w-6 h-6 rounded-full object-cover"
             />
             <small>
-              Jordan Junior - <br /> <span className="">April 25, 2025</span>
+              {"Jordan Junior"} - <br />{" "}
+              <span className="">{"April 25, 2025"}</span>
             </small>
           </div>
           <div className="flex items-center gap-2 outline-1 px-1.5 py-0.5 rounded-full outline-green-400">
@@ -38,23 +46,35 @@ const BlogCard = ({ img, link }: BlogProps) => {
           </div>
         </div>
         <div className="flex flex-col gap-2 h-full">
-          <h5>Why Every African Business Needs a Website in 2025</h5>
+          <h5>
+            {title ?? "Why Every African Business Needs a Website in 2025"}
+          </h5>
           <p>
-            Cotraf is a digital platform designed to manage and centralize the
+            {summary ??
+              `Cotraf is a digital platform designed to manage and centralize the
             booking of inter-urban transport across multiple agencies in
-            Cameroon.
+            Cameroon.`}
           </p>
         </div>
         <article>Digital Strategy, Business Growth</article>
         <div className="flex flex-wrap gap-2">
-          {["Development", "Hosting", "design"].map((tag, index) => (
-            <span
-              key={index}
-              className="hover:outline-1 hover:outline-[#6d6d6d] text-[#6d6d6d] p-1 flex justify-center items-center rounded-full w-fit cursor-pointer"
-            >
-              <article>#{tag}</article>
-            </span>
-          ))}
+          {tags
+            ? tags.split(";").map((tag, index) => (
+                <span
+                  key={index}
+                  className="hover:outline-1 hover:outline-[#6d6d6d] text-[#6d6d6d] p-1 flex justify-center items-center rounded-full w-fit cursor-pointer"
+                >
+                  <article>#{tag}</article>
+                </span>
+              ))
+            : ["Development", "Hosting", "design"].map((tag, index) => (
+                <span
+                  key={index}
+                  className="hover:outline-1 hover:outline-[#6d6d6d] text-[#6d6d6d] p-1 flex justify-center items-center rounded-full w-fit cursor-pointer"
+                >
+                  <article>#{tag}</article>
+                </span>
+              ))}
         </div>
         <div className="flex flex-wrap gap-4 justify-between items-center">
           <div className="flex gap-3">
@@ -71,7 +91,7 @@ const BlogCard = ({ img, link }: BlogProps) => {
               <h6>1k</h6>
             </div>
           </div>
-          <Link href={link}>
+          <Link href={`blog/${slug}`}>
             <ButtonOpt title="Read more" icon={"arrow"} isNav={false} />
           </Link>
         </div>

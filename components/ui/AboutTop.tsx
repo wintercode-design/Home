@@ -2,6 +2,7 @@
 import { Lightning } from "phosphor-react";
 import React from "react";
 import ButtonOpt from "./Button";
+import Link from "next/link";
 
 const AboutTop = () => {
   return (
@@ -45,7 +46,9 @@ const AboutTop = () => {
           </p>
         </div>
 
-        <ButtonOpt title="Contact us" fill={true} />
+        <Link href={"/contact"}>
+          <ButtonOpt title="Contact us" fill={true} />
+        </Link>
       </div>
     </div>
   );

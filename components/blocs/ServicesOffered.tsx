@@ -2,6 +2,8 @@ import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import ServiceCard from "../ui/ServiceCard";
+import ButtonOpt from "../ui/Button";
+import Link from "next/link";
 
 const ServicesOffered = () => {
   return (
@@ -37,10 +39,14 @@ const ServicesOffered = () => {
         <ServiceCard
           title={"Hosting & Domain"}
           imageUrl={"/services/service4.png"}
-          description={
-            "Robust online stores with secure Reliable web hosting and domain registration packages. integration."
-          }
+          description={"Reliable web hosting and domain registration packages."}
         />
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Link href="/services">
+          <ButtonOpt title="View More Services" icon={"arrow"} isNav={false} />
+        </Link>
       </div>
     </Container>
   );

@@ -1,8 +1,43 @@
+"use client";
 import Link from "next/link";
 import Badge from "../ui/Badge";
 import ButtonOpt from "../ui/Button";
+import { useState } from "react";
+import NewsletterQuery from "@/queries/newsletter";
+import { Subscriber } from "@/types/types";
+import { useMutation } from "@tanstack/react-query";
 
 const Footer = () => {
+  const newsletterQuery = new NewsletterQuery();
+  const [email, setEmail] = useState("");
+
+  const newsletterMutation = useMutation({
+    mutationFn: (
+      data: Omit<Subscriber, "id" | "status" | "subscribedAt" | "name">
+    ) =>
+      newsletterQuery.create({
+        ...data,
+        status: "ACTIVE",
+        subscribedAt: new Date().toISOString(),
+        name: "Newsletter Subscriber",
+      }),
+    onSuccess: () => {
+      alert("Successfully subscribed to newsletter!");
+      setEmail("");
+    },
+    onError: (error) => {
+      alert("Failed to subscribe. Please try again.");
+      console.error("Newsletter subscription error:", error);
+    },
+  });
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      newsletterMutation.mutate({ email, source: "footer" });
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center gap-6  px-6 md:px-0 py-[100px]">
       <div className="w-full flex flex-col lg:flex-row items-start gap-10">
@@ -117,9 +152,9 @@ const Footer = () => {
                   badge: "mail",
                 },
                 {
-                  title: "+237657071178",
-                  link: "tel:+237657071178",
-                  badge: "phone",
+                  title: "237657071178",
+                  link: "https://wa.me/237657071178",
+                  badge: "whatsapp",
                 },
                 {
                   title: "Douala, Cameroon",
@@ -168,23 +203,39 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex gap-3 justify-between bg-black rounded-full pl-3 p-1 h-fit">
+        <form
+          onSubmit={handleSubscribe}
+          className="flex gap-3 justify-between bg-white rounded-full pl-1 p-1 h-fit"
+        >
           <input
             type="email"
-            className="rounded-full w-full"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="rounded-full w-full text-black px-3 text-xl"
             placeholder="robert@gmail.com"
+            required
           />
 
-          <ButtonOpt title="Register" isSelected={true} />
-        </div>
+          <button
+            type="submit"
+            disabled={newsletterMutation.isPending}
+            className="px-3 py-1 rounded-full bg-white text-black outline-1 outline-white"
+          >
+            {newsletterMutation.isPending ? "Subscribing..." : "Register"}
+          </button>
+        </form>
       </div>
 
       <div className="flex justify-between gap-3 w-full border-t border-[#474747] mt-3 pt-6 h-fit">
         <p>developed by wintercode 2025</p>
         <div className="flex gap-3">
-          <Badge icon="whatsapp" />
-          <Badge icon="facebook" />
-          <Badge icon="linkedin" />
+          <Link href={"https://wa.me/237657071178"}>
+            <Badge icon="whatsapp" />
+          </Link>
+          <Link href={"https://web.facebook.com/profile.php?id=61573766979448"}>
+            <Badge icon="facebook" />
+          </Link>
+          {/* <Badge icon="linkedin" /> */}
         </div>
       </div>
     </div>

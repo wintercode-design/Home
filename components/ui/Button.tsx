@@ -29,7 +29,7 @@ const ButtonOpt = ({
     "px-3 py-1 rounded-full bg-white text-black outline-1 outline-white";
 
   const button_style = clsx(
-    "w-fit h-fit flex items-center gap-2",
+    "w-fit h-fit flex items-center gap-2 cursor-pointer",
     isNav ? navButtonStyle : buttonStyle,
     fill && buttonStyleFill,
     isSelected &&
@@ -38,7 +38,7 @@ const ButtonOpt = ({
   );
 
   return (
-    <div className={button_style}>
+    <button type="button" className={button_style}>
       <p className="min-w-[68px] md:min-w-0">{title}</p>
       {icon && (
         <span className="flex items-center justify-center w-fit h-fit rounded-full">
@@ -49,7 +49,7 @@ const ButtonOpt = ({
           {icon === "quote" && <File className="size-6" />}
         </span>
       )}
-    </div>
+    </button>
   );
 };
 

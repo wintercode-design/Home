@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import ButtonOpt from "../ui/Button";
+import Link from "next/link";
 
 const StartNewProject = () => {
   return (
@@ -18,8 +19,12 @@ const StartNewProject = () => {
       />
 
       <div className="flex flex-col justify-center items-center gap-3">
-        <ButtonOpt title={"Start Project"} isSelected={true} />
-        <article>{"Contact us for details"}</article>
+        <Link href={"/quote"}>
+          <ButtonOpt title={"Start Project"} isSelected={true} />
+        </Link>
+        <Link href={"/contact"}>
+          <article>{"Contact us for details"}</article>
+        </Link>
       </div>
     </Container>
   );
