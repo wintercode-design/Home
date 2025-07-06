@@ -7,6 +7,7 @@ import FaqQuery from "@/queries/faq";
 import { FaqT } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   const faqQuery = new FaqQuery();
@@ -76,32 +77,54 @@ const WhyChooseUs = () => {
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
     >
-      <SectionHead
-        sectionTitle={t("title")}
-        sectionSubtitle={t("subtitle")}
-        sectionDescription={t("description")}
-      />
-
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <SectionHead
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
+        />
+      </motion.div>
       <div className="flex flex-col-reverse lg:flex-row gap-14">
         <div className="flex flex-col gap-4 w-full lg:w-1/2">
           {predefinedCategories.map((item, index) => (
-            <Accordion
+            <motion.div
               key={index}
-              title={item.title}
-              description={item.description}
-              selected={selectedCategory === item.backendCategory}
-              icon={item.icon}
-              onClick={() => setSelectedCategory(item.backendCategory)}
-            />
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.12,
+                ease: [0.42, 0, 0.58, 1],
+              }}
+            >
+              <Accordion
+                title={item.title}
+                description={item.description}
+                selected={selectedCategory === item.backendCategory}
+                icon={item.icon}
+                onClick={() => setSelectedCategory(item.backendCategory)}
+              />
+            </motion.div>
           ))}
         </div>
-        <div className="flex flex-col gap-11 p-3 w-full lg:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+          className="flex flex-col gap-11 p-3 w-full lg:w-1/2"
+        >
           <img
             src={"/why/why.png"}
             alt="acordeon-bg"
             className=" bg-gray-200 min-h-[384px] h-full w-full rounded-xl object-cover"
           />
-
           <div className="flex justify-between gap-3">
             <div className="flex flex-col gap-2 flex-1">
               <h4>{selectedCategoryInfo.title}</h4>
@@ -125,7 +148,7 @@ const WhyChooseUs = () => {
               className="min-w-[120px] h-[120px] bg-gray-200 rounded-full"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </Container>
   );

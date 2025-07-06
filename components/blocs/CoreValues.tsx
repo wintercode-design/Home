@@ -3,6 +3,7 @@ import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const CoreValues = () => {
   const t = useTranslations("HomePage.coreValues");
@@ -13,11 +14,18 @@ const CoreValues = () => {
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
     >
-      <SectionHead
-        sectionTitle={t("title")}
-        sectionSubtitle={t("subtitle")}
-        sectionDescription={t("description")}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <SectionHead
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
+        />
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-4xl h-full">
         {[
@@ -42,16 +50,24 @@ const CoreValues = () => {
             image: "/values/value4.png",
           },
         ].map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.15,
+              ease: [0.42, 0, 0.58, 1],
+            }}
             style={{ background: `url(${item.image})` }}
-            className=" rounded-xl w-full min-w-[250px] lg:max-w-[400px] h-[300px] max-h-[300px] p-4 flex flex-col justify-end mx-auto"
+            className="rounded-xl w-full min-w-[250px] lg:max-w-[400px] h-[300px] max-h-[300px] p-4 flex flex-col justify-end mx-auto"
           >
             <div className="w-[150px]">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Container>

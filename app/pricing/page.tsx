@@ -9,9 +9,9 @@ const page = () => {
     <main>
       <Container className="py-[50px] flex flex-col justify-center items-center">
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
+          initial="offscreen"
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <div className="flex flex-col lg:flex-row justify-between gap-4 items-start w-full py-6 max-w-[900px]">
@@ -26,9 +26,9 @@ const page = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial="offscreen"
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <div className="w-full overflow-x-scroll">
@@ -249,9 +249,9 @@ const page = () => {
         </motion.div>
       </Container>
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
+        initial="offscreen"
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.8 }}
         transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
       >
         <StartNewProject />

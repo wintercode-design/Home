@@ -10,6 +10,7 @@ import ButtonOpt from "../ui/Button";
 import Link from "next/link";
 import Loading from "../ui/Loading";
 import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const ProjectSelection = () => {
   const projectQuery = new ProjectQuery();
@@ -38,23 +39,46 @@ const ProjectSelection = () => {
 
   return (
     <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
-      <SectionHead
-        sectionTitle={t("title")}
-        sectionSubtitle={t("subtitle")}
-        sectionDescription={t("description")}
-      />
-
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <SectionHead
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
+        />
+      </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.data?.slice(0, 4).map((project: Project, index: number) => (
-          <ProjectCard key={index} {...project} />
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.12,
+              ease: [0.42, 0, 0.58, 1],
+            }}
+          >
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
       </div>
-
-      <div className="flex justify-center mt-8">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: [0.42, 0, 0.58, 1] }}
+        className="flex justify-center mt-8"
+      >
         <Link href="/portfolio">
           <ButtonOpt title={t("viewMore")} icon={"arrow"} isNav={false} />
         </Link>
-      </div>
+      </motion.div>
     </Container>
   );
 };

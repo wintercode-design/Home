@@ -33,9 +33,9 @@ const Page = () => {
     <main>
       <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
+          initial="offscreen"
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <SectionHead
@@ -45,9 +45,9 @@ const Page = () => {
           />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial="offscreen"
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >

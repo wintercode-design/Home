@@ -82,9 +82,9 @@ export default function FAQPage() {
         className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
       >
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
+          initial="offscreen"
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <SectionHead
@@ -95,9 +95,9 @@ export default function FAQPage() {
         </motion.div>
         <div className="flex flex-col-reverse lg:flex-row gap-14">
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial="offscreen"
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
             className="flex flex-col gap-4 w-full lg:w-1/2"
           >
@@ -114,9 +114,9 @@ export default function FAQPage() {
               ))}
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial="offscreen"
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
             className="flex flex-col gap-11 p-3 w-full lg:w-1/2"
           >

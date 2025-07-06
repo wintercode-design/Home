@@ -16,9 +16,9 @@ const page = () => {
   return (
     <main>
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
+        initial="offscreen"
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.8 }}
         transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         className="bg-[linear-gradient(rgba(255,255,255,0),rgba(26,32,44,1)),url('/bg/laptop2.webp')] bg-cover bg-no-repeat bg-center"
       >

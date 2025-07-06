@@ -9,6 +9,7 @@ import { Review } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../ui/Loading";
 import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const TestimonyList = () => {
   const reviewQuery = new ReviewQuery();
@@ -53,34 +54,62 @@ const TestimonyList = () => {
       stylebg="bg-[#1A202C]/50"
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"
     >
-      <SectionHead
-        sectionTitle={t("title")}
-        sectionSubtitle={t("subtitle")}
-        sectionDescription={t("description")}
-      />
-
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <SectionHead
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
+        />
+      </motion.div>
       <div className="flex flex-col justify-center items-center gap-6">
         <div className="flex flex-wrap justify-center gap-3">
           {reviews.data?.slice(0, 4).map((review: Review, index: number) => (
-            <TestimonyBadge
+            <motion.div
               key={index}
-              title={review.clientName}
-              subtitle={review.clientTitle}
-              imageUrl={review.clientImage || "/partners/partner1.png"}
-            />
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.15,
+                ease: [0.42, 0, 0.58, 1],
+              }}
+            >
+              <TestimonyBadge
+                title={review.clientName}
+                subtitle={review.clientTitle}
+                imageUrl={review.clientImage || "/partners/partner1.png"}
+              />
+            </motion.div>
           ))}
         </div>
-
         {currentReview && (
-          <Testimony
-            title={`"${currentReview.review}"`}
-            name={currentReview.clientName}
-            role={`${currentReview.clientTitle} at ${currentReview.clientCompany}`}
-            imageUrl={currentReview.clientImage}
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.42, 0, 0.58, 1] }}
+          >
+            <Testimony
+              title={`"${currentReview.review}"`}
+              name={currentReview.clientName}
+              role={`${currentReview.clientTitle} at ${currentReview.clientCompany}`}
+              imageUrl={currentReview.clientImage}
+            />
+          </motion.div>
         )}
-
-        <div className="flex justify-center items-center gap-3">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.42, 0, 0.58, 1] }}
+          className="flex justify-center items-center gap-3"
+        >
           {reviews.data?.map((review: Review, index: number) => (
             <button
               key={index}
@@ -92,7 +121,7 @@ const TestimonyList = () => {
               }`}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </Container>
   );

@@ -10,6 +10,7 @@ import ButtonOpt from "../ui/Button";
 import Link from "next/link";
 import Loading from "../ui/Loading";
 import { useTranslations } from "@/hooks/useMessages";
+import { motion } from "framer-motion";
 
 const ShortNewsList = () => {
   const blogQuery = new BlogQuery();
@@ -38,23 +39,46 @@ const ShortNewsList = () => {
 
   return (
     <Container className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]">
-      <SectionHead
-        sectionTitle={t("title")}
-        sectionSubtitle={t("subtitle")}
-        sectionDescription={t("description")}
-      />
-
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+      >
+        <SectionHead
+          sectionTitle={t("title")}
+          sectionSubtitle={t("subtitle")}
+          sectionDescription={t("description")}
+        />
+      </motion.div>
       <div className="flex flex-wrap flex-col md:flex-row justify-center items-center w-full gap-4">
         {blogs.data?.slice(0, 4).map((blog: Blog, index: number) => (
-          <BlogCard key={index} {...blog} />
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{
+              duration: 0.7,
+              delay: index * 0.12,
+              ease: [0.42, 0, 0.58, 1],
+            }}
+          >
+            <BlogCard {...blog} />
+          </motion.div>
         ))}
       </div>
-
-      <div className="flex justify-center mt-8">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: [0.42, 0, 0.58, 1] }}
+        className="flex justify-center mt-8"
+      >
         <Link href="/blog">
           <ButtonOpt title={t("viewMore")} icon={"arrow"} isNav={false} />
         </Link>
-      </div>
+      </motion.div>
     </Container>
   );
 };
