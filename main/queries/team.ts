@@ -1,17 +1,19 @@
+import AxiosConfig from "@/providers/axios";
 import api from "@/providers/axios";
 import { TeamMember } from "@/types/types";
 
 export default class TeamQuery {
   route = "/team-members";
+  api = new AxiosConfig().api;
   create = async (data: Omit<TeamMember, "id">) =>
-    api.post(`${this.route}`, data).then((res) => res.data);
-  getAll = async () => api.get(`${this.route}`).then((res) => res.data);
+    this.api.post(`${this.route}`, data).then((res) => res.data);
+  getAll = async () => this.api.get(`${this.route}`).then((res) => res.data);
   getOne = async (id: number) =>
-    api.get(`${this.route}/${id}`).then((res) => res.data);
+    this.api.get(`${this.route}/${id}`).then((res) => res.data);
   getOneSlug = async (slug: string) =>
-    api.get(`${this.route}/slug/${slug}`).then((res) => res.data);
+    this.api.get(`${this.route}/slug/${slug}`).then((res) => res.data);
   update = async (id: number, data: Partial<Omit<TeamMember, "id">>) =>
-    api.put(`${this.route}/${id}`, data).then((res) => res.data);
+    this.api.put(`${this.route}/${id}`, data).then((res) => res.data);
   delete = async (id: number) =>
-    api.delete(`${this.route}/${id}`).then((res) => res.data);
+    this.api.delete(`${this.route}/${id}`).then((res) => res.data);
 }
