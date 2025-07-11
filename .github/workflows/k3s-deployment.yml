@@ -46,9 +46,11 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t $IMAGE_NAME:latest .
+        working-directory: ./main
 
       - name: Push Docker image
         run: docker push $IMAGE_NAME:latest
+        working-directory: ./main
 
   deploy:
     name: Deply on cluster
