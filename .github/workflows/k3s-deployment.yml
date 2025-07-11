@@ -67,4 +67,4 @@ jobs:
       - name: Redeploy app
         run: |
           kubectl apply -f ./k8s/
-          kubectl rollout status deployment/loumo-website
+          kubectl rollout status deployment/wintercode-website
