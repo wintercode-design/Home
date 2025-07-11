@@ -1,0 +1,68 @@
+name: CI/CD to K8s
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: wintercodenkjj/wintercode-website
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: npm ci
+        working-directory: ./main
+      - name: Run linter
+        run: npm run lint
+        working-directory: ./main
+
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: npm ci
+        working-directory: ./main
+
+      - name: Build project
+        run: npm run build
+        working-directory: ./main
+
+      - name: Log in to GIT HUB CONTAINER REGISTERY
+        run: |
+          # echo "$(echo "${{ secrets.DOCKER_USERNAME  }}" | base64 -d)" | docker login -u "$(echo "${{ secrets.DOCKER_PASSWORD }}" | base64 -d)" --password-stdin
+
+          export USR=$(echo "${{ secrets.DOCKER_USERNAME  }}" | base64 -d)
+          export PWD=$(echo "${{ secrets.DOCKER_PASSWORD }}" | base64 -d)
+
+          echo "$PWD" | docker login -u "$USR" --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t $IMAGE_NAME:latest .
+
+      - name: Push Docker image
+        run: docker push $IMAGE_NAME:latest
+
+  deploy:
+    name: Deply on cluster
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+      - name: Redeploy app
+        run: |
+          kubectl apply -f ./k8s/
+          kubectl rollout status deployment/loumo-website
