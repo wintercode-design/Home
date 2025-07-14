@@ -5,9 +5,11 @@ import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import Loading from "./Loading";
+import { useAppContext } from "@/providers/appContext";
 
 const ContactForm = () => {
-  const contactQuery = new ContactQuery();
+  const { baseURL } = useAppContext();
+  const contactQuery = new ContactQuery(baseURL);
   const [formData, setFormData] = useState({
     name: "",
     email: "",

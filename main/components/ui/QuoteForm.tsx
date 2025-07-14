@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import quoteQuery from "@/queries/quote";
 import { useMutation } from "@tanstack/react-query";
+import { useAppContext } from "@/providers/appContext";
 
 const QuoteForm = () => {
   const t = useTranslations("QuotePage");
@@ -138,7 +139,8 @@ const QuoteForm = () => {
     t("form.goals.educational"),
   ];
 
-  const quoteQueryInstance = new quoteQuery();
+  const { baseURL } = useAppContext();
+  const quoteQueryInstance = new quoteQuery(baseURL);
   const quoteMutation = useMutation({
     mutationFn: (data: typeof form) =>
       quoteQueryInstance.create({ ...data, goals: data.goals.join(",") }),

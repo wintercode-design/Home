@@ -7,9 +7,11 @@ import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useState } from "react";
 import Badge from "../ui/Badge";
+import { useAppContext } from "@/providers/appContext";
 
 const Footer = () => {
-  const newsletterQuery = new NewsletterQuery();
+  const { baseURL } = useAppContext();
+  const newsletterQuery = new NewsletterQuery(baseURL);
   const [email, setEmail] = useState("");
   const t = useTranslations("Footer");
   const navT = useTranslations("Navigation");

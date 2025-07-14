@@ -58,10 +58,14 @@ export default async function RootLayout({
             <ToastNotif>
               <QueryClientProvider client={queryClient}>
                 <Navbar />
-                <AppProvider baseURL={baseURL ?? ""}>{children}</AppProvider>
-                <Container stylebg="bg-[#1A202C]" className="min-h-[566px]">
-                  <Footer />
-                </Container>
+                <AppProvider baseURL={baseURL ?? ""}>
+                  <>
+                    {children}
+                    <Container stylebg="bg-[#1A202C]" className="min-h-[566px]">
+                      <Footer />
+                    </Container>
+                  </>
+                </AppProvider>
               </QueryClientProvider>
             </ToastNotif>
           </QueryProvider>
