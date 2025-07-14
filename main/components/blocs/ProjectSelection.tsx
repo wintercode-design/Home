@@ -9,11 +9,14 @@ import { useQuery } from "@tanstack/react-query";
 import ButtonOpt from "../ui/Button";
 import Link from "next/link";
 import Loading from "../ui/Loading";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 const ProjectSelection = () => {
-  const projectQuery = new ProjectQuery();
+  const { baseURL } = useAppContext();
+  const projectQuery = new ProjectQuery(baseURL);
   const t = useTranslations("HomePage.portfolio");
 
   const projects = useQuery({

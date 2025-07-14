@@ -8,11 +8,14 @@ import ReviewQuery from "@/queries/review";
 import { Review } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../ui/Loading";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 const TestimonyList = () => {
-  const reviewQuery = new ReviewQuery();
+  const { baseURL } = useAppContext();
+  const reviewQuery = new ReviewQuery(baseURL);
   const t = useTranslations("HomePage.testimonials");
   const loadingT = useTranslations("Common");
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);

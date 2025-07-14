@@ -5,7 +5,8 @@ import SectionHead from "../ui/SectionHead";
 import ServiceCard from "../ui/ServiceCard";
 import ButtonOpt from "../ui/Button";
 import Link from "next/link";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const ServicesOffered = () => {

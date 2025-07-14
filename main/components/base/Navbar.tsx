@@ -1,5 +1,6 @@
 "use client";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

@@ -2,12 +2,12 @@
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const CoreValues = () => {
   const t = useTranslations("HomePage.coreValues");
-  console.log(t("integrity"));
 
   return (
     <Container
@@ -30,23 +30,23 @@ const CoreValues = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-4xl h-full">
         {[
           {
-            title: t("integrity").title,
-            description: t("integrity").description,
+            title: t("integrity.title"),
+            description: t("integrity.description"),
             image: "/values/value1.png",
           },
           {
-            title: t("innovation").title,
-            description: t("innovation").description,
+            title: t("innovation.title"),
+            description: t("innovation.description"),
             image: "/values/value2.png",
           },
           {
-            title: t("customerCentricity").title,
-            description: t("customerCentricity").description,
+            title: t("customerCentricity.title"),
+            description: t("customerCentricity.description"),
             image: "/values/value3.png",
           },
           {
-            title: t("collaboration").title,
-            description: t("collaboration").description,
+            title: t("collaboration.title"),
+            description: t("collaboration.description"),
             image: "/values/value4.png",
           },
         ].map((item, index) => (

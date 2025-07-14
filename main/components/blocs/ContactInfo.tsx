@@ -5,7 +5,8 @@ import SectionHead from "../ui/SectionHead";
 import Container from "../base/Container";
 import Badge from "../ui/Badge";
 import Link from "next/link";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const ContactInfo = () => {

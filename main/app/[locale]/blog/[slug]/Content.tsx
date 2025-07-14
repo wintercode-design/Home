@@ -8,9 +8,11 @@ import Loading from "@/components/ui/Loading";
 import BlogQuery from "@/queries/blog";
 import { Blog } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
+import { useAppContext } from "@/providers/appContext";
 
 const Content = ({ slug }: { slug: string }) => {
-  const blogQuery = new BlogQuery();
+  const { baseURL } = useAppContext();
+  const blogQuery = new BlogQuery(baseURL);
 
   const blog = useQuery({
     queryKey: ["getBlogBySlug", slug],

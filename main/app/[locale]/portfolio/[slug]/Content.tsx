@@ -4,6 +4,7 @@ import ShortNewsList from "@/components/blocs/ShortNewsList";
 import StartNewProject from "@/components/blocs/StartNewProject";
 import Loading from "@/components/ui/Loading";
 import MyIcons from "@/components/ui/MyIcons";
+import { useAppContext } from "@/providers/appContext";
 import ProjectQuery from "@/queries/project";
 import { Project } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
@@ -13,7 +14,8 @@ interface ContentProps {
 }
 
 const Content = ({ slug }: ContentProps) => {
-  const projectQuery = new ProjectQuery();
+  const { baseURL } = useAppContext();
+  const projectQuery = new ProjectQuery(baseURL);
 
   const project = useQuery({
     queryKey: ["getProjectBySlug", slug],

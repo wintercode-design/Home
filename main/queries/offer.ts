@@ -1,9 +1,14 @@
 import AxiosConfig from "@/providers/axios";
 import { Offer } from "@/types/types";
+import { AxiosInstance } from "axios";
 
 export default class OfferQuery {
   route = "/offers";
-  api = new AxiosConfig().api;
+  api: AxiosInstance;
+
+  constructor(baseURL: string) {
+    this.api = new AxiosConfig(baseURL).api;
+  }
   create = async (data: Omit<Offer, "id">) =>
     this.api.post(`${this.route}`, data).then((res) => res.data);
   getAll = async () => this.api.get(`${this.route}`).then((res) => res.data);

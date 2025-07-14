@@ -7,7 +7,8 @@ import TeamMembers from "@/components/blocs/TeamMembers";
 import ToolsUsed from "@/components/blocs/ToolsUsed";
 import AboutTop from "@/components/ui/AboutTop";
 import SectionHead from "@/components/ui/SectionHead";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const Page = () => {
@@ -65,27 +66,27 @@ const Page = () => {
         >
           {[
             {
-              num: t("years").number,
-              title: t("years").title,
-              sub: t("years").subtitle,
+              num: t("years.number"),
+              title: t("years.title"),
+              sub: t("years.subtitle"),
               img: "/",
             },
             {
-              num: t("projects").number,
-              title: t("projects").title,
-              sub: t("projects").subtitle,
+              num: t("projects.number"),
+              title: t("projects.title"),
+              sub: t("projects.subtitle"),
               img: "/",
             },
             {
-              num: t("clients").number,
-              title: t("clients").title,
-              sub: t("clients").subtitle,
+              num: t("clients.number"),
+              title: t("clients.title"),
+              sub: t("clients.subtitle"),
               img: "/",
             },
             {
-              num: t("comingSoon").number,
-              title: t("comingSoon").title,
-              sub: t("comingSoon").subtitle,
+              num: t("comingSoon.number"),
+              title: t("comingSoon.title"),
+              sub: t("comingSoon.subtitle"),
               img: "/",
             },
           ].map((counters, index) => {

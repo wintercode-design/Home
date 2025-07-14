@@ -9,11 +9,14 @@ import { useQuery } from "@tanstack/react-query";
 import ButtonOpt from "../ui/Button";
 import Link from "next/link";
 import Loading from "../ui/Loading";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 const ShortNewsList = () => {
-  const blogQuery = new BlogQuery();
+  const { baseURL } = useAppContext();
+  const blogQuery = new BlogQuery(baseURL);
   const t = useTranslations("HomePage.news");
 
   const blogs = useQuery({

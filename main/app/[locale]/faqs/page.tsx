@@ -6,51 +6,50 @@ import FaqQuery from "@/queries/faq";
 import { FaqT } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 export default function FAQPage() {
-  const faqQuery = new FaqQuery();
+  const { baseURL } = useAppContext();
+  const faqQuery = new FaqQuery(baseURL);
   const [selectedCategory, setSelectedCategory] =
     useState<string>("General & Services");
   const t = useTranslations("FAQPage");
-
-  const categories = t("categories");
   // console.log(categories);
-  const predefinedCategories = categories.general
-    ? [
-        {
-          title: categories.general.title,
-          description: categories.general.description,
-          icon: "service" as const,
-          backendCategory: "General & Services",
-        },
-        {
-          title: categories.pricing.title,
-          description: categories.pricing.description,
-          icon: "pricing" as const,
-          backendCategory: "Pricing & Payment",
-        },
-        {
-          title: categories.technical.title,
-          description: categories.technical.description,
-          icon: "tech" as const,
-          backendCategory: "Technical",
-        },
-        {
-          title: categories.security.title,
-          description: categories.security.description,
-          icon: "lock" as const,
-          backendCategory: "Security & Ownership",
-        },
-        {
-          title: categories.working.title,
-          description: categories.working.description,
-          icon: "business" as const,
-          backendCategory: "Working With WinterCode",
-        },
-      ]
-    : [];
+  const predefinedCategories = [
+    {
+      title: t("categories.general.title"),
+      description: t("categories.general.description"),
+      icon: "service" as const,
+      backendCategory: "General & Services",
+    },
+    {
+      title: t("categories.pricing.title"),
+      description: t("categories.pricing.description"),
+      icon: "pricing" as const,
+      backendCategory: "Pricing & Payment",
+    },
+    {
+      title: t("categories.technical.title"),
+      description: t("categories.technical.description"),
+      icon: "tech" as const,
+      backendCategory: "Technical",
+    },
+    {
+      title: t("categories.security.title"),
+      description: t("categories.security.description"),
+      icon: "lock" as const,
+      backendCategory: "Security & Ownership",
+    },
+    {
+      title: t("categories.working.title"),
+      description: t("categories.working.description"),
+      icon: "business" as const,
+      backendCategory: "Working With WinterCode",
+    },
+  ];
 
   const faqs = useQuery({
     queryKey: ["getAllFaqs"],

@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import ButtonOpt from "./Button";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import quoteQuery from "@/queries/quote";
 import { useMutation } from "@tanstack/react-query";
@@ -58,13 +59,13 @@ const QuoteForm = () => {
   });
 
   const steps = [
-    t("steps").basicInfo,
-    t("steps").businessOverview,
-    t("steps").projectGoals,
-    t("steps").designPreferences,
-    t("steps").competitors,
-    t("steps").budgetTimeline,
-    t("steps").additionalComments,
+    t("steps.basicInfo"),
+    t("steps.businessOverview"),
+    t("steps.projectGoals"),
+    t("steps.designPreferences"),
+    t("steps.competitors"),
+    t("steps.budgetTimeline"),
+    t("steps.additionalComments"),
   ];
 
   // Auto-scroll to current step
@@ -129,15 +130,13 @@ const QuoteForm = () => {
   const handleNext = () => setStep((s) => Math.min(s + 1, steps.length - 1));
   const handleBack = () => setStep((s) => Math.max(s - 1, 0));
 
-  const goalOptions = t("form").goals
-    ? [
-        t("form").goals.onlinePresence,
-        t("form").goals.generateLeads,
-        t("form").goals.ecommerce,
-        t("form").goals.bookings,
-        t("form").goals.educational,
-      ]
-    : [];
+  const goalOptions = [
+    t("form.goals.onlinePresence"),
+    t("form.goals.generateLeads"),
+    t("form.goals.ecommerce"),
+    t("form.goals.bookings"),
+    t("form.goals.educational"),
+  ];
 
   const quoteQueryInstance = new quoteQuery();
   const quoteMutation = useMutation({
@@ -189,9 +188,9 @@ const QuoteForm = () => {
       <StepIndicator />
       {step === 0 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").basicInfo}</h2>
+          <h2>{t("steps.basicInfo")}</h2>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="companyName">{t("form").companyName}</label>
+            <label htmlFor="companyName">{t("form.companyName")}</label>
             <input
               type="text"
               id="companyName"
@@ -203,7 +202,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="contactPerson">{t("form").contactPerson}</label>
+            <label htmlFor="contactPerson">{t("form.contactPerson")}</label>
             <input
               type="text"
               id="contactPerson"
@@ -227,7 +226,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="email">{t("form").email}</label>
+            <label htmlFor="email">{t("form.email")}</label>
             <input
               type="text"
               id="email"
@@ -239,7 +238,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="location">{t("form").location}</label>
+            <label htmlFor="location">{t("form.location")}</label>
             <input
               type="text"
               id="location"
@@ -250,7 +249,7 @@ const QuoteForm = () => {
               className="border-b-[1px] border-[#8A8A8A]"
             />
           </div>
-          <h6>{t("form").hasWebsite}</h6>
+          <h6>{t("form.hasWebsite")}</h6>
           <div className="flex gap-2 w-full items-center">
             <input
               type="checkbox"
@@ -260,7 +259,7 @@ const QuoteForm = () => {
                 setForm((f) => ({ ...f, hasWebsite: e.target.checked }))
               }
             />
-            <label htmlFor="hasWebsite">{t("form").yes}</label>
+            <label htmlFor="hasWebsite">{t("form.yes")}</label>
             {form.hasWebsite && (
               <input
                 type="text"
@@ -269,7 +268,7 @@ const QuoteForm = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, website: e.target.value }))
                 }
-                placeholder={t("form").websitePlaceholder}
+                placeholder={t("form.websitePlaceholder")}
                 className="border-b-[1px] w-full border-[#8A8A8A]"
               />
             )}
@@ -281,16 +280,16 @@ const QuoteForm = () => {
                 setForm((f) => ({ ...f, hasWebsite: !e.target.checked }))
               }
             />
-            <label htmlFor="noWebsite">{t("form").no}</label>
+            <label htmlFor="noWebsite">{t("form.no")}</label>
           </div>
         </div>
       )}
       {step === 1 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").businessOverview}</h2>
+          <h2>{t("steps.businessOverview")}</h2>
           <div className="flex flex-col gap-2 w-full">
             <label htmlFor="businessDescription">
-              {t("form").businessDescription}
+              {t("form.businessDescription")}
             </label>
             <textarea
               id="businessDescription"
@@ -302,7 +301,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="targetAudience">{t("form").targetAudience}</label>
+            <label htmlFor="targetAudience">{t("form.targetAudience")}</label>
             <textarea
               id="targetAudience"
               value={form.targetAudience}
@@ -313,7 +312,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="products">{t("form").products}</label>
+            <label htmlFor="products">{t("form.products")}</label>
             <textarea
               id="products"
               value={form.products}
@@ -327,8 +326,8 @@ const QuoteForm = () => {
       )}
       {step === 2 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").projectGoals}</h2>
-          <p>{t("form").mainPurpose}</p>
+          <h2>{t("steps.projectGoals")}</h2>
+          <p>{t("form.mainPurpose")}</p>
           <div className="flex flex-col gap-2 w-full">
             {goalOptions.map((goal) => (
               <label key={goal} className="flex items-center gap-2">
@@ -358,20 +357,20 @@ const QuoteForm = () => {
                   }))
                 }
               />
-              {t("form").goals.other}
+              {t("form.goals.other")}
               <input
                 type="text"
                 value={form.otherGoal}
                 onChange={(e) =>
                   setForm((f) => ({ ...f, otherGoal: e.target.value }))
                 }
-                placeholder={t("form").otherGoalPlaceholder}
+                placeholder={t("form.otherGoalPlaceholder")}
                 className="border-b-[1px] w-full border-[#8A8A8A]"
               />
             </label>
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="priorities">{t("form").priorities}</label>
+            <label htmlFor="priorities">{t("form.priorities")}</label>
             <textarea
               id="priorities"
               value={form.priorities}
@@ -385,9 +384,9 @@ const QuoteForm = () => {
       )}
       {step === 3 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").designPreferences}</h2>
+          <h2>{t("steps.designPreferences")}</h2>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="designLikes">{t("form").designLikes}</label>
+            <label htmlFor="designLikes">{t("form.designLikes")}</label>
             <textarea
               id="designLikes"
               value={form.designLikes}
@@ -398,7 +397,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="designDislikes">{t("form").designDislikes}</label>
+            <label htmlFor="designDislikes">{t("form.designDislikes")}</label>
             <textarea
               id="designDislikes"
               value={form.designDislikes}
@@ -410,7 +409,7 @@ const QuoteForm = () => {
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label htmlFor="colorPreferences">
-              {t("form").colorPreferences}
+              {t("form.colorPreferences")}
             </label>
             <input
               id="colorPreferences"
@@ -425,10 +424,10 @@ const QuoteForm = () => {
       )}
       {step === 4 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").competitors}</h2>
+          <h2>{t("steps.competitors")}</h2>
           <div className="flex flex-col gap-2 w-full">
             <label htmlFor="referenceWebsites">
-              {t("form").referenceWebsites}
+              {t("form.referenceWebsites")}
             </label>
             <textarea
               id="referenceWebsites"
@@ -440,7 +439,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="competitors">{t("form").competitors}</label>
+            <label htmlFor="competitors">{t("form.competitors")}</label>
             <textarea
               id="competitors"
               value={form.competitors}
@@ -454,9 +453,9 @@ const QuoteForm = () => {
       )}
       {step === 5 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").budgetTimeline}</h2>
+          <h2>{t("steps.budgetTimeline")}</h2>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="budget">{t("form").budget}</label>
+            <label htmlFor="budget">{t("form.budget")}</label>
             <input
               id="budget"
               value={form.budget}
@@ -467,7 +466,7 @@ const QuoteForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="timeline">{t("form").timeline}</label>
+            <label htmlFor="timeline">{t("form.timeline")}</label>
             <input
               id="timeline"
               value={form.timeline}
@@ -481,9 +480,9 @@ const QuoteForm = () => {
       )}
       {step === 6 && (
         <div className="flex flex-col gap-6">
-          <h2>{t("steps").additionalComments}</h2>
+          <h2>{t("steps.additionalComments")}</h2>
           <div className="flex flex-col gap-2 w-full">
-            <label htmlFor="additional">{t("form").additional}</label>
+            <label htmlFor="additional">{t("form.additional")}</label>
             <textarea
               id="additional"
               value={form.additional}
@@ -497,7 +496,7 @@ const QuoteForm = () => {
       )}
       <div className="flex justify-between mt-8">
         <ButtonOpt
-          title={t("buttons").back}
+          title={t("buttons.back")}
           icon="arrow"
           fill={false}
           onClick={handleBack}
@@ -505,14 +504,14 @@ const QuoteForm = () => {
         />
         {step < steps.length - 1 ? (
           <ButtonOpt
-            title={t("buttons").next}
+            title={t("buttons.next")}
             icon="arrow"
             fill={true}
             onClick={handleNext}
           />
         ) : (
           <ButtonOpt
-            title={t("buttons").submit}
+            title={t("buttons.submit")}
             icon="arrow"
             fill={true}
             type="submit"

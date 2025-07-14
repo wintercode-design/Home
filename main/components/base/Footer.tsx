@@ -1,5 +1,6 @@
 "use client";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import NewsletterQuery from "@/queries/newsletter";
 import { Subscriber } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";

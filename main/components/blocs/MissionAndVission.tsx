@@ -3,7 +3,8 @@ import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import MissionVission from "../ui/MissionVission";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const MissionAndVission = () => {
@@ -35,9 +36,9 @@ const MissionAndVission = () => {
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <MissionVission
-            title={t("mission").title}
+            title={t("mission.title")}
             image={"/img/mission1.webp"}
-            description={t("mission").description}
+            description={t("mission.description")}
           />
         </motion.div>
         <motion.div
@@ -47,9 +48,9 @@ const MissionAndVission = () => {
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <MissionVission
-            title={t("vision").title}
+            title={t("vision.title")}
             image={"/img/vission1.webp"}
-            description={t("vision").description}
+            description={t("vision.description")}
           />
         </motion.div>
       </div>

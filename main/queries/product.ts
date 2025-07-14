@@ -1,10 +1,15 @@
 import AxiosConfig from "@/providers/axios";
 import { Product } from "@/types/types";
+import { AxiosInstance } from "axios";
 import { toast } from "react-toastify";
 
 export default class ProductQuery {
   route = "/products";
-  api = new AxiosConfig().api;
+  api: AxiosInstance;
+
+  constructor(baseURL: string) {
+    this.api = new AxiosConfig(baseURL).api;
+  }
   create = async (data: Omit<Product, "id">): Promise<Product> => {
     return this.api.post(`${this.route}`, data).then((response) => {
       toast.success(`created ${response.data.product.name} successfully`);

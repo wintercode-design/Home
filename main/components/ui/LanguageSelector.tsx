@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { useLanguage } from "@/providers/languageProvider";
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language: currentLanguage, setLanguage } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
+  const currentLanguage = useLocale();
 
   const languages = [
     { code: "en", name: "English", flag: "/flag/en.webp" },
@@ -15,7 +18,15 @@ const LanguageSelector = () => {
   ];
 
   const handleLanguageChange = (langCode: string) => {
-    setLanguage(langCode);
+    // Replace the first segment of the pathname with the new locale
+    const segments = pathname.split("/");
+    if (segments[1] && languages.some((l) => l.code === segments[1])) {
+      segments[1] = langCode;
+    } else {
+      segments.splice(1, 0, langCode);
+    }
+    const newPath = segments.join("/") || "/";
+    router.push(newPath);
     setIsOpen(false);
   };
 

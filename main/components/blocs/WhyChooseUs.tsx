@@ -6,11 +6,14 @@ import Accordion from "../ui/Accordion";
 import FaqQuery from "@/queries/faq";
 import { FaqT } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 const WhyChooseUs = () => {
-  const faqQuery = new FaqQuery();
+  const { baseURL } = useAppContext();
+  const faqQuery = new FaqQuery(baseURL);
   const t = useTranslations("HomePage.whyChooseUs");
   const [selectedCategory, setSelectedCategory] =
     useState<string>("General & Services");

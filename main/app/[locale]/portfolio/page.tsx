@@ -8,11 +8,14 @@ import { Project } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "@/components/ui/Loading";
 import SectionHead from "@/components/ui/SectionHead";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/providers/appContext";
 
 const Page = () => {
-  const projectQuery = new ProjectQuery();
+  const { baseURL } = useAppContext();
+  const projectQuery = new ProjectQuery(baseURL);
   const t = useTranslations("HomePage.portfolio");
   const loadingT = useTranslations("Common");
 

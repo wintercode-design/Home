@@ -5,11 +5,12 @@ interface LayoutProps {
   children: React.ReactNode;
   params: Promise<{
     lang: string;
+    slug: string;
   }>;
 }
 
 export const metadata: Metadata = {
-  title: "Winter code design - contact us",
+  title: "Winter code design - latest news",
   description: "Share your projects and let's work together",
 };
 
@@ -17,15 +18,18 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export default async function Layout({ children }: LayoutProps) {
+export default async function Layout({ children, params }: LayoutProps) {
+  const { slug } = await params;
   return (
     <>
       <PageIntro
-        title="Services"
-        img="/titles/services.webp"
+        title={slug}
+        img="/blogs/blog1.jpeg"
+        className="h-[70vh]"
         links={[
-          { key: "home", title: "Home", link: "/" },
-          { key: "services", title: "Services", link: "/services" },
+          { key: "home", title: "home", link: "/" },
+          { key: "portfolio", title: "portfolio", link: "/portfolio" },
+          { key: "slug", title: slug, link: slug },
         ]}
       />
       {children}

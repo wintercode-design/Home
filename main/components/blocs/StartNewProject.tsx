@@ -4,7 +4,8 @@ import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
 import ButtonOpt from "../ui/Button";
 import Link from "next/link";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 
 const StartNewProject = () => {
   const t = useTranslations("HomePage.startProject");

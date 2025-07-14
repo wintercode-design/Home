@@ -2,12 +2,12 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 export default class AxiosConfig {
   public api: AxiosInstance;
-  constructor() {
+  constructor(baseURL: string) {
     this.api = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+      baseURL,
       timeout: 10000,
       headers: {
         "Content-Type": "application/json",

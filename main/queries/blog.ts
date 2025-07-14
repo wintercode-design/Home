@@ -1,9 +1,14 @@
 import AxiosConfig from "@/providers/axios";
 import { Blog } from "@/types/types";
+import { AxiosInstance } from "axios";
 
 export default class BlogQuery {
   route = "/blogs";
-  api = new AxiosConfig().api;
+  api: AxiosInstance;
+
+  constructor(baseURL: string) {
+    this.api = new AxiosConfig(baseURL).api;
+  }
   create = async (data: Omit<Blog, "id">) =>
     this.api.post(`${this.route}`, data).then((res) => res.data);
   getAll = async () => this.api.get(`${this.route}`).then((res) => res.data);

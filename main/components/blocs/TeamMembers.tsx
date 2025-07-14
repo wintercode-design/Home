@@ -1,7 +1,8 @@
 import React from "react";
 import Container from "../base/Container";
 import SectionHead from "../ui/SectionHead";
-import { useTranslations } from "@/hooks/useMessages";
+// import { useTranslations } from "@/hooks/useMessages";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const TeamMembers = () => {

@@ -1,9 +1,14 @@
 import AxiosConfig from "@/providers/axios";
 import { Subscriber } from "@/types/types";
+import { AxiosInstance } from "axios";
 
 export default class NewsletterQuery {
   route = "/subscribers";
-  api = new AxiosConfig().api;
+  api: AxiosInstance;
+
+  constructor(baseURL: string) {
+    this.api = new AxiosConfig(baseURL).api;
+  }
   create = async (data: Omit<Subscriber, "id">) =>
     this.api.post(`${this.route}`, data).then((res) => res.data);
   getAll = async () => this.api.get(`${this.route}`).then((res) => res.data);

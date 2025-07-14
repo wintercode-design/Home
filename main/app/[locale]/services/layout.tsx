@@ -21,11 +21,11 @@ export default async function Layout({ children }: LayoutProps) {
   return (
     <>
       <PageIntro
-        title="FAQs"
-        img="/bg/heading.webp"
+        title="services"
+        img="/titles/services.webp"
         links={[
-          { key: "home", title: "Home", link: "/" },
-          { key: "faq", title: "FAQs", link: "/faqs" },
+          { key: "home", title: "home", link: "/" },
+          { key: "services", title: "services", link: "/services" },
         ]}
       />
       {children}

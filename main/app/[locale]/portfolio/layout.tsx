@@ -9,7 +9,7 @@ interface LayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Winter code design - Quote",
+  title: "Winter code design - Portfolio",
   description: "Share your projects and let's work together",
 };
 
@@ -21,11 +21,11 @@ export default async function Layout({ children }: LayoutProps) {
   return (
     <>
       <PageIntro
-        title="Quote"
-        img="/titles/quote.webp"
+        title="portfolio"
+        img="/titles/portfolio.webp"
         links={[
           { key: "home", title: "Home", link: "/" },
-          { key: "quote", title: "Quote", link: "/quote" },
+          { key: "portfolio", title: "Portfolio", link: "/portfolio" },
         ]}
       />
       {children}
