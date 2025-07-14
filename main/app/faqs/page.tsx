@@ -59,7 +59,7 @@ export default function FAQPage() {
 
   // Filter FAQs by selected category
   const getFilteredFaqs = (): FaqT[] => {
-    if (!faqs.data) return [];
+    if (!Array.isArray(faqs.data)) return [];
     return faqs.data.filter((faq: FaqT) => faq.category === selectedCategory);
   };
 

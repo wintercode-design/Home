@@ -2,6 +2,7 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 
+export const dynamic = "force-dynamic";
 export default class AxiosConfig {
   public api: AxiosInstance;
   constructor() {
