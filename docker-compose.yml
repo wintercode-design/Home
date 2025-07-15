@@ -1,19 +1,19 @@
 services:
-  wintercode_ui:
-    container_name: wintercode_ui
+  wintercode-ui:
+    container_name: wintercode-ui
     build:
       context: ./main
       dockerfile: Dockerfile
     restart: unless-stopped
-    environment:
-      NEXT_PUBLIC_API_BASE_URL: "http://localhost:5000/api/"
+    env_file:
+      - ../shared/.env.prod
     ports:
       - "3000:3000"
     networks:
-      - app-network
+      - frostNet
 
 networks:
-  app-network:
+  frostNet:
     driver: bridge
     attachable: true
 # correct deployment
