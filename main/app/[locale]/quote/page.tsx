@@ -4,7 +4,7 @@ import SectionHead from "@/components/ui/SectionHead";
 
 const page = () => {
   return (
-    <main>
+    <main className=" overflow-hidden">
       <Container className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]">
         <SectionHead
           sectionTitle={"Conract us"}

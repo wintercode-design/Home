@@ -12,7 +12,7 @@ const StartNewProject = () => {
 
   return (
     <Container
-      stylebg="bg-[url('/bg/larg-logo.png')] bg-top-right bg-no-repeat"
+      stylebg="bg-[url('/bg/larg-logo.webp')] bg-top-right bg-no-repeat"
       className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh]"
     >
       <SectionHead

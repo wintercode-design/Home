@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const page = () => {
   return (
-    <main>
+    <main className=" overflow-hidden">
       <Container className="py-[50px] flex flex-col justify-center items-center">
         <motion.div
           initial="offscreen"

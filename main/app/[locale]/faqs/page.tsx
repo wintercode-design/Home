@@ -75,7 +75,7 @@ export default function FAQPage() {
   const selectedCategoryInfo = getSelectedCategoryInfo();
 
   return (
-    <main>
+    <main className="overflow-hidden">
       <Container
         stylebg="bg-[#1A202C]/50"
         className="flex flex-col justify-center items-center gap-[50px] min-h-[60vh] py-[100px]"

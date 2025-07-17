@@ -111,7 +111,7 @@ const Navbar = () => {
           </Link>
 
           {/* Hamburger Icon */}
-          <button
+          <span
             className="lg:hidden focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -137,7 +137,7 @@ const Navbar = () => {
                 />
               )}
             </svg>
-          </button>
+          </span>
 
           {/* Mobile Dropdown */}
           {isOpen && (

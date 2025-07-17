@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 md:gap-3">
+        <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-3">
           <div className="flex flex-col gap-3">
             <h5>{t("quickLinks")}</h5>
             <ol className="flex flex-col gap-3">
@@ -149,8 +149,8 @@ const Footer = () => {
             <ol className="flex flex-col gap-3">
               {[
                 {
-                  title: "kenfackjordanjunior@gmail.com",
-                  link: "mailto:kenfackjordanjunior@gmail.com",
+                  title: "contact@wintercodedesign.com",
+                  link: "mailto:contact@wintercodedesign.com",
                   badge: "mail",
                 },
                 {

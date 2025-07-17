@@ -14,9 +14,9 @@ import { motion } from "framer-motion";
 export default function Home() {
   // const t = useTranslations("HomePage");
   return (
-    <main>
+    <main className=" overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 1 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}

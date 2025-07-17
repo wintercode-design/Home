@@ -76,7 +76,7 @@ const Page = () => {
           ]}
         />
       </motion.div>
-      <main>
+      <main className=" overflow-hidden">
         <Container className="flex flex-col md:flex-row justify-center items-start gap-[50px] py-[100px]">
           <motion.div
             initial={{ opacity: 0, x: -60 }}

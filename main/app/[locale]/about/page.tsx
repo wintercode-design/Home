@@ -15,7 +15,7 @@ const Page = () => {
   const t = useTranslations("AboutPage.achievements");
 
   return (
-    <main>
+    <main className=" overflow-hidden">
       <motion.div
         initial="offscreen"
         whileInView={{ opacity: 1, y: 0 }}

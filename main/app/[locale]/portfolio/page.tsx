@@ -33,7 +33,7 @@ const Page = () => {
   }
 
   return (
-    <main>
+    <main className=" overflow-hidden">
       <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
         <motion.div
           initial="offscreen"

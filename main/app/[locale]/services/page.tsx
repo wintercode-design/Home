@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const page = () => {
   return (
-    <main>
+    <main className="overflow-hidden">
       {[
         {
           title: "webDevelopment.title",
