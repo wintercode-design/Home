@@ -126,7 +126,7 @@ const page = () => {
             key={key}
             initial={{ opacity: 0, x: key % 2 === 0 ? -60 : 60 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
           >
             <Services revers={revers} service={service} />

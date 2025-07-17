@@ -52,11 +52,49 @@ const Page = () => {
   };
 
   if (blogs.isLoading) {
-    return <Loading status="loading" message={loadingT("loading")} />;
+    return (
+      <>
+        <motion.div
+          initial="offscreen"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+        >
+          <PageIntro
+            title="blog"
+            img="/titles/blog.webp"
+            links={[
+              { key: "home", title: navT("home"), link: "/" },
+              { key: "blog", title: navT("blog"), link: "/blog" },
+            ]}
+          />
+        </motion.div>
+        <Loading status="loading" message={loadingT("loading")} />
+      </>
+    );
   }
 
   if (blogs.isError) {
-    return <Loading status="failed" message={loadingT("loadFailed")} />;
+    return (
+      <>
+        <motion.div
+          initial="offscreen"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+        >
+          <PageIntro
+            title="blog"
+            img="/titles/blog.webp"
+            links={[
+              { key: "home", title: navT("home"), link: "/" },
+              { key: "blog", title: navT("blog"), link: "/blog" },
+            ]}
+          />
+        </motion.div>
+        <Loading status="loading" message={loadingT("loadFailed")} />
+      </>
+    );
   }
 
   return (
