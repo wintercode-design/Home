@@ -5,8 +5,6 @@ import { Subscriber } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
 import { useAppContext } from "@/providers/appContext";
 
-const BROCHURE_PDF_URL =
-  "https://drive.google.com/file/d/1YRTexU6axAHAIDpZRhb4FoHvugJhqvRL/view?usp=sharing";
 const BROCHURE_IMAGE_SRC = "/brochur/wintercode-brochur-img.webp";
 
 /**

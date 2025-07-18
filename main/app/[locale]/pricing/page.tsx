@@ -1,17 +1,16 @@
 "use client";
 import Container from "@/components/base/Container";
-import StartNewProject from "@/components/blocs/StartNewProject";
-import MyIcons from "@/components/ui/MyIcons";
-import { motion } from "framer-motion";
-import { CheckCircle, MinusCircle } from "phosphor-react";
-import { useTranslations } from "next-intl";
-import ContactForm from "@/components/ui/ContactForm";
-import { useState } from "react";
-import ButtonOpt from "@/components/ui/Button";
-import Link from "next/link";
 import BrochureDownload from "@/components/blocs/BrochureDownload";
+import StartNewProject from "@/components/blocs/StartNewProject";
+import ButtonOpt from "@/components/ui/Button";
+import ContactForm from "@/components/ui/ContactForm";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { CheckCircle, MinusCircle } from "phosphor-react";
+import { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const t = useTranslations("PricingPage");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<null | string>(null);
@@ -428,4 +427,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
