@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import ButtonOpt from "../ui/Button";
 import LanguageSelector from "../ui/LanguageSelector";
 import Container from "./Container";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,6 +27,16 @@ const Navbar = () => {
       return window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const menuItems = [
+    { key: "home", path: "/" },
+    { key: "about", path: "/about" },
+    { key: "services", path: "/services" },
+    { key: "portfolio", path: "/portfolio" },
+    { key: "pricing", path: "/pricing" },
+    { key: "blog", path: "/blog" },
+    { key: "faqs", path: "/faqs" },
+  ];
 
   return (
     <Container
@@ -110,101 +121,147 @@ const Navbar = () => {
             </h6>
           </Link>
 
-          {/* Hamburger Icon */}
-          <span
-            className="lg:hidden focus:outline-none"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Hamburger Icon and Language Selector */}
+          <div className="flex items-center gap-6">
+            <LanguageSelector />
+            <span
+              className="lg:hidden focus:outline-none"
+              onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </span>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </span>
+          </div>
 
           {/* Mobile Dropdown */}
-          {isOpen && (
-            <div
-              className={
-                "absolute top-[88px] left-0 w-full shadow-md flex flex-col px-6 py-4 gap-2 lg:hidden z-50 duration-300 justify-center items-center bg-[#0E1C36]/80"
-              }
-            >
-              {[
-                { key: "home", path: "/" },
-                { key: "about", path: "/about" },
-                { key: "services", path: "/services" },
-                { key: "portfolio", path: "/portfolio" },
-                { key: "pricing", path: "/pricing" },
-                { key: "blog", path: "/blog" },
-                { key: "faqs", path: "/faqs" },
-              ].map((item, key) => {
-                const active =
-                  pathname.includes(item.key) ||
-                  (item.key === "home" ? pathname === "/" : false);
-
-                return (
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.25, ease: [0.42, 0, 0.58, 1] }}
+                className={
+                  "absolute top-[88px] left-0 w-full shadow-md flex flex-col px-6 py-4 gap-2 lg:hidden z-50 justify-center items-center bg-[#0E1C36]/80"
+                }
+              >
+                {menuItems.map((item, key) => {
+                  const active =
+                    pathname.includes(item.key) ||
+                    (item.key === "home" ? pathname === "/" : false);
+                  return (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, x: -40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -40 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.05 * key,
+                        ease: [0.42, 0, 0.58, 1],
+                      }}
+                      className="w-full"
+                    >
+                      <Link
+                        href={item.path}
+                        onClick={() => setIsOpen(false)}
+                        className="container"
+                      >
+                        <ButtonOpt
+                          title={t(item.key)}
+                          isNav={true}
+                          isSelected={active}
+                          custom="w-full! py-3"
+                        />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.05 * menuItems.length,
+                    ease: [0.42, 0, 0.58, 1],
+                  }}
+                  className="w-full"
+                >
                   <Link
-                    href={item.path}
-                    key={key}
+                    href={`/contact`}
                     onClick={() => setIsOpen(false)}
-                    className="container"
+                    className="w-full container"
                   >
                     <ButtonOpt
-                      title={t(item.key)}
+                      title={t("contact")}
+                      custom="w-full!"
+                      fill={true}
                       isNav={true}
-                      isSelected={active}
-                      custom="w-full! py-3"
+                      icon="contact"
                     />
                   </Link>
-                );
-              })}
-              <Link
-                href={`/contact`}
-                onClick={() => setIsOpen(false)}
-                className="w-full container"
-              >
-                <ButtonOpt
-                  title={t("contact")}
-                  custom="w-full!"
-                  fill={true}
-                  isNav={true}
-                  icon="contact"
-                />
-              </Link>
-              <Link
-                href={`/quote`}
-                onClick={() => setIsOpen(false)}
-                className="w-full container"
-              >
-                <ButtonOpt
-                  title={t("quote")}
-                  isNav={true}
-                  icon="quote"
-                  custom="w-full outline-[1px] rounded-full"
-                />
-              </Link>
-              <div className="w-full flex justify-center mt-4">
-                <LanguageSelector />
-              </div>
-            </div>
-          )}
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.05 * (menuItems.length + 1),
+                    ease: [0.42, 0, 0.58, 1],
+                  }}
+                  className="w-full"
+                >
+                  <Link
+                    href={`/quote`}
+                    onClick={() => setIsOpen(false)}
+                    className="w-full container"
+                  >
+                    <ButtonOpt
+                      title={t("quote")}
+                      isNav={true}
+                      icon="quote"
+                      custom="w-full outline-[1px] rounded-full"
+                    />
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.05 * (menuItems.length + 2),
+                    ease: [0.42, 0, 0.58, 1],
+                  }}
+                  className="w-full flex justify-center mt-4"
+                >
+                  <LanguageSelector />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
       </div>
     </Container>

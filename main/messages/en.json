@@ -351,5 +351,76 @@
       "submit": "Submit"
     },
     "submitMessage": "Form submitted! (implement submission logic)"
+  },
+  "PricingPage": {
+    "introTitle": "Web Development Packages Overview",
+    "introNote": "Important Note",
+    "introContact": "For any feature not mentioned here feel free to contact us",
+    "starter": "Starter",
+    "professional": "Professional",
+    "businessPlus": "Business+",
+    "recommended": "Recommended",
+    "forSmallProjects": "For small projects",
+    "forGrowingBusinesses": "For growing businesses",
+    "forEnterprises": "For enterprises",
+    "getStarted": "Get Started",
+    "contact": "Contact",
+    "table": {
+      "feature": "Feature",
+      "starter": "Starter",
+      "professional": "Professional",
+      "businessPlus": "Business+",
+      "numberOfPages": "Number of Pages",
+      "customDesign": "Custom Design (UI/UX)",
+      "responsiveDesign": "Responsive Design",
+      "contactForm": "Contact Form",
+      "seoSetup": "SEO Setup",
+      "cmsIntegration": "CMS Integration",
+      "blogNews": "Blog / News Section",
+      "galleryPortfolio": "Gallery / Portfolio",
+      "userAuth": "User Authentication",
+      "multilingual": "Multilingual Support",
+      "performance": "Performance Optimization",
+      "analytics": "Google Analytics Setup",
+      "security": "Security Features (SSL, Protection)",
+      "revisions": "Revision Rounds",
+      "supportPeriod": "Support Period",
+      "deliveryTime": "Estimated Delivery Time",
+      "maintenance": "Maintenance Plan (Optional)",
+      "price": "Price (Estimated)"
+    },
+    "tableValues": {
+      "pages": ["Up to 5", "Up to 10", "Unlimited"],
+      "customDesign": [
+        "Basic Layout",
+        "Custom Layout with UX",
+        "Fully Custom UI + Branding"
+      ],
+      "contactForm": [
+        "Simple Form",
+        "Form with Email Routing",
+        "Advanced Forms + Validation"
+      ],
+      "seo": [
+        "Basic Meta Setup",
+        "Keyword Setup + SEO Tags",
+        "Advanced SEO Tools"
+      ],
+      "cms": [null, "Basic Admin Panel", "Full CMS / Custom Backend"],
+      "userAuth": [null, null, "(Login / Signup / Admin)"],
+      "multilingual": [null, "Optional Add-on", null],
+      "performance": [null, null, "Speed Boosts"],
+      "analytics": [null, null, "Insights"],
+      "security": ["Basic", "Standard", "Advanced (Firewall, Login)"],
+      "revisions": ["2", "3", "Unlimited (within reason)"],
+      "supportPeriod": ["7 days post-launch", "60 days", "ok"],
+      "deliveryTime": ["10–14 days", "14–18 days", "3–4 weeks"],
+      "maintenance": [
+        "From 15,000 FCFA/mo",
+        "From 25,000 FCFA/mo",
+        "From 50,000 FCFA/mo"
+      ],
+      "price": ["230,000 FCFA", "450,000 FCFA", "900,000 FCFA"]
+    }
   }
 }

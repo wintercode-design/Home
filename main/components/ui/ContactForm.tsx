@@ -7,15 +7,29 @@ import React, { useState } from "react";
 import Loading from "./Loading";
 import { useAppContext } from "@/providers/appContext";
 
-const ContactForm = () => {
+interface ContactFormProps {
+  initialName?: string;
+  initialEmail?: string;
+  initialSubject?: string;
+  initialMessage?: string;
+  initialPhone?: string;
+}
+
+const ContactForm = ({
+  initialName = "",
+  initialEmail = "",
+  initialSubject = "",
+  initialMessage = "",
+  initialPhone = "",
+}: ContactFormProps) => {
   const { baseURL } = useAppContext();
   const contactQuery = new ContactQuery(baseURL);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    phone: "",
+    name: initialName,
+    email: initialEmail,
+    subject: initialSubject,
+    message: initialMessage,
+    phone: initialPhone,
   });
 
   const contactMutation = useMutation({

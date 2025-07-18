@@ -351,5 +351,76 @@
       "submit": "Soumettre"
     },
     "submitMessage": "Formulaire soumis ! (implémenter la logique de soumission)"
+  },
+  "PricingPage": {
+    "introTitle": "Aperçu des forfaits de développement web",
+    "introNote": "Note importante",
+    "introContact": "Pour toute fonctionnalité non mentionnée ici, n'hésitez pas à nous contacter",
+    "starter": "Essentiel",
+    "professional": "Professionnel",
+    "businessPlus": "Entreprise+",
+    "recommended": "Recommandé",
+    "forSmallProjects": "Pour petits projets",
+    "forGrowingBusinesses": "Pour entreprises en croissance",
+    "forEnterprises": "Pour les grandes entreprises",
+    "getStarted": "Commencer",
+    "contact": "Contact",
+    "table": {
+      "feature": "Fonctionnalité",
+      "starter": "Essentiel",
+      "professional": "Professionnel",
+      "businessPlus": "Entreprise+",
+      "numberOfPages": "Nombre de pages",
+      "customDesign": "Design personnalisé (UI/UX)",
+      "responsiveDesign": "Design adaptatif",
+      "contactForm": "Formulaire de contact",
+      "seoSetup": "Configuration SEO",
+      "cmsIntegration": "Intégration CMS",
+      "blogNews": "Blog / Actualités",
+      "galleryPortfolio": "Galerie / Portfolio",
+      "userAuth": "Authentification utilisateur",
+      "multilingual": "Support multilingue",
+      "performance": "Optimisation des performances",
+      "analytics": "Configuration Google Analytics",
+      "security": "Sécurité (SSL, protection)",
+      "revisions": "Tours de révision",
+      "supportPeriod": "Période de support",
+      "deliveryTime": "Délai de livraison estimé",
+      "maintenance": "Plan de maintenance (optionnel)",
+      "price": "Prix (estimé)"
+    },
+    "tableValues": {
+      "pages": ["Jusqu'à 5", "Jusqu'à 10", "Illimité"],
+      "customDesign": [
+        "Mise en page basique",
+        "Mise en page personnalisée avec UX",
+        "UI entièrement personnalisée + Branding"
+      ],
+      "contactForm": [
+        "Formulaire simple",
+        "Formulaire avec routage email",
+        "Formulaires avancés + validation"
+      ],
+      "seo": ["Méta de base", "Mots-clés + balises SEO", "Outils SEO avancés"],
+      "cms": [
+        null,
+        "Panneau d'administration basique",
+        "CMS complet / Backend personnalisé"
+      ],
+      "userAuth": [null, null, "(Connexion / Inscription / Admin)"],
+      "multilingual": [null, "Optionnel", null],
+      "performance": [null, null, "Optimisations de vitesse"],
+      "analytics": [null, null, "Analyses approfondies"],
+      "security": ["Basique", "Standard", "Avancé (pare-feu, connexion)"],
+      "revisions": ["2", "3", "Illimité (raisonnable)"],
+      "supportPeriod": ["7 jours après lancement", "60 jours", "ok"],
+      "deliveryTime": ["10–14 jours", "14–18 jours", "3–4 semaines"],
+      "maintenance": [
+        "À partir de 15 000 FCFA/mois",
+        "À partir de 25 000 FCFA/mois",
+        "À partir de 50 000 FCFA/mois"
+      ],
+      "price": ["230 000 FCFA", "450 000 FCFA", "900 000 FCFA"]
+    }
   }
 }

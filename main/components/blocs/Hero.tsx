@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <Container className="flex flex-col justify-center items-start gap-14 min-h-[80vh] py-[100px]">
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}

@@ -351,5 +351,80 @@
       "submit": "Absenden"
     },
     "submitMessage": "Formular abgesendet! (Übermittlungslogik implementieren)"
+  },
+  "PricingPage": {
+    "introTitle": "Überblick über Webentwicklungspakete",
+    "introNote": "Wichtiger Hinweis",
+    "introContact": "Für nicht aufgeführte Funktionen kontaktieren Sie uns gerne",
+    "starter": "Basis",
+    "professional": "Professionell",
+    "businessPlus": "Business+",
+    "recommended": "Empfohlen",
+    "forSmallProjects": "Für kleine Projekte",
+    "forGrowingBusinesses": "Für wachsende Unternehmen",
+    "forEnterprises": "Für Unternehmen",
+    "getStarted": "Jetzt starten",
+    "contact": "Kontakt",
+    "table": {
+      "feature": "Funktion",
+      "starter": "Basis",
+      "professional": "Professionell",
+      "businessPlus": "Business+",
+      "numberOfPages": "Seitenanzahl",
+      "customDesign": "Individuelles Design (UI/UX)",
+      "responsiveDesign": "Responsives Design",
+      "contactForm": "Kontaktformular",
+      "seoSetup": "SEO-Einrichtung",
+      "cmsIntegration": "CMS-Integration",
+      "blogNews": "Blog / Nachrichtenbereich",
+      "galleryPortfolio": "Galerie / Portfolio",
+      "userAuth": "Benutzer-Authentifizierung",
+      "multilingual": "Mehrsprachigkeit",
+      "performance": "Leistungsoptimierung",
+      "analytics": "Google Analytics-Einrichtung",
+      "security": "Sicherheitsfunktionen (SSL, Schutz)",
+      "revisions": "Überarbeitungsrunden",
+      "supportPeriod": "Supportzeitraum",
+      "deliveryTime": "Geschätzte Lieferzeit",
+      "maintenance": "Wartungsplan (optional)",
+      "price": "Preis (geschätzt)"
+    },
+    "tableValues": {
+      "pages": ["Bis zu 5", "Bis zu 10", "Unbegrenzt"],
+      "customDesign": [
+        "Einfache Layout",
+        "Individuelles Layout mit UX",
+        "Vollständig individuelles UI + Branding"
+      ],
+      "contactForm": [
+        "Einfaches Formular",
+        "Formular mit E-Mail-Routing",
+        "Erweiterte Formulare + Validierung"
+      ],
+      "seo": [
+        "Basis-Meta",
+        "Schlüsselwörter + SEO-Tags",
+        "Erweiterte SEO-Tools"
+      ],
+      "cms": [
+        null,
+        "Einfaches Admin-Panel",
+        "Vollständiges CMS / Individuelles Backend"
+      ],
+      "userAuth": [null, null, "(Login / Registrierung / Admin)"],
+      "multilingual": [null, "Optionales Add-on", null],
+      "performance": [null, null, "Geschwindigkeitsoptimierungen"],
+      "analytics": [null, null, "Erweiterte Analysen"],
+      "security": ["Basis", "Standard", "Erweitert (Firewall, Login)"],
+      "revisions": ["2", "3", "Unbegrenzt (angemessen)"],
+      "supportPeriod": ["7 Tage nach Launch", "60 Tage", "ok"],
+      "deliveryTime": ["10–14 Tage", "14–18 Tage", "3–4 Wochen"],
+      "maintenance": [
+        "Ab 15.000 FCFA/Monat",
+        "Ab 25.000 FCFA/Monat",
+        "Ab 50.000 FCFA/Monat"
+      ],
+      "price": ["230.000 FCFA", "450.000 FCFA", "900.000 FCFA"]
+    }
   }
 }
