@@ -1,4 +1,5 @@
 "use client";
+import BrochureDownload from "@/components/blocs/BrochureDownload";
 import ContactInfo from "@/components/blocs/ContactInfo";
 import Hero from "@/components/blocs/Hero";
 import PartnersList from "@/components/blocs/PartnersList";
@@ -41,6 +42,7 @@ export default function Home() {
       >
         <ProjectSelection />
       </motion.div>
+      <BrochureDownload />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
