@@ -37,7 +37,7 @@ const Page = () => {
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
           <TeamMembers />

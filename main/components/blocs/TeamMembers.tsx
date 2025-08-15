@@ -41,7 +41,7 @@ const teamMembers = [
     highlight: false,
   },
   {
-    name: "Miss. Elvira Nobel",
+    name: "Miss. Elvira Nobelle",
     title: "Web Master",
     img: "/team/ElviraNobel.jpg",
     linkedin: "#",
@@ -68,7 +68,7 @@ const TeamMembers = () => {
         className="flex flex-col justify-center items-center gap-[50px] py-[100px]"
       >
         <motion.div
-          initial={{ opacity: 0, y: -40 }}
+          initial={{ opacity: 0, y: -60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
@@ -83,7 +83,7 @@ const TeamMembers = () => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         className="flex flex-col relative justify-center items-center w-full py-8"
       >

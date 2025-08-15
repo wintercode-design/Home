@@ -39,8 +39,8 @@ const ContactInfo = () => {
             <ol className="flex flex-col gap-3">
               {[
                 {
-                  title: "kenfackjordanjunior@gmail.com",
-                  link: "mailto:kenfackjordanjunior@gmail.com",
+                  title: "contact@wintercodedesign.com",
+                  link: "mailto:contact@wintercodedesign.com",
                   badge: "mail",
                 },
                 {
