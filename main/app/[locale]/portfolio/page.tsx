@@ -12,6 +12,7 @@ import SectionHead from "@/components/ui/SectionHead";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useAppContext } from "@/providers/appContext";
+import PageIntro from "@/components/ui/PageIntro";
 
 const Page = () => {
   const { baseURL } = useAppContext();
@@ -33,41 +34,51 @@ const Page = () => {
   }
 
   return (
-    <main className=" overflow-hidden">
-      <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
+    <>
+      <PageIntro
+        title="portfolio"
+        img="/titles/portfolio.webp"
+        links={[
+          { key: "home", title: "Home", link: "/" },
+          { key: "portfolio", title: "Portfolio", link: "/portfolio" },
+        ]}
+      />
+      <main className=" overflow-hidden">
+        <Container className="flex flex-col justify-center items-center gap-[50px] py-[100px]">
+          <motion.div
+            initial="offscreen"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+          >
+            <SectionHead
+              sectionTitle={t("title")}
+              sectionSubtitle={t("subtitle")}
+              sectionDescription={t("description")}
+            />
+          </motion.div>
+          <motion.div
+            initial="offscreen"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {projects.data?.map((project: Project, index: number) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+          </motion.div>
+        </Container>
         <motion.div
-          initial="offscreen"
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
         >
-          <SectionHead
-            sectionTitle={t("title")}
-            sectionSubtitle={t("subtitle")}
-            sectionDescription={t("description")}
-          />
+          <StartNewProject />
         </motion.div>
-        <motion.div
-          initial="offscreen"
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          {projects.data?.map((project: Project, index: number) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </motion.div>
-      </Container>
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
-      >
-        <StartNewProject />
-      </motion.div>
-    </main>
+      </main>
+    </>
   );
 };
 

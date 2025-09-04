@@ -22,7 +22,10 @@ const ProjectCard = (data: Project) => {
         <h5>{title}</h5>
         <div className="flex flex-col justify-between h-full gap-3">
           <div className="space-y-2">
-            <p>{description}</p>
+            <div
+              className="tiptap line-clamp-3"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
             <small>{category}</small>
           </div>
           <Link href={`/portfolio/${data.slug}`}>

@@ -20,14 +20,14 @@ export async function generateStaticParams() {
 export default async function Layout({ children }: LayoutProps) {
   return (
     <>
-      <PageIntro
+      {/* <PageIntro
         title="portfolio"
         img="/titles/portfolio.webp"
         links={[
           { key: "home", title: "Home", link: "/" },
           { key: "portfolio", title: "Portfolio", link: "/portfolio" },
         ]}
-      />
+      /> */}
       {children}
     </>
   );

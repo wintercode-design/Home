@@ -145,11 +145,15 @@ const Content = ({ slug }: ContentProps) => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <img
-                src="/Logo_wintercode_design.png"
+                src={"/Logo_wintercode_design.png"}
                 alt="wintercode"
                 className="w-6 h-6 rounded-full object-cover"
               />
-              <article>{`${project.data.startDate} - ${project.data.endDate} | by WinterCode Design`}</article>
+              <article>{`${new Date(
+                project.data.startDate
+              ).toLocaleDateString()} - ${new Date(
+                project.data.endDate
+              ).toLocaleDateString()} | By WinterCode Design`}</article>
             </div>
             <img
               src={project.data.imageUrl || "/projects/project1.png"}
@@ -162,6 +166,7 @@ const Content = ({ slug }: ContentProps) => {
             <h5>{project.data.title}</h5>
             {project.data.description ? (
               <div
+                className="tiptap"
                 dangerouslySetInnerHTML={{ __html: project.data.description }}
               />
             ) : (
