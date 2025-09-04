@@ -1,4 +1,3 @@
-import PageIntro from "@/components/ui/PageIntro";
 import { Metadata } from "next";
 
 interface LayoutProps {
