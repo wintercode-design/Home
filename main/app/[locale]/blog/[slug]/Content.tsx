@@ -176,7 +176,10 @@ const Content = ({ slug }: { slug: string }) => {
                 "Why Every African Business Needs a Website in 2025"}
             </h5>
             {blog.data?.content ? (
-              <div dangerouslySetInnerHTML={{ __html: blog.data.content }} />
+              <div
+                className="tiptap"
+                dangerouslySetInnerHTML={{ __html: blog.data.content }}
+              />
             ) : (
               <>
                 <p>{`

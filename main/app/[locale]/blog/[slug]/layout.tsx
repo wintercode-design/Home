@@ -1,3 +1,4 @@
+import PageDetailIntro from "@/components/ui/PageDetailIntro";
 import PageIntro from "@/components/ui/PageIntro";
 import { Metadata } from "next";
 
@@ -22,14 +23,14 @@ export default async function Layout({ children, params }: LayoutProps) {
   const { slug } = await params;
   return (
     <>
-      <PageIntro
-        title={slug}
+      <PageDetailIntro
+        title={slug.replaceAll("-", " ")}
         img="/blogs/blog1.jpeg"
         className="h-[70vh]"
         links={[
           { key: "home", title: "Home", link: "/" },
           { key: "blog", title: "Blog", link: "/blog" },
-          { key: slug, title: slug, link: slug },
+          { key: slug, title: slug.replaceAll("-", " "), link: slug },
         ]}
       />
       {children}
