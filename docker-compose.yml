@@ -10,9 +10,16 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - frostNet
+      -  caddy-net
 
 networks:
-  frostNet:
+  caddy-net:
     external: true
+    
+#     networks:
+#       - frostNet
+
+# networks:
+#   frostNet:
+#     external: true
 # correct deployment
