@@ -29,7 +29,7 @@ export default class AxiosConfig {
         return config;
       },
       (error) => {
-        toast.error("Request setup error.");
+        console.error("Request setup error.");
         return Promise.reject(error);
       }
     );
@@ -77,31 +77,13 @@ export default class AxiosConfig {
           (res?.data as any)?.message || "An unexpected error occurred.";
 
         if (res) {
-          switch (res.status) {
-            case 400:
-              toast.warning(message); // e.g., "Missing required fields"
-              break;
-            case 401:
-              toast.error(message || "Unauthorized. Please log in again.");
-              break;
-            case 403:
-              toast.error(message || "Access denied.");
-              break;
-            case 404:
-              toast.info(message || "Resource not found.");
-              break;
-            case 500:
-              toast.error(message || "Internal server error.");
-              break;
-            default:
-              toast.error(message);
-          }
+          console.log("API Error:");
         } else if (error.request) {
-          toast.error(
+          console.error(
             "No response from server. Check your internet connection."
           );
         } else {
-          toast.error(`Error: ${error.message}`);
+          console.error(`Error: ${error.message}`);
         }
 
         return Promise.reject(error);
