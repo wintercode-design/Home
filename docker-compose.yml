@@ -10,9 +10,9 @@ services:
     ports:
       - "3002:3000"    
     networks:
-      - frostNet
+      - caddy-net
 
 networks:
-  frostNet:
-    # external: true
-# correct deployment
+  caddy-net:
+    driver: bridge
+    attachable: true
