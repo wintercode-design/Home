@@ -8,18 +8,11 @@ services:
     env_file:
       - ../.env
     ports:
-      - "3001:3000"
+      - "3001:3000"    
     networks:
-      -  bridge
+      - frostNet
 
 networks:
-  bridge:
-    external: true
-    
-#     networks:
-#       - frostNet
-
-# networks:
-#   frostNet:
-#     external: true
+  frostNet:
+    # external: true
 # correct deployment
