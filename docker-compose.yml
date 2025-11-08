@@ -10,10 +10,10 @@ services:
     ports:
       - "3001:3000"
     networks:
-      -  caddy-net
+      -  bridge
 
 networks:
-  caddy-net:
+  bridge:
     external: true
     
 #     networks:
