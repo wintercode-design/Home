@@ -70,7 +70,7 @@ jobs:
 
             cd $DEPLOY_DIR
 
-            cp ~/deployments/wintercode-ui/shared/.env.prod .env.prod
+            # cp ~/deployments/wintercode-ui/shared/.env .env
             export DOCKER_BUILDKIT=0
 
             # Remove any containers that might conflict
